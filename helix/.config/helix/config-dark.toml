@@ -1,0 +1,52 @@
+theme = "catppuccin_mocha"
+
+[editor]
+# Show currently open buffers, only when more than one exists.
+bufferline = "multiple"
+# Highlight all lines with a cursor
+cursorline = true
+# Use relative line numbers
+line-number = "relative"
+# Show a ruler at column 120
+rulers = [120]
+# Force the theme to show colors
+true-color = true
+auto-completion = false
+popup-border = "all"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "╎"
+render = true
+
+[editor.lsp]
+enable = true
+# Disable automatically popups of signature parameter help
+auto-signature-help = false
+# Show LSP messages in the status line
+display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
+
+[keys.insert]
+C-p = "signature_help"
+C-right = "move_next_word_start"
+C-left = "move_prev_word_start"
+home = "goto_first_nonwhitespace"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+C-p = "signature_help"
+C-right = "move_next_word_start"
+C-left = "move_prev_word_start"
+home = "goto_first_nonwhitespace"
+
+[keys.select]
+C-right = "move_next_word_start"
+C-left = "move_prev_word_start"
+home = "goto_first_nonwhitespace"

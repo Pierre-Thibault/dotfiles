@@ -1,0 +1,61 @@
+[[language]]
+name = "go"
+formatter = { command = "goimports" }
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["Gopkg.toml", "go.mod"]
+comment-token = "//"
+language-servers = [ "gopls" ]
+indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "nix"
+formatter = { command = 'nixfmt' }
+language-servers = [ "nixd" ]
+auto-format = true
+
+[language-server.nixd]
+command = "nixd"
+
+[[language]]
+name = "python"
+formatter = { command = 'black', args = ["--quiet", "-"] }
+auto-format = true
+
+[language-server.pylsp.config.pylsp]
+plugins.ruff.enabled = true
+plugins.black.enabled = true
+
+
+[[language]]
+name = "rust"
+auto-format = true
+formatter = { command = "rustfmt" }
+language-servers = [ "rust-analyzer" ]
+
+[auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+
+roots = [
+  "Cargo.toml",
+  "Cargo.lock"
+]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config]
+inlayHints.bindingModeHints.enable = false
+inlayHints.closingBraceHints.minLines = 10
+inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+inlayHints.typeHints.hideClosureInitialization = false
+
+
+
