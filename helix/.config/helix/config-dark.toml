@@ -11,7 +11,9 @@ line-number = "relative"
 rulers = [120]
 # Force the theme to show colors
 true-color = true
+# Use ctrl-x for completion
 auto-completion = false
+# Add a border to the menu otherwise it is confusing
 popup-border = "all"
 
 [editor.cursor-shape]
@@ -34,12 +36,15 @@ display-messages = true
 left = ["mode", "spinner", "version-control", "file-name"]
 
 [keys.insert]
-C-p = "signature_help"
+C-p = "signature_help"  # Help on function signature
+# Ctrl-right and left arrows to move word by word like in other apps
 C-right = "move_next_word_start"
 C-left = "move_prev_word_start"
+# Home to move at the beginning of the line on its first character
 home = "goto_first_nonwhitespace"
 
 [keys.normal]
+# Having esc to escape instead of another key by default
 esc = ["collapse_selection", "keep_primary_selection"]
 C-p = "signature_help"
 C-right = "move_next_word_start"
