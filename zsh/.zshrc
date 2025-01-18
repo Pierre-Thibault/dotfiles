@@ -110,3 +110,5 @@ alias nix-shell="nix-shell --run zsh"
 
 alias start-filetree='nu -c "zellij -l welcome --config-dir ~/.config/yazelix/zellij options --layout-dir ~/.config/yazelix/zellij/layouts"'
 
+alias ls=lsd
+

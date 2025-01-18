@@ -9,7 +9,7 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Mocha'
 
-config.font_size = 11
+config.font_size = 10
 
 config.enable_wayland = false
 config.front_end = "WebGpu"

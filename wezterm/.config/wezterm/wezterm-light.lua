@@ -15,9 +15,9 @@ config.color_scheme = 'Catppuccin Latte'
 config.enable_wayland = false
 config.front_end = "WebGpu"
 
-config.font_size = 11
-config.font =
-  wezterm.font('JetBrains Mono Nerd Font Mono', {})
+config.font_size = 10
+-- config.font =
+--   wezterm.font('JetBrains Mono Nerd Font Mono', {})
 config.hide_tab_bar_if_only_one_tab = true
 
 -- making window titles more distinct

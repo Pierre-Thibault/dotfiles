@@ -1,3 +1,6 @@
+[language-server.typos]
+command = "typos-lsp"
+
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
@@ -6,33 +9,56 @@ injection-regex = "go"
 file-types = ["go"]
 roots = ["Gopkg.toml", "go.mod"]
 comment-token = "//"
-language-servers = [ "gopls" ]
+language-servers = [ "gopls", "typos" ]
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
 name = "nix"
 formatter = { command = 'nixfmt' }
-language-servers = [ "nixd" ]
+language-servers = [ "nixd", "typos" ]
 auto-format = true
 
 [language-server.nixd]
 command = "nixd"
 
+# Python
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+config = {  "typeCheckingMode"= "strict",  "reportMissingImports"= true }
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ruff.config.settings]
+logLevel = "debug"
+lineLength = 120
+
+[language-server.ruff.config.settings.lint]
+select = ["E4", "E7"]
+preview = false
+
+[language-server.ruff.config.settings.format]
+preview = true
+
 [[language]]
 name = "python"
 formatter = { command = 'black', args = ["--quiet", "-"] }
 auto-format = true
+language-servers = ["pyright", "ruff", "pylsp", "typos"]
 
 [language-server.pylsp.config.pylsp]
 plugins.ruff.enabled = true
 plugins.black.enabled = true
 
+# Rust
 
 [[language]]
 name = "rust"
 auto-format = true
 formatter = { command = "rustfmt" }
-language-servers = [ "rust-analyzer" ]
+language-servers = [ "rust-analyzer", "typos" ]
 
 [auto-pairs]
 '(' = ')'
