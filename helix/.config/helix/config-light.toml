@@ -2,8 +2,6 @@ theme = "catppuccin_latte"
 #theme = "boo_berry"
 
 [editor]
-# Show currently open buffers, only when more than one exists.
-bufferline = "multiple"
 # Highlight all lines with a cursor
 cursorline = true
 # Use relative line numbers

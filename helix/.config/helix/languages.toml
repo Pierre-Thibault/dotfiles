@@ -2,6 +2,14 @@
 command = "typos-lsp"
 
 [[language]]
+name = "gleam"
+formatter = { command = "gleam", args = ["format", "--stdin"] }
+scope = "source.gleam"
+file-types = ["gleam"]
+language-servers = ["gleam", "typos"]
+auto-format = true
+
+[[language]]
 name = "go"
 formatter = { command = "goimports" }
 scope = "source.go"
