@@ -15,6 +15,7 @@ config.enable_wayland = false
 config.front_end = "WebGpu"
 
 config.hide_tab_bar_if_only_one_tab = true
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
   local zoomed = ''
