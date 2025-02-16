@@ -1,1 +1,0 @@
-wezterm-dark.lua

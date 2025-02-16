@@ -2,8 +2,7 @@ theme = light:catppuccin-latte,dark:catppuccin-mocha
 command = zsh
 #font-family = "JetBrainsMono Nerd Font Mono"
 #font-family = "DroidSansM Nerd Font"
-font-family = "Symbols Nerd Font Mono"
-
-#font-size = 10
+#font-family = "Symbols Nerd Font Mono"
+font-size = 10
 
 
