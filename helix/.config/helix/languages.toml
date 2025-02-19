@@ -52,13 +52,14 @@ preview = true
 
 [[language]]
 name = "python"
-formatter = { command = 'black', args = ["--quiet", "-"] }
+formatter = { command = "zsh", args = ["-c", """
+  ruff format --stdin-filename python | isort -d -
+  """] }
 auto-format = true
 language-servers = ["pyright", "ruff", "pylsp", "typos"]
 
 [language-server.pylsp.config.pylsp]
 plugins.ruff.enabled = true
-plugins.black.enabled = true
 
 # Rust
 
