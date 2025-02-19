@@ -52,8 +52,11 @@ preview = true
 
 [[language]]
 name = "python"
+# formatter = { command = "zsh", args = ["-c", """
+#   ruff format --stdin-filename python | isort -d -
+#   """] }
 formatter = { command = "zsh", args = ["-c", """
-  ruff format --stdin-filename python | isort -d -
+  ruff check --select I --fix - | ruff format -
   """] }
 auto-format = true
 language-servers = ["pyright", "ruff", "pylsp", "typos"]
