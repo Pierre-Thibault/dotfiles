@@ -37,7 +37,7 @@ config = {  "typeCheckingMode"= "strict",  "reportMissingImports"= true }
 
 [language-server.ruff]
 command = "ruff"
-args = ["server"]
+args = ["server", "--preview"]
 
 [language-server.ruff.config.settings]
 logLevel = "debug"
@@ -52,9 +52,6 @@ preview = true
 
 [[language]]
 name = "python"
-# formatter = { command = "zsh", args = ["-c", """
-#   ruff format --stdin-filename python | isort -d -
-#   """] }
 formatter = { command = "zsh", args = ["-c", """
   ruff check --select I --fix - | ruff format -
   """] }
