@@ -8,7 +8,11 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Mocha'
-
+config.colors = {
+    cursor_bg = "#f38ba8", -- Matches Catppuccin mocha.red
+    cursor_fg = "#ffffff", -- White text for readability
+    cursor_border = "#f38ba8", -- Same as cursor_bg
+  }
 config.font_size = 10
 
 config.enable_wayland = false
