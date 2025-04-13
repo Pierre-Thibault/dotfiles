@@ -12,6 +12,7 @@ config.colors = {
     cursor_bg = "#f38ba8", -- Matches Catppuccin mocha.red
     cursor_fg = "#ffffff", -- White text for readability
     cursor_border = "#f38ba8", -- Same as cursor_bg
+    background = "white"
   }
 config.font_size = 10
 
