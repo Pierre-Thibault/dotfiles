@@ -1,0 +1,22 @@
+{
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": false,
+    "window.autoDetectColorScheme": true,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontVariations": false,
+    "editor.fontSize": 13,
+    "cSpell.language": "fr-fr,en",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.showTabs": "none",
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "rust-analyzer.linkedProjects": [
+
+    ],
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Default Light Modern"
+}

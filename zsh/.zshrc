@@ -114,3 +114,9 @@ alias ls=lsd
 alias pd=pushd
 alias pdd="pushd ."
 alias pp=popd
+
+alias vi=nvim
+alias vim=nvim
+
+export PATH=$PATH:~/bin
+

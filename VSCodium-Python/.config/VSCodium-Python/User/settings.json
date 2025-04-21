@@ -1,0 +1,46 @@
+{
+    "window.commandCenter": false,
+    "window.autoDetectColorScheme": true,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontVariations": false,
+    "editor.fontSize": 12,
+    "cSpell.language": "fr-fr,en",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.showTabs": "none",
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "catppuccin-mocha",
+    "rust-analyzer.linkedProjects": [],
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+    "terminal.integrated.fontSize": 12,
+    "workbench.preferredHighContrastLightColorTheme": "Catppuccin Latte",
+    "window.titleBarStyle": "custom",
+    "editor.wordWrapColumn": 120,
+    "editor.rulers": [
+        {
+            "column": 120,
+            "color": "#888"
+        },
+    ],
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "window.dialogStyle": "custom",
+    "editor.formatOnSave": false,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+    },
+    "ruff.organizeImports": true,
+    "ruff.configurationPreference": "filesystemFirst",
+    "ruff.trace.server": "messages",
+    "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}/tests"
+    }
+}
