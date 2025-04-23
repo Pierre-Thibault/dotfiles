@@ -1,3 +1,36 @@
+# introduce new language server
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
+feature_words = true                 # enable completion by word
+feature_snippets = true              # enable snippets
+snippets_first = true                # completions will return before snippets by default
+snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
+feature_unicode_input = false        # enable "unicode input"
+feature_paths = false                # enable path completion
+feature_citations = false            # enable citation completion (only on `citation` feature enabled)
+
+# write logs to /tmp/completion.log
+[language-server.scls.environment]
+RUST_LOG = "info,simple-completion-language-server=info"
+LOG_FILE = "/tmp/completion.log"
+
+[[language]]
+name = "git-commit"
+language-servers = [ "scls" ]
+
+# introduce a new language to enable completion on any doc by forcing set language with :set-language stub
+[[language]]
+name = "stub"
+scope = "text.stub"
+file-types = []
+shebangs = []
+roots = []
+auto-format = false
+language-servers = [ "scls" ]
+
 [language-server.typos]
 command = "typos-lsp"
 
@@ -6,7 +39,7 @@ name = "gleam"
 formatter = { command = "gleam", args = ["format", "--stdin"] }
 scope = "source.gleam"
 file-types = ["gleam"]
-language-servers = ["gleam", "typos"]
+language-servers = ["gleam", "typos", "scls"]
 auto-format = true
 
 [[language]]
@@ -17,13 +50,13 @@ injection-regex = "go"
 file-types = ["go"]
 roots = ["Gopkg.toml", "go.mod"]
 comment-token = "//"
-language-servers = [ "gopls", "typos" ]
+language-servers = [ "gopls", "typos", "scls" ]
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
 name = "nix"
 formatter = { command = 'nixfmt' }
-language-servers = [ "nixd", "typos" ]
+language-servers = [ "nixd", "typos", "scls" ]
 auto-format = true
 
 [language-server.nixd]
@@ -56,7 +89,7 @@ formatter = { command = "zsh", args = ["-c", """
   ruff check --select I --fix - | ruff format -
   """] }
 auto-format = true
-language-servers = ["pyright", "ruff", "pylsp", "typos"]
+language-servers = ["pyright", "ruff", "pylsp", "typos", "scls"]
 
 [language-server.pylsp.config.pylsp]
 plugins.ruff.enabled = true
@@ -67,7 +100,7 @@ plugins.ruff.enabled = true
 name = "rust"
 auto-format = true
 formatter = { command = "rustfmt" }
-language-servers = [ "rust-analyzer", "typos" ]
+language-servers = [ "rust-analyzer", "typos", "scls" ]
 
 [auto-pairs]
 '(' = ')'
