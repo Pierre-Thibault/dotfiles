@@ -1,6 +1,5 @@
 {
     "window.commandCenter": false,
-    "window.autoDetectColorScheme": true,
     "editor.fontLigatures": true,
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontVariations": false,
@@ -9,15 +8,14 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.showTabs": "none",
     "editor.minimap.enabled": false,
-    "workbench.iconTheme": "catppuccin-mocha",
     "rust-analyzer.linkedProjects": [],
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
     "workbench.colorTheme": "Default Light Modern",
-    "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+    "workbench.preferredDarkColorTheme": "Catppuccin by tpsTech Mocha",
     "terminal.integrated.fontSize": 12,
-    "workbench.preferredHighContrastLightColorTheme": "Catppuccin Latte",
+    "workbench.preferredHighContrastLightColorTheme": "Catppuccin by tpsTech Latte",
     "window.titleBarStyle": "custom",
     "editor.wordWrapColumn": 120,
     "editor.rulers": [
@@ -42,5 +40,9 @@
     "ruff.trace.server": "messages",
     "terminal.integrated.env.windows": {
     "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}/tests"
-    }
+    },
+    "window.autoDetectColorScheme": true,
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "workbench.iconTheme": "catppuccin-latte",
+    "editor.lineNumbers": "relative"
 }

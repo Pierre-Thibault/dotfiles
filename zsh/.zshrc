@@ -120,3 +120,6 @@ alias vim=nvim
 
 export PATH=$PATH:~/bin
 
+prompt_context() {
+  prompt_segment black default "%n@%m %# $(which python > /dev/null && echo -n python || echo -n)"
+}

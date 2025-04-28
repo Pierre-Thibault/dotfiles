@@ -1,36 +1,3 @@
-# introduce new language server
-[language-server.scls]
-command = "simple-completion-language-server"
-
-[language-server.scls.config]
-max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
-feature_words = true                 # enable completion by word
-feature_snippets = true              # enable snippets
-snippets_first = true                # completions will return before snippets by default
-snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
-feature_unicode_input = false        # enable "unicode input"
-feature_paths = false                # enable path completion
-feature_citations = false            # enable citation completion (only on `citation` feature enabled)
-
-# write logs to /tmp/completion.log
-[language-server.scls.environment]
-RUST_LOG = "info,simple-completion-language-server=info"
-LOG_FILE = "/tmp/completion.log"
-
-[[language]]
-name = "git-commit"
-language-servers = [ "scls" ]
-
-# introduce a new language to enable completion on any doc by forcing set language with :set-language stub
-[[language]]
-name = "stub"
-scope = "text.stub"
-file-types = []
-shebangs = []
-roots = []
-auto-format = false
-language-servers = [ "scls" ]
-
 [language-server.typos]
 command = "typos-lsp"
 
@@ -52,6 +19,21 @@ roots = ["Gopkg.toml", "go.mod"]
 comment-token = "//"
 language-servers = [ "gopls", "typos", "scls" ]
 indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "htmldjango"
+scope = "source.htmldjango"
+injection-regex = "htmldjango"
+file-types = [{ glob = "**/templates/*.html" }]
+roots = []
+auto-format = true
+formatter = { command = "djlint", args = ["-", "--reformat", "--quiet"] }
+language-servers = ["scls"]
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "htmldjango"
+source = { git = "https://github.com/interdependence/tree-sitter-htmldjango", rev = "b2dba02eddab66be669022320273d0dfe1ff923d" }
 
 [[language]]
 name = "nix"
@@ -85,6 +67,9 @@ preview = true
 
 [[language]]
 name = "python"
+scope = "source.python"
+file-types = ["py", "pyi"]
+roots = ["pyproject.toml", "setup.py", "Pipfile", "requirements.txt"]
 formatter = { command = "zsh", args = ["-c", """
   ruff check --select I --fix - | ruff format -
   """] }
@@ -125,5 +110,37 @@ inlayHints.discriminantHints.enable = "fieldless"
 inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
 
+# simple-completion-language-server
 
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
+feature_words = true                 # enable completion by word
+feature_snippets = true              # enable snippets
+snippets_first = true                # completions will return before snippets by default
+snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
+feature_unicode_input = false        # enable "unicode input"
+feature_paths = false                # enable path completion
+feature_citations = false            # enable citation completion (only on `citation` feature enabled)
+
+# write logs to /tmp/completion.log
+[language-server.scls.environment]
+RUST_LOG = "info,simple-completion-language-server=info"
+LOG_FILE = "/tmp/completion.log"
+
+[[language]]
+name = "git-commit"
+language-servers = [ "scls" ]
+
+# introduce a new language to enable completion on any doc by forcing set language with :set-language stub
+[[language]]
+name = "stub"
+scope = "text.stub"
+file-types = []
+shebangs = []
+roots = []
+auto-format = false
+language-servers = [ "scls" ]
 

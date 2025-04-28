@@ -1,6 +1,1 @@
-default_shell "zsh"
-
-theme "catppuccin-frappe"
-
-copy_command "wl-copy"
-
+config-dark.kdl
