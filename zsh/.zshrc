@@ -117,6 +117,7 @@ alias pp=popd
 
 alias vi=nvim
 alias vim=nvim
+alias nvim="flatpak run io.neovim.nvim"
 
 export PATH=$PATH:~/bin
 
