@@ -2,6 +2,14 @@
 command = "typos-lsp"
 
 [[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "typos", "scls" ]
+
+[[language]]
+name = "git-commit"
+language-servers = [ "typos", "scls" ]
+
+[[language]]
 name = "gleam"
 formatter = { command = "gleam", args = ["format", "--stdin"] }
 scope = "source.gleam"
@@ -21,6 +29,10 @@ language-servers = [ "gopls", "typos", "scls" ]
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "typos", "scls" ]
+
+[[language]]
 name = "htmldjango"
 scope = "source.htmldjango"
 injection-regex = "htmldjango"
@@ -34,6 +46,18 @@ indent = { tab-width = 2, unit = "  " }
 [[grammar]]
 name = "htmldjango"
 source = { git = "https://github.com/interdependence/tree-sitter-htmldjango", rev = "b2dba02eddab66be669022320273d0dfe1ff923d" }
+
+[[language]]
+name = "javascript"
+language-servers = [ "vscode-eslint-language-server", "typos", "scls" ]
+
+[[language]]
+name = "json"
+language-servers = [ "vscode-json-language-server", "typos", "scls" ]
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "typos", "scls" ]
 
 [[language]]
 name = "nix"
@@ -131,8 +155,12 @@ RUST_LOG = "info,simple-completion-language-server=info"
 LOG_FILE = "/tmp/completion.log"
 
 [[language]]
-name = "git-commit"
-language-servers = [ "scls" ]
+name = "toml"
+language-servers = [ "taplo", "typos", "scls" ]
+
+[[language]]
+name = "typescript"
+language-servers = [ "vscode-eslint-language-server", "typos", "scls" ]
 
 # introduce a new language to enable completion on any doc by forcing set language with :set-language stub
 [[language]]
