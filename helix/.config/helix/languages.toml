@@ -2,6 +2,11 @@
 command = "typos-lsp"
 
 [[language]]
+name = "bash"
+language-servers = [ "bash-language-server", "typos", "scls" ]
+shebangs = [ "bash" ]
+
+[[language]]
 name = "css"
 language-servers = [ "vscode-css-language-server", "typos", "scls" ]
 
