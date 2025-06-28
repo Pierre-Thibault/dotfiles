@@ -57,6 +57,13 @@ X = "select_line_above"
 "A-." = "goto_next_buffer"
 "A-w" = ":buffer-close"
 "A-/" = "repeat_last_motion"
+# Inverse delete_selection and delete_selection_noyank
+A-d = "delete_selection"
+d = "delete_selection_noyank"
+# Inverse change_selection and change_selection_noyank
+A-c = "change_selection"
+c = "change_selection_noyank"
+Y = "yank_main_selection_to_clipboard"
 
 [keys.select]
 C-right = "move_next_word_start"
@@ -64,3 +71,10 @@ C-left = "move_prev_word_start"
 home = "goto_first_nonwhitespace"
 A-x = "extend_to_line_bounds"
 X = "select_line_above"
+# Inverse delete_selection and delete_selection_noyank
+A-d = "delete_selection"
+d = "delete_selection_noyank"
+# Inverse change_selection and change_selection_noyank
+A-c = "change_selection"
+c = "change_selection_noyank"
+Y = "yank_main_selection_to_clipboard"

@@ -54,7 +54,8 @@ source = { git = "https://github.com/interdependence/tree-sitter-htmldjango", re
 
 [[language]]
 name = "javascript"
-language-servers = [ "vscode-eslint-language-server", "typos", "scls" ]
+language-servers = [ "typescript-language-server", "typos", "scls" ]
+auto-format = true
 
 [[language]]
 name = "json"
