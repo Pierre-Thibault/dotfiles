@@ -106,9 +106,8 @@ eval "$(zellij setup --generate-auto-start zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 alias nix-shell="nix-shell --run zsh"
+alias "nix develop" "nix develop --command zsh"
 # alias cat="bat"
-
-alias start-filetree='nu -c "zellij -l welcome --config-dir ~/.config/yazelix/zellij options --layout-dir ~/.config/yazelix/zellij/layouts"'
 
 alias ls=lsd
 alias pd=pushd
@@ -117,10 +116,19 @@ alias pp=popd
 
 alias vi=nvim
 alias vim=nvim
-alias nvim="flatpak run io.neovim.nvim"
+alias nvim="nix run /home/pierre/Projets/nix/nixvim"
+
+# From https://github.com/nix-community/nix4nvchad?tab=readme-ov-file
+alias "nvchad"="nix run github:nix-community/nix4nvchad/#nvchad"
+
+alias yazelix="nu ~/.config/yazelix/nushell/scripts/core/start_yazelix.nu"
 
 export PATH=$PATH:~/bin
+export PATH=$PATH:~/nixos-config/bin
 
 prompt_context() {
   prompt_segment black default "%n@%m %# $(which python > /dev/null && echo -n python || echo -n)"
 }
+
+alias grep='grep -n'
+

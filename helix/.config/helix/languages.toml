@@ -117,6 +117,7 @@ auto-format = true
 formatter = { command = "rustfmt" }
 language-servers = [ "rust-analyzer", "typos", "scls" ]
 
+
 [auto-pairs]
 '(' = ')'
 '{' = '}'
@@ -131,6 +132,7 @@ roots = [
 
 [language-server.rust-analyzer]
 command = "rust-analyzer"
+check.command = "clippy"
 
 [language-server.rust-analyzer.config]
 inlayHints.bindingModeHints.enable = false

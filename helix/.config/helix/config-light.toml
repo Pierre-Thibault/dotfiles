@@ -16,6 +16,11 @@ popup-border = "all"
 # Minimum severity to show a diagnostic after the end of a line
 end-of-line-diagnostics = "hint"
 
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+
 [editor.inline-diagnostics]
 cursor-line = "error" # Show inline diagnostics when the cursor is on the line
 other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line
@@ -64,6 +69,8 @@ d = "delete_selection_noyank"
 A-c = "change_selection"
 c = "change_selection_noyank"
 Y = "yank_main_selection_to_clipboard"
+# Yazelix sidebar integration - reveal current file in Yazi sidebar
+A-y = ":sh nu ~/.config/yazelix/nushell/scripts/integrations/reveal_in_yazi.nu \"%{buffer_name}\""
 
 [keys.select]
 C-right = "move_next_word_start"
