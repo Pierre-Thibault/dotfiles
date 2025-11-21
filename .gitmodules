@@ -1,3 +1,6 @@
 [submodule "zellij/.config/zellij/yazelix"]
 	path = zellij/.config/zellij/yazelix
 	url = ./yazelix
+[submodule "yazi/.config/yazi/flavors"]
+	path = yazi/.config/yazi/flavors
+	url = git@github.com:yazi-rs/flavors.git

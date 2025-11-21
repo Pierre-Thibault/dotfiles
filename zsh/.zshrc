@@ -123,6 +123,9 @@ alias "nvchad"="nix run github:nix-community/nix4nvchad/#nvchad"
 
 alias yazelix="nu ~/.config/yazelix/nushell/scripts/core/start_yazelix.nu"
 
+alias "python-init-3.14"="nix flake init --template github:Pierre-Thibault/my-uv2nix#python314"
+alias "python-init-3.13"="nix flake init --template github:Pierre-Thibault/my-uv2nix#python313"
+
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/nixos-config/bin
 
