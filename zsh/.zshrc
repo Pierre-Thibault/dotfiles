@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,13 +106,16 @@ eval "$(zellij setup --generate-auto-start zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 alias nix-shell="nix-shell --run zsh"
-alias "nix develop" "nix develop --command zsh"
+alias "nix-develop"="nix develop --command zsh"
 # alias cat="bat"
 
 alias ls=lsd
 alias pd=pushd
 alias pdd="pushd ."
 alias pp=popd
+alias ppp="popd && popd"
+alias pppp="popd && popd && popd"
+alias ppppp="popd && popd && popd && popd"
 
 alias vi=nvim
 alias vim=nvim
@@ -130,7 +133,7 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/nixos-config/bin
 
 prompt_context() {
-  prompt_segment black default "%n@%m %# $(which python > /dev/null && echo -n python || echo -n)"
+  prompt_segment black default "%n@%m %# $(which python > /dev/null && echo -n "$(python --version)" || echo -n)"
 }
 
 alias grep='grep -n'
