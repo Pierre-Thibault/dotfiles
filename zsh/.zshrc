@@ -105,6 +105,8 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
 
+eval "$(starship init zsh)"
+
 alias nix-shell="nix-shell --run zsh"
 alias "nix-develop"="nix develop --command zsh"
 # alias cat="bat"
