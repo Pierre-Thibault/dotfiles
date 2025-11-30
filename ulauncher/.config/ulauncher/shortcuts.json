@@ -1,0 +1,72 @@
+{
+    "d5fc3840-1ebc-4d97-9ce9-61568e850165": {
+        "id": "d5fc3840-1ebc-4d97-9ce9-61568e850165",
+        "name": "Google Search",
+        "keyword": "g",
+        "cmd": "https://google.com/search?q=%s",
+        "icon": "/nix/store/j14pip18yaxz73qgppyqxy3szizjwlx0-ulauncher-5.15.7/share/ulauncher/media/google-search-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1764463249.0330086
+    },
+    "f17ee0b1-4d63-4792-8df4-bba44eb0cfff": {
+        "id": "f17ee0b1-4d63-4792-8df4-bba44eb0cfff",
+        "name": "Stack Overflow",
+        "keyword": "so",
+        "cmd": "https://stackoverflow.com/search?q=%s",
+        "icon": "/nix/store/j14pip18yaxz73qgppyqxy3szizjwlx0-ulauncher-5.15.7/share/ulauncher/media/stackoverflow-icon.svg",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1764463249.0330281
+    },
+    "5bb8b2b7-b016-4363-a62b-7736c6addc0c": {
+        "id": "5bb8b2b7-b016-4363-a62b-7736c6addc0c",
+        "name": "Wiki-en",
+        "keyword": "wen",
+        "cmd": "https://en.wikipedia.org/wiki/%s",
+        "icon": "/nix/store/j14pip18yaxz73qgppyqxy3szizjwlx0-ulauncher-5.15.7/share/ulauncher/media/wikipedia-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1764463249.0330496
+    },
+    "7c734a98-7ef8-492a-a0e4-c65792792722": {
+        "id": "7c734a98-7ef8-492a-a0e4-c65792792722",
+        "name": "Wiki-fr",
+        "keyword": "wfr",
+        "cmd": "https://fr.wikipedia.org/wiki/%s",
+        "icon": "~/.config/ulauncher/icons/wikipedia.png",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1764542258.5540216
+    },
+    "481843f0-d366-4ade-8076-d0426e18fd1d": {
+        "id": "481843f0-d366-4ade-8076-d0426e18fd1d",
+        "name": "Helix",
+        "keyword": "hx",
+        "cmd": "https://docs.helix-editor.com/?search=%s",
+        "icon": "~/.config/ulauncher/icons/helix.svg",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1764542404.5683892
+    },
+    "5b608ad9-70e4-446c-a8da-06d1e8b89d91": {
+        "id": "5b608ad9-70e4-446c-a8da-06d1e8b89d91",
+        "name": "Python doc",
+        "keyword": "py",
+        "cmd": "https://docs.python.org/3/search.html?q=%s",
+        "icon": "~/.config/ulauncher/icons/py.svg",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1764542758.5383315
+    },
+    "0e98bdbb-77dd-4595-a065-1493bebc4c7b": {
+        "id": "0e98bdbb-77dd-4595-a065-1493bebc4c7b",
+        "name": "DuckDuckGo",
+        "keyword": "d",
+        "cmd": "https://duckduckgo.com/?q=%s",
+        "icon": "~/.config/ulauncher/icons/duckduckgo.svg",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1764544993.3256366
+    }
+}
