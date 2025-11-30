@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python zsh-vi-mode)
+plugins=(zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,3 +141,4 @@ prompt_context() {
 # alias grep='grep -n'
 
 bindkey -v          # active vi key map
+eval "$(atuin init zsh)"
