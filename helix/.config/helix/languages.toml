@@ -34,6 +34,20 @@ language-servers = [ "gopls", "typos", "scls" ]
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
+name = "groovy"
+scope = "source.groovy"
+file-types = ["groovy", "gvy", "gy", "gsh", "gradle", "jenkinsfile"]
+roots = ["flake.nix", "build.gradle", "build.gradle.kts"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+language-servers = ["groovy-language-server"]
+
+[language-server.groovy-language-server]
+command = "java"
+args = ["-jar", "/home/pierre/Projets/Groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"]
+
+[[language]]
 name = "html"
 language-servers = [ "vscode-html-language-server", "typos", "scls" ]
 
@@ -105,6 +119,16 @@ formatter = { command = "zsh", args = ["-c", """
   """] }
 auto-format = true
 language-servers = ["pyright", "ruff", "pylsp", "typos", "scls"]
+[language.debugger]
+name = "debugpy"
+command = "python"
+args = ["-m", "debugpy.adapter"]
+transport = "stdio"
+[[language.debugger.templates]]
+name = "source"
+request = "launch"
+completion = [ { name = "entrypoint", completion = "filename" } ]
+args = { mode = "debug", program = "{0}" }
 
 [language-server.pylsp.config.pylsp]
 plugins.ruff.enabled = true

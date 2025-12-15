@@ -8,3 +8,4 @@ background-opacity = 0.95
 cursor-color = #f38ba8
 cursor-opacity = 0.7
 window-decoration = none
+keybind = shift+enter=text:\n

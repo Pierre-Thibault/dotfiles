@@ -141,4 +141,18 @@ prompt_context() {
 # alias grep='grep -n'
 
 bindkey -v          # active vi key map
-eval "$(atuin init zsh)"
+
+eval "$(atuin init zsh --disable-up-arrow)"
+bindkey '^X' atuin-search  # Ctrl+X
+
+
+# YAZELIX START v4 - Yazelix managed configuration (do not modify this comment)
+# delete this whole section to re-generate the config, if needed
+if [ -n "$IN_YAZELIX_SHELL" ]; then
+  source "$HOME/.config/yazelix/shells/zsh/yazelix_zsh_config.zsh"
+fi
+# yzx command - always available for launching/managing yazelix
+yzx() {
+    nu -c "use ~/.config/yazelix/nushell/scripts/core/yazelix.nu *; yzx $*"
+}
+# YAZELIX END v4 - Yazelix managed configuration (do not modify this comment)

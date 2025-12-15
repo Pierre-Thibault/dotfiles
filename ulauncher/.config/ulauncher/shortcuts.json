@@ -68,5 +68,25 @@
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1764544993.3256366
+    },
+    "92cafa9b-fe2c-46e9-990a-ec72d1cb4023": {
+        "id": "92cafa9b-fe2c-46e9-990a-ec72d1cb4023",
+        "name": "Nix packages",
+        "keyword": "nixp",
+        "cmd": "https://search.nixos.org/packages?channel=25.11&query=%s",
+        "icon": "~/.config/ulauncher/icons/nix-logo.png",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1764565777.1534328
+    },
+    "b808fefa-1428-4f13-81a9-7b2da8f2019f": {
+        "id": "b808fefa-1428-4f13-81a9-7b2da8f2019f",
+        "name": "Nix Options",
+        "keyword": "nixo",
+        "cmd": "https://search.nixos.org/options?channel=25.11&query=%s",
+        "icon": "~/.config/ulauncher/icons/nix-logo.png",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1764565847.5051243
     }
 }
