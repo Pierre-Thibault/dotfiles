@@ -43,9 +43,14 @@ indent = { tab-width = 4, unit = "    " }
 auto-format = true
 language-servers = ["groovy-language-server"]
 
+[[language]]
+name = "elixir"
+language-servers = ["elixir-ls"]
+formatter = { command = "mix", args = ["format", "-"] }
+
 [language-server.groovy-language-server]
 command = "java"
-args = ["-jar", "/home/pierre/Projets/Groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"]
+args = ["-jar", "~/lib/java/groovy-language-server-all.jar"]
 
 [[language]]
 name = "html"
@@ -157,6 +162,7 @@ roots = [
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 check.command = "clippy"
+check.extraArgs = ["--all-targets", "--", "-W", "clippy::pedantic"]
 
 [language-server.rust-analyzer.config]
 inlayHints.bindingModeHints.enable = false
@@ -192,7 +198,26 @@ language-servers = [ "taplo", "typos", "scls" ]
 
 [[language]]
 name = "typescript"
-language-servers = [ "vscode-eslint-language-server", "typos", "scls" ]
+shebangs = ["deno"]
+roots = ["deno.json", "deno.jsonc", "package.json"]
+auto-format = true
+language-servers = [ "vscode-eslint-language-server", "typos", "scls", "deno", "deno-lsp" ]
+formatter = { command = "deno", args = ["fmt", "-"] }
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+
+[language-server.deno-lsp.config.deno]
+enable = true
+unstable = true
+suggest.imports.hosts = { "https://deno.land" = true }
+inlayHints.parameterNames.enabled = "all"
+inlayHints.parameterTypes.enabled = true
+inlayHints.variableTypes.enabled = true
+inlayHints.propertyDeclarationTypes.enabled  = true
+inlayHints.functionLikeReturnTypes.enabled = true
+inlayHints.enumMemberValues.enabled = true
 
 # introduce a new language to enable completion on any doc by forcing set language with :set-language stub
 [[language]]

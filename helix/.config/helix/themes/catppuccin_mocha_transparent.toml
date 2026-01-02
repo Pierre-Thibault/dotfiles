@@ -1,4 +1,8 @@
 inherits = "catppuccin_mocha"
 
 "ui.background" = {}
+# "ui.cursorline.primary" = { bg = "#444477" }
+"ui.cursorline.primary" = { bg = "#000000" }
+"ui.selection.primary" = { bg = "#444444" }
 
+"ui.linenr" = { fg = "#565d78" }  # Regular line numbers
