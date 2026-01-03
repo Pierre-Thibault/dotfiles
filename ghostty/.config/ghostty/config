@@ -12,4 +12,3 @@ cursor-style-blink = true
 adjust-cursor-height = 11
 window-decoration = none
 keybind = shift+enter=text:\n
-cursor-invert-fg-bg = true
