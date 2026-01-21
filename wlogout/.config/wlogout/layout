@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock-effects -f",
+    "action" : "swaylock -f",
     "text" : "🔒 Verrouiller",
     "keybind" : "l"
 }
@@ -12,7 +12,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
+    "action" : "swaylock -f; systemctl suspend",
     "text" : "🌙 Suspendre",
     "keybind" : "u"
 }
