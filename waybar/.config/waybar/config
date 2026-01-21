@@ -37,7 +37,8 @@
     "separate-outputs": false,
     "max-length": 100,
     "icon": true,
-    "icon-size": 24
+    "icon-size": 24,
+    "tooltip": false
   },
 
   "custom/keyboard-layout": {
