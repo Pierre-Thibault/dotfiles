@@ -44,8 +44,8 @@
     "exec": "~/.config/waybar/keyboard-layout.sh",
     "interval": 1,
     "format": "{}",
-    "on-click": "niri msg action switch-layout next",
-    "tooltip": false
+    "return-type": "json",
+    "on-click": "niri msg action switch-layout next"
   },
 
   "tray": {
@@ -71,9 +71,9 @@
   "temperature": {
     "interval": 5,
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 80,
+    "critical-threshold": 90,
     "format": "🌡️ {temperatureC}°C",
-    "tooltip": true
+    "tooltip": false
   },
 
   "custom/weather": {
@@ -91,7 +91,7 @@
     "return-type": "text",
     "format": "{}",
     "on-click": "~/.config/waybar/theme-toggle.sh toggle",
-    "tooltip": false
+    "tooltip-format": "Thème actuel. Cliquez pour changer."
   },
 
   "pulseaudio": {

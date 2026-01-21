@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 # Get current keyboard layout from Niri
-current=$(niri msg -j keyboard-layouts | jq -r '.current_idx')
+layouts=$(niri msg -j keyboard-layouts)
+current=$(echo "$layouts" | jq -r '.current_idx')
+name=$(echo "$layouts" | jq -r '.names[.current_idx]')
 
 case "$current" in
     0)
-        echo "🇨🇦"
+        icon="🇨🇦"
         ;;
     1)
-        echo "🇺🇸"
+        icon="🇺🇸"
         ;;
     2)
-        echo "🇲🇽"
+        icon="🇲🇽"
         ;;
     *)
-        echo "⌨️"
+        icon="⌨️"
         ;;
 esac
+
+# Output JSON format for waybar with tooltip
+echo "{\"text\":\"$icon\",\"tooltip\":\"Clavier $name\"}"
