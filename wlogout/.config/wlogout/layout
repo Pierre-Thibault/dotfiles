@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "swaylock-effects -f",
+    "text" : "🔒 Verrouiller",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "niri msg action quit",
+    "text" : "🚪 Déconnexion",
+    "keybind" : "e"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "🌙 Suspendre",
+    "keybind" : "u"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "🔄 Redémarrer",
+    "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "⏻ Éteindre",
+    "keybind" : "s"
+}

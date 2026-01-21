@@ -11,6 +11,11 @@ name = "css"
 language-servers = [ "vscode-css-language-server", "typos", "scls", "hx-lsp" ]
 
 [[language]]
+name = "elixir"
+language-servers = ["nextls", "typos", "hx-lsp", "scls"]
+formatter = { command = "mix", args = ["format", "-"] }
+
+[[language]]
 name = "git-commit"
 language-servers = [ "typos", "scls" ]
 
@@ -42,11 +47,6 @@ comment-token = "//"
 indent = { tab-width = 4, unit = "    " }
 auto-format = true
 language-servers = ["groovy-language-server", "hx-lsp"]
-
-[[language]]
-name = "elixir"
-language-servers = ["nextls", "typos", "hx-lsp"]
-formatter = { command = "mix", args = ["format", "-"] }
 
 [language-server.nextls]
 command = "nextls"
@@ -88,6 +88,21 @@ name = "json"
 language-servers = [ "vscode-json-language-server", "typos", "scls", "hx-lsp" ]
 
 [[language]]
+name = "kotlin"
+scope = "source.kotlin"
+injection-regex = "kotlin"
+file-types = ["kt", "kts"]
+roots = ["settings.gradle", "settings.gradle.kts", "build.gradle.kts"]
+indent = { tab-width = 4, unit = "    " }
+comment-token = "//"
+language-servers = ["kotlin-language-server"]
+formatter = { command = "ktlint", args = ["--format", "--stdin"] }
+auto-format = true
+
+[language-server.kotlin-language-server]
+command = "kotlin-language-server"
+
+[[language]]
 name = "markdown"
 language-servers = [ "marksman", "typos", "scls", "hx-lsp" ]
 
@@ -104,7 +119,10 @@ command = "nixd"
 [language-server.pyright]
 command = "pyright-langserver"
 args = ["--stdio"]
-config = {  "typeCheckingMode"= "strict",  "reportMissingImports"= true }
+
+[language-server.pyright.config.python]
+analysis = { typeCheckingMode = "strict", autoImportCompletions = true, autoSearchPaths = true, useLibraryCodeForTypes = true }
+pythonPath = "python"
 
 [language-server.ruff]
 command = "ruff"
@@ -145,6 +163,12 @@ args = { mode = "debug", program = "{0}" }
 
 [language-server.pylsp.config.pylsp]
 plugins.ruff.enabled = true
+plugins.rope_autoimport.enabled = true
+
+[[language]]
+name = "racket"
+formatter = { command = "raco", args = ["fmt"] }
+auto-format = true
 
 # Rust
 

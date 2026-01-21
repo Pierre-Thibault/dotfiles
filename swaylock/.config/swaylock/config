@@ -1,0 +1,40 @@
+# Swaylock configuration
+# Background and blur effect
+
+# Use wallpaper as background
+image=/home/pierre/Images/Fonds d'écran/default.jpg
+
+# Blur effect
+effect-blur=7x5
+effect-vignette=0.5:0.5
+
+# Scaling
+scaling=fill
+
+# Indicator (password prompt)
+indicator
+indicator-radius=120
+indicator-thickness=10
+
+# Colors for the indicator
+inside-color=1e1e1e80
+ring-color=6F8396ff
+key-hl-color=bfe9ffff
+bs-hl-color=ff6e7fff
+text-color=ffffffff
+
+# When verifying password
+inside-ver-color=6F839680
+ring-ver-color=6F8396ff
+text-ver-color=ffffffff
+
+# When password is wrong
+inside-wrong-color=ff6b6b80
+ring-wrong-color=ff6b6bff
+text-wrong-color=ffffffff
+
+# Separator line
+separator-color=00000000
+
+# Layout
+text-caps-lock-color=ffffff

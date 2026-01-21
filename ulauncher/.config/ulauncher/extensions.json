@@ -1,1 +1,9 @@
-{}
+{
+    "com.github.gwilym-rutherford.ulauncher-movie-extension": {
+        "id": "com.github.gwilym-rutherford.ulauncher-movie-extension",
+        "url": "https://github.com/Gwilym-Rutherford/ulauncher-movie-extension",
+        "updated_at": "2026-01-05T07:24:05.732929",
+        "last_commit": "3ae3d74293892314ca73b182cd05269aeb9c23ff",
+        "last_commit_time": "2025-12-23T19:24:30"
+    }
+}

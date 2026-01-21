@@ -122,6 +122,7 @@ alias ppppp="popd && popd && popd && popd"
 alias vi=nvim
 alias vim=nvim
 alias nvim="nix run /home/pierre/Projets/nix/nixvim"
+alias waterfox="detache flatpak run net.waterfox.waterfox"
 
 # From https://github.com/nix-community/nix4nvchad?tab=readme-ov-file
 alias "nvchad"="nix run github:nix-community/nix4nvchad/#nvchad"

@@ -86,7 +86,7 @@ A-c = "change_selection"
 c = "change_selection_noyank"
 Y = "yank_main_selection_to_clipboard"
 
-[keys.normal.space.r]  # space + r = refactoring menu
+[keys.normal.space.A-r]  # space + Alt-r = refactoring menu
 i = ":pipe wrap if"
 f = ":pipe wrap for"
 t = ":pipe wrap try-catch"

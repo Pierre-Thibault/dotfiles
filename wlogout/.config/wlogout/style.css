@@ -1,0 +1,96 @@
+* {
+    background-image: none;
+    box-shadow: none;
+    font-family: "Noto Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 64px;
+    -gtk-icon-effect: none;
+}
+
+window {
+    background-color: rgba(12, 12, 12, 0.95);
+    font-size: 64px;
+}
+
+button {
+    border-radius: 20px;
+    border: 3px solid #636b74;
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 90px;
+    padding-left: 60px;
+    padding-right: 60px;
+    min-width: 400px;
+    min-height: 150px;
+    transition: all 0.3s ease;
+    font-size: 64px;
+}
+
+button label {
+    font-size: 64px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+label {
+    font-size: 64px;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: #6F8396;
+    border: 3px solid #9ca0a8;
+    box-shadow: 0 0 30px rgba(111, 131, 150, 0.6);
+}
+
+#lock {
+    background-color: rgba(102, 187, 106, 0.15);
+    border-color: #66bb6a;
+}
+
+#lock:hover {
+    background-color: rgba(102, 187, 106, 0.3);
+}
+
+#logout {
+    background-color: rgba(255, 235, 59, 0.15);
+    border-color: #ffeb3b;
+}
+
+#logout:hover {
+    background-color: rgba(255, 235, 59, 0.3);
+}
+
+#suspend {
+    background-color: rgba(102, 187, 106, 0.15);
+    border-color: #66bb6a;
+}
+
+#suspend:hover {
+    background-color: rgba(102, 187, 106, 0.3);
+}
+
+#reboot {
+    background-color: rgba(255, 152, 0, 0.15);
+    border-color: #ff9800;
+}
+
+#reboot:hover {
+    background-color: rgba(255, 152, 0, 0.3);
+}
+
+#shutdown {
+    background-color: rgba(244, 67, 54, 0.15);
+    border-color: #f44336;
+}
+
+#shutdown:hover {
+    background-color: rgba(244, 67, 54, 0.3);
+}
