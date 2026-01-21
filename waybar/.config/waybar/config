@@ -116,7 +116,8 @@
     "exec": "~/.config/waybar/date-fr.sh",
     "interval": 60,
     "format": " {}",
-    "on-click": "gnome-calendar"
+    "on-click": "gnome-calendar",
+    "tooltip": false
   },
 
   "custom/power": {
