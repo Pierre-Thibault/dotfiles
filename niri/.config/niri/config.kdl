@@ -90,7 +90,7 @@ animations {
 // Spawn commands at startup
 spawn-at-startup "sh" "-c" "killall waybar; waybar"
 spawn-at-startup "swaybg" "-i" "/home/pierre/Images/Fonds d'écran/default.jpg" "-m" "fill"
-spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'swaylock-effects -f' timeout 600 'systemctl suspend' before-sleep 'swaylock-effects -f' after-resume '~/bin/theme-auto-switch.sh'"
+spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'swaylock -f' timeout 600 'systemctl suspend' before-sleep 'swaylock -f' after-resume '~/bin/resume-actions.sh'"
 spawn-at-startup "swaync"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"

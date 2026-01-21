@@ -106,6 +106,20 @@ case "$1" in
             set_theme "$LIGHT_THEME"
         fi
         ;;
+    light)
+        current=$(get_theme)
+        if [ "$current" != "$LIGHT_THEME" ]; then
+            apply_light
+            set_theme "$LIGHT_THEME"
+        fi
+        ;;
+    dark)
+        current=$(get_theme)
+        if [ "$current" != "$DARK_THEME" ]; then
+            apply_dark
+            set_theme "$DARK_THEME"
+        fi
+        ;;
     status)
         current=$(get_theme)
         if [ "$current" = "$LIGHT_THEME" ]; then
@@ -115,7 +129,7 @@ case "$1" in
         fi
         ;;
     *)
-        echo "Usage: $0 {toggle|status}"
+        echo "Usage: $0 {toggle|light|dark|status}"
         exit 1
         ;;
 esac
