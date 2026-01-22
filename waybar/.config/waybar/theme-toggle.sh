@@ -77,7 +77,7 @@ apply_dark() {
 
     # Apply warm color filter for evening (reduce blue light)
     pkill wlsunset 2>/dev/null || true
-    nohup wlsunset -l 45.9 -L -74.2 -t 3500 -T 6500 >/dev/null 2>&1 &
+    nohup wlsunset -l 45.9 -L -74.2 -t 3000 -T 6500 >/dev/null 2>&1 &
     disown
 
     # Update GNOME settings (color-scheme: 1 = prefer-dark)
