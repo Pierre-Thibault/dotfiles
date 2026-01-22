@@ -38,7 +38,7 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-  background-color: #d8d8d8;
+  background-color: black;
   color: #2e2e2e;
 }
 
@@ -46,6 +46,10 @@ window#waybar.hidden {
   background-color: #6F8396;
   color: #ffffff;
   font-weight: bold;
+}
+
+#workspaces button.active:hover {
+  color: #2e2e2e;
 }
 
 #workspaces button.urgent {
@@ -89,11 +93,11 @@ window#waybar.hidden {
   padding: 0 15px;
 }
 
-#tray > .passive {
+#tray>.passive {
   -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #ff6b6b;
 }
@@ -135,9 +139,17 @@ window#waybar.hidden {
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Theme toggle */
