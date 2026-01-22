@@ -103,39 +103,39 @@ binds {
     Mod+Shift+Slash { spawn "niri" "msg" "action" "show-hotkey-overlay"; }
 
     // Application shortcuts (matching Gnome/Hyprland)
-    Mod+D { spawn "fuzzel"; }
-    Ctrl+Space { spawn "fuzzel"; }
+    Mod+D hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
+    Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
     Mod+Space { spawn "niri" "msg" "action" "switch-layout" "next"; }
-    Ctrl+Alt+Mod+V { spawn "sh" "-c" "QT_SCALE_FACTOR=1.5 copyq --start-server show"; }
-    Mod+E { spawn "wofi-emoji"; }
-    Mod+C { spawn "hyprpicker" "-a"; }
-    Mod+N { spawn "swaync-client" "-t"; }
-    Mod+Menu { spawn "gnome-characters"; }
+    Ctrl+Alt+Mod+V hotkey-overlay-title="Gestionnaire de presse-papier" { spawn "sh" "-c" "QT_SCALE_FACTOR=1.5 copyq --start-server show"; }
+    Mod+E hotkey-overlay-title="Sélecteur d'émojis" { spawn "wofi-emoji"; }
+    Mod+C hotkey-overlay-title="Pipette à couleurs" { spawn "hyprpicker" "-a"; }
+    Mod+N hotkey-overlay-title="Centre de notifications" { spawn "swaync-client" "-t"; }
+    Mod+Menu hotkey-overlay-title="Caractères spéciaux" { spawn "gnome-characters"; }
 
     // Custom scripts
-    Shift+Mod+N { spawn "~/nixos-config/bin/show_notes_niri"; }
-    Shift+Mod+M { spawn "~/nixos-config/bin/show_passwords"; }
-    Alt+Mod+P { spawn "~/nixos-config/bin/show_emails_niri"; }
-    Alt+Mod+X { spawn "~/nixos-config/bin/show_x_niri"; }
-    Alt+Mod+D { spawn "~/nixos-config/bin/show_dictionary_niri"; }
-    Alt+Mod+G { spawn "~/nixos-config/bin/show_grok_niri"; }
-    Shift+Alt+Mod+P { spawn "~/nixos-config/secrets/bin/type_personal_email"; }
-    Shift+Alt+Mod+D { spawn "~/nixos-config/secrets/bin/type_professional_email"; }
-    Shift+Alt+Mod+T { spawn "~/nixos-config/secrets/bin/type_phone"; }
-    Shift+Alt+Mod+C { spawn "~/nixos-config/secrets/bin/type_postal_code"; }
-    Shift+Alt+Mod+F { spawn "flatpak" "run" "net.waterfox.waterfox" "--new-window"; }
-    Ctrl+Alt+Mod+D { spawn "~/nixos-config/bin/type_date"; }
-    Ctrl+Alt+Mod+T { spawn "~/nixos-config/bin/type_time"; }
+    Shift+Mod+N hotkey-overlay-title="Afficher les notes" { spawn "~/nixos-config/bin/show_notes_niri"; }
+    Shift+Mod+M hotkey-overlay-title="Afficher les mots de passe" { spawn "~/nixos-config/bin/show_passwords"; }
+    Alt+Mod+P hotkey-overlay-title="Afficher les courriels" { spawn "~/nixos-config/bin/show_emails_niri"; }
+    Alt+Mod+X hotkey-overlay-title="Afficher X" { spawn "~/nixos-config/bin/show_x_niri"; }
+    Alt+Mod+D hotkey-overlay-title="Dictionnaire" { spawn "~/nixos-config/bin/show_dictionary_niri"; }
+    Alt+Mod+G hotkey-overlay-title="Recherche Grok" { spawn "~/nixos-config/bin/show_grok_niri"; }
+    Shift+Alt+Mod+P hotkey-overlay-title="Taper courriel personnel" { spawn "~/nixos-config/secrets/bin/type_personal_email"; }
+    Shift+Alt+Mod+D hotkey-overlay-title="Taper courriel professionnel" { spawn "~/nixos-config/secrets/bin/type_professional_email"; }
+    Shift+Alt+Mod+T hotkey-overlay-title="Taper numéro de téléphone" { spawn "~/nixos-config/secrets/bin/type_phone"; }
+    Shift+Alt+Mod+C hotkey-overlay-title="Taper code postal" { spawn "~/nixos-config/secrets/bin/type_postal_code"; }
+    Shift+Alt+Mod+F hotkey-overlay-title="Nouvelle fenêtre Waterfox" { spawn "flatpak" "run" "net.waterfox.waterfox" "--new-window"; }
+    Ctrl+Alt+Mod+D hotkey-overlay-title="Taper la date" { spawn "~/nixos-config/bin/type_date"; }
+    Ctrl+Alt+Mod+T hotkey-overlay-title="Taper l'heure" { spawn "~/nixos-config/bin/type_time"; }
 
     // Run or raise shortcuts
-    Alt+Mod+F { spawn "~/nixos-config/bin/run_or_raise_niri" "waterfox" "flatpak run net.waterfox.waterfox"; }
-    Alt+Mod+A { spawn "~/nixos-config/bin/run_or_raise_niri" "ghostty" "ghostty"; }
-    Alt+Mod+O { spawn "~/nixos-config/bin/run_or_raise_niri" "obsidian" "obsidian"; }
-    Alt+Mod+V { spawn "~/nixos-config/bin/run_or_raise_niri" "codium" "codium"; }
-    Alt+Mod+Z { spawn "~/nixos-config/bin/run_or_raise_niri" "nautilus" "nautilus"; }
+    Alt+Mod+F hotkey-overlay-title="Basculer vers Waterfox" { spawn "~/nixos-config/bin/run_or_raise_niri" "waterfox" "flatpak run net.waterfox.waterfox"; }
+    Alt+Mod+A hotkey-overlay-title="Basculer vers terminal" { spawn "~/nixos-config/bin/run_or_raise_niri" "ghostty" "ghostty"; }
+    Alt+Mod+O hotkey-overlay-title="Basculer vers Obsidian" { spawn "~/nixos-config/bin/run_or_raise_niri" "obsidian" "obsidian"; }
+    Alt+Mod+V hotkey-overlay-title="Basculer vers VSCodium" { spawn "~/nixos-config/bin/run_or_raise_niri" "codium" "codium"; }
+    Alt+Mod+Z hotkey-overlay-title="Basculer vers Nautilus" { spawn "~/nixos-config/bin/run_or_raise_niri" "nautilus" "nautilus"; }
 
     // System actions
-    Mod+Escape { spawn "wlogout" "--layout" "/home/pierre/.config/wlogout/layout" "--css" "/home/pierre/.config/wlogout/style.css" "--buttons-per-row" "1" "--column-spacing" "0" "--row-spacing" "0" "--margin-right" "20"; }
+    Mod+Escape hotkey-overlay-title="Menu de fermeture de session" { spawn "wlogout" "--layout" "/home/pierre/.config/wlogout/layout" "--css" "/home/pierre/.config/wlogout/style.css" "--buttons-per-row" "1" "--column-spacing" "0" "--row-spacing" "0" "--margin-right" "20"; }
 
     // Window management
     Mod+W { close-window; }
@@ -143,7 +143,7 @@ binds {
     Mod+Shift+F { maximize-column; }
     Mod+Z { maximize-column; }
     Mod+X { center-column; }
-    Mod+V { toggle-window-floating; }
+    Mod+Shift+V { toggle-window-floating; }
 
     // Move focus with arrow keys
     Mod+Left { focus-column-left; }
@@ -156,6 +156,10 @@ binds {
     Mod+L { focus-column-right; }
     Mod+K { focus-window-up; }
     Mod+J { focus-window-down; }
+
+    // Jump to first/last column
+    Mod+Home { focus-column-first; }
+    Mod+End { focus-column-last; }
 
     // Move windows with arrow keys
     Mod+Shift+Left { move-column-left; }
@@ -205,25 +209,26 @@ binds {
     Mod+Equal { set-column-width "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+V { set-window-height "100%"; }
 
     // Screenshots (copy to clipboard)
-    Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
-    Shift+Print { spawn "sh" "-c" "grim - | wl-copy"; }
+    Print hotkey-overlay-title="Capture de région" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+    Shift+Print hotkey-overlay-title="Capture d'écran complète" { spawn "sh" "-c" "grim - | wl-copy"; }
 
     // Screenshot with editor (for annotation)
-    Ctrl+Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
-    Ctrl+Shift+Print { spawn "sh" "-c" "grim - | swappy -f -"; }
+    Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
+    Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "sh" "-c" "grim - | swappy -f -"; }
 
     // OCR (text recognition from screen)
-    Shift+Mod+T { spawn "~/bin/ocr-screenshot.sh"; }
+    Shift+Mod+T hotkey-overlay-title="Reconnaissance de texte (OCR)" { spawn "~/bin/ocr-screenshot.sh"; }
 
     // Media keys
-    XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "--limit" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-    XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
-    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    XF86AudioMute hotkey-overlay-title="Son sourdine/normal" { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute hotkey-overlay-title="Microphone sourdine/normal" { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume hotkey-overlay-title="Augmenter le volume" { spawn "wpctl" "set-volume" "--limit" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume hotkey-overlay-title="Diminuer le volume" { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86MonBrightnessUp hotkey-overlay-title="Augmenter la luminosité" { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown hotkey-overlay-title="Diminuer la luminosité" { spawn "brightnessctl" "set" "5%-"; }
 }
 
 // Prefer no server-side decorations (no title bars)
