@@ -38,7 +38,8 @@
     "max-length": 100,
     "icon": true,
     "icon-size": 24,
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "~/nixos-config/bin/select_app_window_niri --all"
   },
 
   "custom/keyboard-layout": {

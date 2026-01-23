@@ -13,7 +13,7 @@ window#waybar {
 }
 
 window#waybar.empty {
-  background-color: transparent;
+  background-color: #1e1e1e;
 }
 
 window#waybar.hidden {

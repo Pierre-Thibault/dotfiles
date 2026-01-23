@@ -32,6 +32,10 @@ output "HDMI-A-1" {
     scale 1.0
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 // Layout configuration
 layout {
     // Gaps around windows
@@ -53,6 +57,10 @@ layout {
         width 5
         active-gradient from="#ff4444" to="#ff9800" angle=45
         inactive-gradient from="#c0c4cc" to="#e8eaed" angle=45
+    }
+
+    struts {
+      left 5  // Leave some space for the tabs
     }
 }
 
@@ -100,7 +108,7 @@ animations {
 // Spawn commands at startup
 spawn-at-startup "sh" "-c" "pkill waybar; sleep 1; waybar"
 spawn-at-startup "swaybg" "-i" "/home/pierre/Images/Fonds d'écran/default.jpg" "-m" "fill"
-spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'swaylock -f' timeout 600 'systemctl suspend' before-sleep 'swaylock -f' after-resume '~/nixos-config/bin/resume-actions.sh'"
+spawn-at-startup "sh" "-c" "swayidle -w timeout 600 'systemctl suspend' before-sleep 'swaylock -f' after-resume '~/nixos-config/bin/resume-actions.sh'"
 spawn-at-startup "swaync"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"
@@ -184,6 +192,8 @@ binds {
     Mod+K { consume-or-expel-window-left; }
     Mod+L { consume-or-expel-window-right; }
 
+    Mod+T { toggle-column-tabbed-display; }
+
     Mod+O { toggle-overview; }
 
     // Workspace navigation
@@ -243,6 +253,8 @@ prefer-no-csd
 cursor {
     xcursor-theme "Adwaita"
     xcursor-size 32
+    hide-when-typing
+    hide-after-inactive-ms 10000
 }
 
 // Environment variables

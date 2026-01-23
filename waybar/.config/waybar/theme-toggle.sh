@@ -46,7 +46,9 @@ apply_light() {
 
     # Switch waybar to light theme
     ln -sf "$WAYBAR_CONFIG_DIR/style-light.css" "$WAYBAR_CONFIG_DIR/style.css"
-    pkill waybar; waybar > /dev/null 2>&1 &
+    pkill waybar
+    sleep 0.2
+    waybar > /dev/null 2>&1 &
 
     # Remove warm color filter
     pkill wlsunset 2>/dev/null || true
@@ -73,7 +75,9 @@ apply_dark() {
 
     # Switch waybar to dark theme
     ln -sf "$WAYBAR_CONFIG_DIR/style-dark.css" "$WAYBAR_CONFIG_DIR/style.css"
-    pkill waybar; waybar > /dev/null 2>&1 &
+    pkill waybar
+    sleep 0.2
+    waybar > /dev/null 2>&1 &
 
     # Apply warm color filter for evening (reduce blue light)
     pkill wlsunset 2>/dev/null || true
