@@ -42,12 +42,19 @@ label {
     font-size: 64px;
 }
 
-button:focus,
-button:active,
 button:hover {
     background-color: #6F8396;
     border: 3px solid #9ca0a8;
     box-shadow: 0 0 30px rgba(111, 131, 150, 0.6);
+}
+
+button:focus,
+button:active {
+    background-color: #5a9bd5;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 40px rgba(90, 155, 213, 0.9);
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
 }
 
 #lock {

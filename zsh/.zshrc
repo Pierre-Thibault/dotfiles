@@ -157,3 +157,6 @@ yzx() {
     nu -c "use ~/.config/yazelix/nushell/scripts/core/yazelix.nu *; yzx $*"
 }
 # YAZELIX END v4 - Yazelix managed configuration (do not modify this comment)
+
+# OpenCode with Groq support
+alias opencode='~/bin/opencode-wrapper.sh'
