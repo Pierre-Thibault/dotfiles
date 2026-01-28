@@ -86,9 +86,15 @@ A-c = "change_selection"
 c = "change_selection_noyank"
 Y = "yank_main_selection_to_clipboard"
 
+[keys.normal.space]
+t = [":pipe sed 's/[[:space:]]*$//'", "collapse_selection"]  # space + t = trim trailing whitespace
+
 [keys.normal.space.A-r]  # space + Alt-r = refactoring menu
 i = ":pipe wrap if"
 f = ":pipe wrap for"
 t = ":pipe wrap try-catch"
 u = ":pipe unwrap"
 e = ":pipe extract"
+
+[keys.normal.space.A-a]  # space + Alt-a = AI menu
+e = ":pipe ai-groq-explain"

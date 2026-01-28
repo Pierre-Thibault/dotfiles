@@ -1,15 +1,21 @@
+@define-color accent_color #ffcc99;
+@define-color text_color #ffffff;
+@define-color border_color #3a3a3a;
+
 * {
   border: none;
   border-radius: 0;
   font-family: "JetBrains Mono", "Noto Sans", sans-serif;
   font-size: 18px;
   min-height: 0;
+  color: @text_color;
 }
 
 window#waybar {
   background-color: #1e1e1e;
   color: #e0e0e0;
-  border-bottom: 1px solid #3a3a3a;
+  border-bottom: 1px solid @border_color;
+  border-radius: 8px;
 }
 
 window#waybar.empty {
@@ -23,14 +29,14 @@ window#waybar.hidden {
 /* Workspace buttons */
 #workspaces {
   padding: 0 10px;
-  background-color: #252525;
-  border-right: 1px solid #3a3a3a;
+  border-right: 1px solid @border_color;
+  border-radius: 8px 0 0 8px;
 }
 
 #workspaces button {
   padding: 0 8px;
   background-color: transparent;
-  color: #ffffff;
+  color: @text_color;
   border: 1px solid transparent;
   border-radius: 5px;
   margin: 0 3px;
@@ -39,12 +45,12 @@ window#waybar.hidden {
 
 #workspaces button:hover {
   background-color: #555555;
-  color: #ffffff;
+  color: @text_color;
 }
 
 #workspaces button.active {
   background-color: #6F8396;
-  color: #ffffff;
+  color: @text_color;
   font-weight: bold;
 }
 
@@ -56,9 +62,29 @@ window#waybar.hidden {
 /* Window title */
 #window {
   padding: 0 15px;
-  background-color: #252525;
   color: #d0d0d0;
-  border-right: 1px solid #3a3a3a;
+  border-right: 1px solid @border_color;
+}
+
+/* Window control buttons */
+#custom-window-maximize,
+#custom-window-close {
+  padding: 0 10px;
+  color: @text_color;
+  font-size: 16px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+#custom-window-maximize:hover {
+  background-color: #333333;
+  border-radius: 5px;
+}
+
+#custom-window-close:hover {
+  background-color: #ff6b6b;
+  color: #1e1e1e;
+  border-radius: 5px;
 }
 
 /* Right modules */
@@ -68,6 +94,7 @@ window#waybar.hidden {
 #temperature,
 #custom-weather,
 #custom-theme-toggle,
+#custom-caffeine,
 #network,
 #bluetooth,
 #pulseaudio,
@@ -76,7 +103,7 @@ window#waybar.hidden {
   padding: 0 10px;
   background-color: transparent;
   color: #d0d0d0;
-  border-right: 1px solid #3a3a3a;
+  border-right: 1px solid @border_color;
 }
 
 /* Keyboard layout with extra spacing */
@@ -159,6 +186,16 @@ window#waybar.hidden {
   border-radius: 5px;
 }
 
+/* Caffeine toggle */
+#custom-caffeine {
+  font-size: 20px;
+}
+
+#custom-caffeine:hover {
+  background-color: #333333;
+  border-radius: 5px;
+}
+
 /* Network */
 #network {
   color: #66d9ff;
@@ -195,8 +232,8 @@ window#waybar.hidden {
 #custom-clock-fr {
   color: #ffcd99;
   padding: 0 15px;
-  border-left: 1px solid #3a3a3a;
-  border-right: 1px solid #3a3a3a;
+  border-left: 1px solid @border_color;
+  border-right: 1px solid @border_color;
 }
 
 /* Power button */
@@ -205,6 +242,7 @@ window#waybar.hidden {
   padding: 0 15px;
   border-right: none;
   font-size: 24px;
+  border-radius: 0 8px 8px 0;
 }
 
 #custom-power:hover {
@@ -216,7 +254,7 @@ window#waybar.hidden {
 tooltip {
   background-color: #2a2a2a;
   color: #e0e0e0;
-  border: 1px solid #3a3a3a;
+  border: 1px solid @border_color;
   border-radius: 5px;
   padding: 5px 10px;
 }

@@ -17,8 +17,8 @@ if [ -f "$CACHE_FILE" ]; then
 fi
 
 # Fetch weather data
-# Format: %c = weather condition, %t = temperature
-WEATHER=$(curl -s "wttr.in/${CITY}?format=%c+%t" 2>/dev/null)
+# Format: %c = weather condition, %t = temperature, %f = feels like, %w = wind
+WEATHER=$(curl -s "wttr.in/${CITY}?format=%c+%t+(ressenti+%f)+💨+%w" 2>/dev/null)
 
 # Check if curl was successful
 if [ $? -eq 0 ] && [ -n "$WEATHER" ]; then

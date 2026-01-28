@@ -2,6 +2,23 @@
 
 configuration {
     font: "JetBrainsMono Nerd Font 16";
+
+    /* Enable icons */
+    show-icons: true;
+
+    /* Modes available */
+    modi: "drun,window,run";
+
+    /* Display format */
+    drun-display-format: "{name}";
+
+    /* Keybindings to switch modes */
+    kb-mode-next: "Shift+Right,Control+Tab,Alt+l";
+    kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab,Alt+h";
+    kb-mode-complete: "";
+
+    /* Custom keybinding for grid toggle */
+    kb-custom-1: "Alt+g";
 }
 
 @theme "catppuccin"

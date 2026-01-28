@@ -2,14 +2,13 @@
   "layer": "top",
   "position": "top",
   "height": 32,
-  "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
 
   "modules-left": [
     "niri/workspaces",
-    "niri/window"
+    "niri/window",
+    "custom/window-maximize",
+    "custom/window-close"
   ],
 
   "modules-center": [],
@@ -21,6 +20,7 @@
     "temperature",
     "custom/weather",
     "custom/theme-toggle",
+    "custom/caffeine",
     "pulseaudio",
     "custom/keyboard-layout",
     "custom/clock-fr",
@@ -42,12 +42,25 @@
     "on-click": "~/nixos-config/bin/select_app_window_niri --all"
   },
 
+  "custom/window-maximize": {
+    "format": "🗖",
+    "on-click": "niri msg action maximize-column",
+    "tooltip": false
+  },
+
+  "custom/window-close": {
+    "format": "✕",
+    "on-click": "niri msg action close-window",
+    "tooltip": false
+  },
+
   "custom/keyboard-layout": {
     "exec": "~/.config/waybar/keyboard-layout.sh",
     "interval": 1,
     "format": "{}",
     "return-type": "json",
-    "on-click": "niri msg action switch-layout next"
+    "on-click": "niri msg action switch-layout next",
+    "on-click-right": "~/.config/waybar/show-keyboard-layout.sh"
   },
 
   "tray": {
@@ -120,6 +133,14 @@
     "format": " {}",
     "on-click": "gnome-calendar",
     "tooltip": false
+  },
+
+  "custom/caffeine": {
+    "exec": "~/.config/waybar/caffeine-toggle.sh status",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "~/.config/waybar/caffeine-toggle.sh toggle"
   },
 
   "custom/power": {

@@ -28,6 +28,8 @@ input {
         left-handed
         middle-emulation
     }
+
+    focus-follows-mouse
 }
 
 output "HDMI-A-1" {
@@ -39,6 +41,10 @@ hotkey-overlay {
     skip-at-startup
 }
 
+window-rule {
+    draw-border-with-background false  // Don't draw the gredient in the window
+}
+
 // Layout configuration
 layout {
     // Gaps around windows
@@ -46,6 +52,8 @@ layout {
 
     // Center focused column
     center-focused-column "on-overflow"
+
+    always-center-single-column
 
     // Default column width
     default-column-width { proportion 0.5; }
@@ -63,7 +71,16 @@ layout {
     }
 
     struts {
-      left 5  // Leave some space for the tabs
+      left 10   // Leave some space for the tabs
+      right -5  // Negative strut to cancel gaps
+      top -5
+      bottom -5
+    }
+
+    tab-indicator {
+      width 10
+      active-color "#6F8396"
+      inactive-color "#CDD6F4"
     }
 }
 
@@ -81,6 +98,17 @@ window-rule {
 window-rule {
     match app-id="^copyq$"
     open-floating true
+}
+
+window-rule {
+    match app-id="^org.gnome.Weather$"
+    open-floating true
+}
+
+// Rounded corners for all windows
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
 }
 
 // Animations
@@ -112,7 +140,6 @@ animations {
 spawn-at-startup "sh" "-c" "pkill waybar; sleep 1; waybar"
 spawn-at-startup "swaybg" "-i" "/home/pierre/Images/Fonds d'écran/default.jpg" "-m" "fill"
 spawn-at-startup "~/.config/waybar/start-swayidle.sh"
-spawn-at-startup "~/.config/waybar/video-idle-manager.sh"
 spawn-at-startup "swaync"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"
@@ -126,6 +153,7 @@ binds {
 
     // Application shortcuts (matching Gnome/Hyprland)
     Mod+D hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
+    Shift+Mod+D hotkey-overlay-title="Panneau d'applications (grille)" { spawn "~/nixos-config/bin/rofi-grid"; }
     Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
     Ctrl+Shift+Space hotkey-overlay-title="Sélecteur de fenêtres de l'application courante" { spawn "~/nixos-config/bin/select_app_window_niri"; }
     Mod+Space { spawn "niri" "msg" "action" "switch-layout" "next"; }
@@ -190,12 +218,6 @@ binds {
     Mod+Shift+Up { move-window-up; }
     Mod+Shift+Down { move-window-down; }
 
-    // Navigate through windows/columns
-    Mod+Tab { focus-window-down-or-column-right; }
-    Mod+Shift+Tab { focus-window-up-or-column-left; }
-    Alt+Tab { focus-column-right; }
-    Alt+Shift+Tab { focus-column-left; }
-
     // Consume or expel window from column (stacking windows)
     Mod+Comma { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
@@ -254,6 +276,15 @@ binds {
     XF86AudioLowerVolume hotkey-overlay-title="Diminuer le volume" allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
     XF86MonBrightnessUp hotkey-overlay-title="Augmenter la luminosité" allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
     XF86MonBrightnessDown hotkey-overlay-title="Diminuer la luminosité" allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+}
+
+recent-windows {
+    binds {
+        Alt+Tab         { next-window scope="workspace"; }
+        Alt+Shift+Tab   { previous-window scope="workspace"; }
+        Mod+Tab         { next-window scope="workspace" filter="app-id"; }
+        Mod+Shift+Tab   { previous-window scope="workspace" filter="app-id"; }
+    }
 }
 
 // Prefer no server-side decorations (no title bars)

@@ -12,7 +12,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "swaylock -f; systemctl suspend",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && swaylock -f && systemctl suspend",
     "text" : "🌙 Suspendre",
     "keybind" : "u"
 }
