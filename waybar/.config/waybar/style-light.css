@@ -236,8 +236,6 @@ window#waybar.hidden {
 #custom-clock-fr {
   color: #d97706;
   padding: 0 15px;
-  border-left: 1px solid @border_color;
-  border-right: 1px solid @border_color;
 }
 
 /* Power button */

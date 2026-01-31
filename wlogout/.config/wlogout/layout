@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock -f",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && swaylock -f",
     "text" : "🔒 Verrouiller",
     "keybind" : "l"
 }

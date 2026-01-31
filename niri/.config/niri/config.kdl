@@ -25,7 +25,7 @@ input {
 
     mouse {
         accel-speed 0.3
-        left-handed
+        // left-handed
         middle-emulation
     }
 
@@ -72,7 +72,7 @@ layout {
 
     struts {
       left 10   // Leave some space for the tabs
-      right -5  // Negative strut to cancel gaps
+      right 10  // Negative strut to cancel gaps
       top -5
       bottom -5
     }
@@ -155,7 +155,6 @@ binds {
     Mod+D hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
     Shift+Mod+D hotkey-overlay-title="Panneau d'applications (grille)" { spawn "~/nixos-config/bin/rofi-grid"; }
     Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
-    Ctrl+Shift+Space hotkey-overlay-title="Sélecteur de fenêtres de l'application courante" { spawn "~/nixos-config/bin/select_app_window_niri"; }
     Mod+Space { spawn "niri" "msg" "action" "switch-layout" "next"; }
     Ctrl+Alt+Mod+V hotkey-overlay-title="Gestionnaire de presse-papier" { spawn "sh" "-c" "copyq --start-server show"; }
     Mod+E hotkey-overlay-title="Sélecteur d'émojis" { spawn "wofi-emoji"; }
@@ -165,7 +164,8 @@ binds {
 
     // Custom scripts
     Shift+Mod+N hotkey-overlay-title="Afficher les notes" { spawn "~/nixos-config/bin/show_notes_niri"; }
-    Shift+Mod+M hotkey-overlay-title="Afficher les mots de passe" { spawn "~/nixos-config/bin/show_passwords"; }
+    Shift+Mod+M hotkey-overlay-title="Afficher les mots de passe" { spawn "~/nixos-config/bin/show_passwords_niri"; }
+    Shift+Mod+T hotkey-overlay-title="Reconnaissance de texte (OCR)" { spawn "~/nixos-config/bin/ocr-screenshot.sh"; }
     Alt+Mod+P hotkey-overlay-title="Afficher les courriels" { spawn "~/nixos-config/bin/show_emails_niri"; }
     Alt+Mod+X hotkey-overlay-title="Afficher X" { spawn "~/nixos-config/bin/show_x_niri"; }
     Alt+Mod+D hotkey-overlay-title="Dictionnaire" { spawn "~/nixos-config/bin/show_dictionary_niri"; }
@@ -177,6 +177,7 @@ binds {
     Shift+Alt+Mod+F hotkey-overlay-title="Nouvelle fenêtre Waterfox" { spawn "flatpak" "run" "net.waterfox.waterfox" "--new-window"; }
     Ctrl+Alt+Mod+D hotkey-overlay-title="Taper la date" { spawn "~/nixos-config/bin/type_date"; }
     Ctrl+Alt+Mod+T hotkey-overlay-title="Taper l'heure" { spawn "~/nixos-config/bin/type_time"; }
+
 
     // Run or raise shortcuts
     Alt+Mod+F hotkey-overlay-title="Basculer vers Waterfox" { spawn "~/nixos-config/bin/run_or_raise_niri" "waterfox" "flatpak run net.waterfox.waterfox"; }
@@ -266,9 +267,6 @@ binds {
     Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
     Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "sh" "-c" "grim - | swappy -f -"; }
 
-    // OCR (text recognition from screen)
-    Shift+Mod+T hotkey-overlay-title="Reconnaissance de texte (OCR)" { spawn "~/nixos-config/bin/ocr-screenshot.sh"; }
-
     // Media keys
     XF86AudioMute hotkey-overlay-title="Son sourdine/normal" allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute hotkey-overlay-title="Microphone sourdine/normal" allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
@@ -302,7 +300,7 @@ cursor {
 environment {
     XCURSOR_THEME "Adwaita"
     XCURSOR_SIZE "32"
-    QT_QPA_PLATFORMTHEME "qt5ct"
+    QT_QPA_PLATFORMTHEME "gnome"
     QT_SCALE_FACTOR "1.25"
     QT_AUTO_SCREEN_SCALE_FACTOR "0"
     GTK_IM_MODULE "simple"  // Fixing dead key issue?

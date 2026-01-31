@@ -11,8 +11,10 @@
     "custom/window-close"
   ],
 
-  "modules-center": [],
-
+  "modules-center": [
+    "custom/clock-fr"
+  ],
+  
   "modules-right": [
     "tray",
     "cpu",
@@ -23,7 +25,6 @@
     "custom/caffeine",
     "pulseaudio",
     "custom/keyboard-layout",
-    "custom/clock-fr",
     "custom/power"
   ],
 
@@ -39,7 +40,6 @@
     "icon": true,
     "icon-size": 24,
     "tooltip": false,
-    "on-click": "~/nixos-config/bin/select_app_window_niri --all"
   },
 
   "custom/window-maximize": {
