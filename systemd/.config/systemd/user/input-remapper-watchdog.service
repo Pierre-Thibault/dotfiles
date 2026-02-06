@@ -1,0 +1,12 @@
+[Unit]
+Description=Input Remapper Watchdog
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/nixos-config/bin/input-remapper-check.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

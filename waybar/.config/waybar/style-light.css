@@ -18,10 +18,6 @@ window#waybar {
   border-radius: 8px;
 }
 
-window#waybar.empty {
-  background-color: transparent;
-}
-
 window#waybar.hidden {
   opacity: 0.2;
 }
@@ -110,9 +106,18 @@ window#waybar.hidden {
   border-right: 1px solid @border_color;
 }
 
-/* Keyboard layout with extra spacing */
+/* Keyboard layout avec extra spacing */
 #custom-keyboard-layout {
   padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+#custom-keyboard-layout.changed {
+  background-color: #6F8396;
+  color: #ffffff;
+  font-size: 24px;
+  border-radius: 8px;
+  padding: 0 20px;
 }
 
 /* Weather with extra spacing */

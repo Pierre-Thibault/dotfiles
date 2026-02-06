@@ -1,0 +1,17 @@
+[Unit]
+Description=SwayOSD - On-screen display for volume/brightness
+PartOf=graphical-session.target
+After=graphical-session.target
+Wants=niri.service
+After=niri.service
+
+[Service]
+Type=simple
+ExecStart=/run/current-system/sw/bin/swayosd-server
+Restart=on-failure
+RestartSec=1
+KillMode=mixed
+TimeoutStopSec=10
+
+[Install]
+WantedBy=graphical-session.target

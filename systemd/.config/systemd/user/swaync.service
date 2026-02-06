@@ -1,0 +1,19 @@
+[Unit]
+Description=SwayNC - Notification daemon for Wayland
+Documentation=https://github.com/ErikReider/SwayNotificationCenter
+PartOf=graphical-session.target
+After=graphical-session.target
+Wants=niri.service
+After=niri.service
+
+[Service]
+Type=dbus
+BusName=org.freedesktop.Notifications
+ExecStart=/run/current-system/sw/bin/swaync
+Restart=on-failure
+RestartSec=1
+KillMode=mixed
+TimeoutStopSec=10
+
+[Install]
+WantedBy=graphical-session.target

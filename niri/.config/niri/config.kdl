@@ -25,7 +25,7 @@ input {
 
     mouse {
         accel-speed 0.3
-        // left-handed
+        left-handed
         middle-emulation
     }
 
@@ -39,10 +39,6 @@ output "HDMI-A-1" {
 
 hotkey-overlay {
     skip-at-startup
-}
-
-window-rule {
-    draw-border-with-background false  // Don't draw the gredient in the window
 }
 
 // Layout configuration
@@ -105,10 +101,24 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id="vesktop"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="pavucontrol"
+    open-floating true
+    default-floating-position x=350 y=50 relative-to="top-right"
+    min-width 800
+    min-height 600
+}
+
 // Rounded corners for all windows
 window-rule {
     geometry-corner-radius 20
     clip-to-geometry true
+    draw-border-with-background false  // Don't draw the gredient in the window
 }
 
 // Animations
@@ -137,14 +147,15 @@ animations {
 }
 
 // Spawn commands at startup
-spawn-at-startup "sh" "-c" "pkill waybar; sleep 1; waybar"
-spawn-at-startup "swaybg" "-i" "/home/pierre/Images/Fonds d'écran/default.jpg" "-m" "fill"
-spawn-at-startup "~/.config/waybar/start-swayidle.sh"
-spawn-at-startup "swaync"
-spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "sh" "-c" "copyq --start-server"
+// Use a robust initialization script that works even when reconnecting to Niri
+spawn-at-startup "~/.config/niri/init-session.sh"
+
+// Background services now managed by systemd (swaybg, swayidle, nm-applet, blueman-applet, copyq)
+// These are started automatically via graphical-session.target
+
+// Custom system scripts (not suited for systemd services)
 spawn-at-startup "~/nixos-config/bin/theme-auto-switch-daemon.sh"
+spawn-at-startup "~/nixos-config/bin/bluetooth-resume.sh"
 
 // Keybindings
 binds {
@@ -187,7 +198,7 @@ binds {
     Alt+Mod+Z hotkey-overlay-title="Basculer vers Nautilus" { spawn "~/nixos-config/bin/run_or_raise_niri" "nautilus" "nautilus"; }
 
     // System actions
-    Mod+Escape hotkey-overlay-title="Menu de fermeture de session" { spawn "wlogout" "--layout" "/home/pierre/.config/wlogout/layout" "--css" "/home/pierre/.config/wlogout/style.css" "--buttons-per-row" "1" "--column-spacing" "0" "--row-spacing" "0" "--margin-right" "20"; }
+    Mod+Escape hotkey-overlay-title="Menu de fermeture de session" { spawn "wlogout" "--buttons-per-row" "1"; }
 
     // Window management
     Mod+W { close-window; }
@@ -268,12 +279,12 @@ binds {
     Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "sh" "-c" "grim - | swappy -f -"; }
 
     // Media keys
-    XF86AudioMute hotkey-overlay-title="Son sourdine/normal" allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute hotkey-overlay-title="Microphone sourdine/normal" allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioRaiseVolume hotkey-overlay-title="Augmenter le volume" allow-when-locked=true { spawn "wpctl" "set-volume" "--limit" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-    XF86AudioLowerVolume hotkey-overlay-title="Diminuer le volume" allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-    XF86MonBrightnessUp hotkey-overlay-title="Augmenter la luminosité" allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
-    XF86MonBrightnessDown hotkey-overlay-title="Diminuer la luminosité" allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+    XF86AudioMute hotkey-overlay-title="Son sourdine/normal" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioMicMute hotkey-overlay-title="Microphone sourdine/normal" allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume hotkey-overlay-title="Augmenter le volume" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume hotkey-overlay-title="Diminuer le volume" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86MonBrightnessUp hotkey-overlay-title="Augmenter la luminosité" allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown hotkey-overlay-title="Diminuer la luminosité" allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
 }
 
 recent-windows {
