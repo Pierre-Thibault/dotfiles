@@ -3,7 +3,7 @@
 # Weather script for Waybar - St-Sauveur, Québec
 # Uses wttr.in API (no API key required)
 
-CITY="St-Sauveur,Quebec"
+CITY="Saint-Sauveur,QC"
 CACHE_FILE="/tmp/waybar_weather_cache"
 CACHE_DURATION=1800  # 30 minutes in seconds
 

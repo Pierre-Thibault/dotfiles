@@ -7,12 +7,8 @@ config-light.kdl.old
 
 .nobackup
 
-/claude/.claude.json
-/claude/.claude.json.backup
-/claude/.claude/.credentials.json
-/claude/.claude/history.jsonl
-/claude/.claude/session-env/
-/claude/.claude/debug/
-/claude/.claude/file-history/
-/claude/.claude/plans/
-/claude/.claude/todos
+# Ignore everything in .claude/
+/claude/.claude/*
+
+# But keep CLAUDE.md
+!/claude/.claude/CLAUDE.md
