@@ -1,14 +1,12 @@
 @define-color accent_color #ffcc99;
 @define-color text_color #ffffff;
 @define-color border_color #3a3a3a;
+@define-color hover_color #555555;
 
 * {
-  border: none;
-  border-radius: 0;
   font-family: "JetBrains Mono", "Noto Sans", sans-serif;
   font-size: 20px;
   min-height: 0;
-  margin: 0px 5px 0px 5px;
   color: @text_color;
 }
 
@@ -17,7 +15,7 @@ window#waybar {
   background: rgba(0, 0, 0, 0.3);
   color: @text_color;
   border-bottom: 1px solid @border_color;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 window#waybar.hidden {
@@ -33,23 +31,19 @@ window#waybar.hidden {
 
 #workspaces button {
   padding: 0 8px;
-  background-color: transparent;
-  color: @text_color;
   border: 1px solid transparent;
   border-radius: 5px;
   margin: 0 3px;
   transition: all 0.3s ease;
 }
 
-#workspaces button:hover {
-  background-color: #555555;
-  color: @text_color;
-}
-
 #workspaces button.active {
   background-color: #6F8396;
-  color: @text_color;
   font-weight: bold;
+}
+
+#workspaces button.active:hover {
+  background-color: @hover_color;
 }
 
 #workspaces button.urgent {
@@ -82,9 +76,19 @@ window#waybar.hidden {
   border-right: 1px solid @border_color;
 }
 
+#cpu:hover,
+#memory:hover,
+#custom-weather:hover,
+#custom-theme-toggle:hover,
+#custom-caffeine:hover,
+#pulseaudio:hover,
+#custom-keyboard-layout:hover,
+#workspaces button:hover {
+  background-color: @hover_color;
+}
+
 /* Keyboard layout with extra spacing */
 #custom-keyboard-layout {
-  padding: 0 15px;
   transition: all 0.3s ease;
 }
 
@@ -158,49 +162,6 @@ window#waybar.hidden {
   100% {
     opacity: 1;
   }
-}
-
-/* Theme toggle */
-#custom-theme-toggle {
-  color: #ffb366;
-  font-size: 16px;
-}
-
-#custom-theme-toggle:hover {
-  background-color: #333333;
-  border-radius: 5px;
-}
-
-/* Caffeine toggle */
-#custom-caffeine {
-  font-size: 20px;
-}
-
-#custom-caffeine:hover {
-  background-color: #333333;
-  border-radius: 5px;
-}
-
-/* Network */
-#network {
-  color: #66d9ff;
-}
-
-#network.disconnected {
-  color: #888888;
-}
-
-/* Bluetooth */
-#bluetooth {
-  color: #99ffdd;
-}
-
-#bluetooth.off {
-  color: #555555;
-}
-
-#bluetooth.connected {
-  color: #66ff99;
 }
 
 /* Audio */

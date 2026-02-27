@@ -1,14 +1,12 @@
 @define-color accent_color #d97706;
 @define-color text_color #2e2e2e;
 @define-color border_color #ffffff;
+@define-color hover_color #eeeeee;
 
 * {
-  border: none;
-  border-radius: 0;
   font-family: "JetBrains Mono", "Noto Sans", sans-serif;
   font-size: 20px;
   min-height: 0;
-  margin: 0px 5px 0px 5px;
   color: @text_color;
 }
 
@@ -33,27 +31,19 @@ window#waybar.hidden {
 
 #workspaces button {
   padding: 0 8px;
-  background-color: transparent;
-  color: @text_color;
   border: 1px solid transparent;
   border-radius: 5px;
   margin: 0 3px;
   transition: all 0.3s ease;
 }
 
-#workspaces button:hover {
-  background-color: black;
-  color: @text_color;
-}
-
 #workspaces button.active {
   background-color: #6F8396;
-  color: #ffffff;
   font-weight: bold;
 }
 
 #workspaces button.active:hover {
-  color: @text_color;
+  background-color: @hover_color;
 }
 
 #workspaces button.urgent {
@@ -64,28 +54,6 @@ window#waybar.hidden {
 /* Window title */
 #window {
   padding: 0 15px;
-  color: @text_color;
-}
-
-/* Window control buttons */
-#custom-window-maximize,
-#custom-window-close {
-  padding: 0 10px;
-  color: @text_color;
-  font-size: 16px;
-  margin: 0 5px;
-  transition: all 0.3s ease;
-}
-
-#custom-window-maximize:hover {
-  background-color: #d8d8d8;
-  border-radius: 5px;
-}
-
-#custom-window-close:hover {
-  background-color: #dc2626;
-  color: #ffffff;
-  border-radius: 5px;
 }
 
 /* Right modules */
@@ -107,9 +75,18 @@ window#waybar.hidden {
   border-right: 1px solid @border_color;
 }
 
-/* Keyboard layout avec extra spacing */
+#cpu:hover,
+#memory:hover,
+#custom-weather:hover,
+#custom-theme-toggle:hover,
+#custom-caffeine:hover,
+#pulseaudio:hover,
+#custom-keyboard-layout:hover,
+#workspaces button:hover {
+  background-color: @hover_color;
+}
+
 #custom-keyboard-layout {
-  padding: 0 15px;
   transition: all 0.3s ease;
 }
 
@@ -183,49 +160,6 @@ window#waybar.hidden {
   100% {
     opacity: 1;
   }
-}
-
-/* Theme toggle */
-#custom-theme-toggle {
-  color: #d97706;
-  font-size: 16px;
-}
-
-#custom-theme-toggle:hover {
-  background-color: #d8d8d8;
-  border-radius: 5px;
-}
-
-/* Caffeine toggle */
-#custom-caffeine {
-  font-size: 20px;
-}
-
-#custom-caffeine:hover {
-  background-color: #d8d8d8;
-  border-radius: 5px;
-}
-
-/* Network */
-#network {
-  color: #0891b2;
-}
-
-#network.disconnected {
-  color: #888888;
-}
-
-/* Bluetooth */
-#bluetooth {
-  color: #0d9488;
-}
-
-#bluetooth.off {
-  color: #aaaaaa;
-}
-
-#bluetooth.connected {
-  color: #059669;
 }
 
 /* Audio */
