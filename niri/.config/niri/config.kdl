@@ -44,7 +44,7 @@ hotkey-overlay {
 // Layout configuration
 layout {
     // Gaps around windows
-    gaps 5
+    gaps 10
 
     // Center focused column
     center-focused-column "on-overflow"
@@ -64,23 +64,40 @@ layout {
         width 5
         active-gradient from="#ff4444" to="#ff9800" angle=45
         inactive-gradient from="#c0c4cc" to="#e8eaed" angle=45
+        inactive-color "transparent"
     }
 
     struts {
-      left 10   // Leave some space for the tabs
-      right 10  // Negative strut to cancel gaps
-      top -5
-      bottom -5
+      left 20   // Leave some space for the tabs
+      right 20  // Negative strut to cancel gaps
+      top 0
+      bottom -10
     }
 
     tab-indicator {
-      width 10
-      active-color "#6F8396"
+      width 20
+      active-color "#ff9800"
       inactive-color "#CDD6F4"
     }
 }
 
 // Window rules
+
+// Shadow for floating windows
+window-rule {
+    match is-floating=true
+    shadow {
+        on
+        color "#55555560"
+        offset x=5 y=5
+        softness 30
+        spread 10
+    }
+    border {
+        inactive-gradient from="#c0c4cc" to="#e8eaed" angle=45
+    }
+}
+
 window-rule {
     match app-id="^net\\.waterfox\\.waterfox$"
     default-column-width { proportion 0.5; }
@@ -188,7 +205,7 @@ binds {
     Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
     Mod+Space { spawn "niri" "msg" "action" "switch-layout" "next"; }
     Ctrl+Alt+Mod+V hotkey-overlay-title="Gestionnaire de presse-papier" { spawn "sh" "-c" "copyq --start-server show"; }
-    Mod+E hotkey-overlay-title="Sélecteur d'émojis" { spawn "wofi-emoji"; }
+    Mod+E hotkey-overlay-title="Sélecteur d’émojis" { spawn "wofi-emoji"; }
     Mod+C hotkey-overlay-title="Pipette à couleurs" { spawn "hyprpicker" "-a"; }
     Mod+N hotkey-overlay-title="Centre de notifications" { spawn "swaync-client" "-t"; }
     Mod+Menu hotkey-overlay-title="Caractères spéciaux" { spawn "gnome-characters"; }
@@ -205,9 +222,11 @@ binds {
     Shift+Alt+Mod+D hotkey-overlay-title="Taper courriel professionnel" { spawn "~/nixos-config/secrets/bin/type_professional_email"; }
     Shift+Alt+Mod+T hotkey-overlay-title="Taper numéro de téléphone" { spawn "~/nixos-config/secrets/bin/type_phone"; }
     Shift+Alt+Mod+C hotkey-overlay-title="Taper code postal" { spawn "~/nixos-config/secrets/bin/type_postal_code"; }
+    Shift+Alt+Mod+O hotkey-overlay-title="Taper les propriétés d'un to-do" { spawn "~/nixos-config/secrets/bin/type_todo_properties"; }
     Shift+Alt+Mod+F hotkey-overlay-title="Nouvelle fenêtre Waterfox" { spawn "flatpak" "run" "net.waterfox.waterfox" "--new-window"; }
     Ctrl+Alt+Mod+D hotkey-overlay-title="Taper la date" { spawn "~/nixos-config/bin/type_date"; }
     Ctrl+Alt+Mod+T hotkey-overlay-title="Taper l'heure" { spawn "~/nixos-config/bin/type_time"; }
+    Ctrl+Alt+Mod+X hotkey-overlay-title="Taper le contenu du presse-papiers" { spawn "~/nixos-config/bin/type_clipboard"; }
 
 
     // Run or raise shortcuts
@@ -222,6 +241,7 @@ binds {
 
     // Window management
     Mod+W { close-window; }
+    Mod+Shift+W hotkey-overlay-title="Forcer la fermeture" { spawn "~/nixos-config/bin/kill-focused-window.sh"; }
     Mod+F { fullscreen-window; }
     Mod+Shift+F { maximize-column; }
     Mod+Z { maximize-column; }
@@ -291,8 +311,8 @@ binds {
     Mod+V { set-window-height "100%"; }
 
     // Screenshots (copy to clipboard)
-    Print hotkey-overlay-title="Capture de région" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
-    Shift+Print hotkey-overlay-title="Capture d'écran complète" { spawn "sh" "-c" "grim - | wl-copy"; }
+    Print hotkey-overlay-title="Capture de région" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | tee \"$HOME/Images/Captures d’écran/Capture d’écran du $(date '+%Y-%m-%d %H-%M-%S').png\" | wl-copy"; }
+    Shift+Print hotkey-overlay-title="Capture d’écran complète" { spawn "sh" "-c" "grim - | tee \"$HOME/Images/Captures d’écran/Capture d’écran du $(date '+%Y-%m-%d %H-%M-%S').png\" | wl-copy"; }
 
     // Screenshot with editor (for annotation)
     Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }

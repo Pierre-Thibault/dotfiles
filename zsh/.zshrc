@@ -135,6 +135,8 @@ alias "python-init-3.13"="nix flake init --template github:Pierre-Thibault/my-uv
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/nixos-config/bin
 
+alias aider="aider-auto-theme"
+
 prompt_context() {
   prompt_segment black default "%n@%m %# $(which python > /dev/null && echo -n "$(python --version)" || echo -n)"
 }
@@ -158,5 +160,13 @@ yzx() {
 }
 # YAZELIX END v4 - Yazelix managed configuration (do not modify this comment)
 
-# OpenCode with Groq support
-alias opencode='~/bin/opencode-wrapper.sh'
+
+# Aider API keys
+TOGETHER_API_KEY="$(cat ~/secrets/together.ai)"
+export TOGETHER_API_KEY
+GROQ_API_KEY="$(cat ~/secrets/groq)"
+export GROQ_API_KEY
+XAI_API_KEY="$(cat ~/secrets/grok)"
+export XAI_API_KEY
+ANTHROPIC_API_KEY=$(cat ~/secrets/claude)
+export ANTHROPIC_API_KEY

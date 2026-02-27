@@ -6,9 +6,7 @@
 
   "modules-left": [
     "niri/workspaces",
-    "niri/window",
-    "custom/window-maximize",
-    "custom/window-close"
+    "niri/window"
   ],
 
   "modules-center": [
@@ -40,18 +38,6 @@
     "icon": true,
     "icon-size": 24,
     "tooltip": false,
-  },
-
-  "custom/window-maximize": {
-    "format": "🗖",
-    "on-click": "niri msg action maximize-column",
-    "tooltip": false
-  },
-
-  "custom/window-close": {
-    "format": "✕",
-    "on-click": "niri msg action close-window",
-    "tooltip": false
   },
 
   "custom/keyboard-layout": {

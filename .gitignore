@@ -1,7 +1,11 @@
 /wezterm/.config/wezterm/wezterm.lua
 /bat/.config/bat/config
 /helix/.config/helix/config.toml
-/VSCodium*/
+# VSCodium - ignore caches but keep settings
+**/VSCodium*/Cache/
+**/VSCodium*/CachedProfilesData/
+**/VSCodium*/User/History/
+**/VSCodium*/logs/
 
 config-light.kdl.old
 

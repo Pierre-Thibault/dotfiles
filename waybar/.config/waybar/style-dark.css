@@ -6,16 +6,18 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrains Mono", "Noto Sans", sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   min-height: 0;
+  margin: 0px 5px 0px 5px;
   color: @text_color;
 }
 
 window#waybar {
   background-color: #1e1e1e;
-  color: #e0e0e0;
+  background: rgba(0, 0, 0, 0.3);
+  color: @text_color;
   border-bottom: 1px solid @border_color;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 window#waybar.hidden {
@@ -24,7 +26,7 @@ window#waybar.hidden {
 
 /* Workspace buttons */
 #workspaces {
-  padding: 0 10px;
+  padding: 0 10px 0 0;
   border-right: 1px solid @border_color;
   border-radius: 8px 0 0 8px;
 }
@@ -59,28 +61,6 @@ window#waybar.hidden {
 #window {
   padding: 0 15px;
   color: #d0d0d0;
-  border-right: 1px solid @border_color;
-}
-
-/* Window control buttons */
-#custom-window-maximize,
-#custom-window-close {
-  padding: 0 10px;
-  color: @text_color;
-  font-size: 16px;
-  margin: 0 5px;
-  transition: all 0.3s ease;
-}
-
-#custom-window-maximize:hover {
-  background-color: #333333;
-  border-radius: 5px;
-}
-
-#custom-window-close:hover {
-  background-color: #ff6b6b;
-  color: #1e1e1e;
-  border-radius: 5px;
 }
 
 /* Right modules */
