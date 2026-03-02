@@ -1,23 +1,23 @@
-@define-color accent_color #ffcc99;
-@define-color text_color #ffffff;
-@define-color border_color #3a3a3a;
-@define-color hover_color #555555;
-@define-color background_color #1e1e1e;
-@define-color cpu_color #ffb366;
-@define-color cpu_warning_color #ff9500;
-@define-color cpu_critical_color #ff6b6b;
-@define-color memory_color #66b3ff;
-@define-color memory_warning_color #ff9500;
-@define-color memory_critical_color #ff6b6b;
-@define-color temperature_color #ff8c66;
-@define-color temperature_critical_color #ff6b6b;
-@define-color pulse_audio_color #ffcc99;
-@define-color pulse_audio_muted_color #555555;
-@define-color clock_color #ffcd99;
-@define-color power_color #ff6b6b;
-@define-color power_hover_background_color #ff6b6b;
-@define-color power_hover_color #1e1e1e;
-@define-color tooltip_background_color #2a2a2a;
+@define-color accent_color {{ accent_color }};
+@define-color text_color {{ text_color }};
+@define-color border_color {{ border_color }};
+@define-color hover_color {{ hover_color }};
+@define-color background_color {{ background_color }};
+@define-color cpu_color {{ cpu_color }};
+@define-color cpu_warning_color {{ cpu_warning_color }};
+@define-color cpu_critical_color {{ cpu_critical_color }};
+@define-color memory_color {{ memory_color }};
+@define-color memory_warning_color {{ memory_warning_color }};
+@define-color memory_critical_color {{ memory_critical_color }};
+@define-color temperature_color {{ temperature_color }};
+@define-color temperature_critical_color {{ temperature_critical_color }};
+@define-color pulse_audio_color {{ pulse_audio_color }};
+@define-color pulse_audio_muted_color {{ pulse_audio_muted_color }};
+@define-color clock_color {{ clock_color }};
+@define-color power_color {{ power_color }};
+@define-color power_hover_background_color {{ power_hover_background_color }};
+@define-color power_hover_color {{ power_hover_color }};
+@define-color tooltip_background_color {{ tooltip_background_color }};
 
 
 * {
@@ -29,7 +29,7 @@
 
 window#waybar {
   background-color: @background_color;
-  background: rgba(0, 0, 0, 0.7);
+  background: {{ window_background }};
   /* value going to template */
   color: @text_color;
   border-bottom: 1px solid @border_color;

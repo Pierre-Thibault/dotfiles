@@ -2,6 +2,23 @@
 @define-color text_color #2e2e2e;
 @define-color border_color #ffffff;
 @define-color hover_color #eeeeee;
+@define-color background_color #f5f5f5;
+@define-color cpu_color #d97706;
+@define-color cpu_warning_color #ea580c;
+@define-color cpu_critical_color #dc2626;
+@define-color memory_color #0284c7;
+@define-color memory_warning_color #ea580c;
+@define-color memory_critical_color #dc2626;
+@define-color temperature_color #dc2626;
+@define-color temperature_critical_color #dc2626;
+@define-color pulse_audio_color #d97706;
+@define-color pulse_audio_muted_color #aaaaaa;
+@define-color clock_color #d97706;
+@define-color power_color #dc2626;
+@define-color power_hover_background_color #dc2626;
+@define-color power_hover_color #ffffff;
+@define-color tooltip_background_color #ffffff;
+
 
 * {
   font-family: "JetBrains Mono", "Noto Sans", sans-serif;
@@ -11,8 +28,9 @@
 }
 
 window#waybar {
-  background-color: #f5f5f5;
+  background-color: @background_color;
   background: rgba(255, 255, 255, 0.8);
+  /* value going to template */
   color: @text_color;
   border-bottom: 1px solid @border_color;
   border-radius: 8px;
@@ -71,7 +89,6 @@ window#waybar.hidden {
 #clock {
   padding: 0 10px;
   background-color: transparent;
-  color: @text_color;
   border-right: 1px solid @border_color;
 }
 
@@ -114,37 +131,37 @@ window#waybar.hidden {
 
 /* CPU */
 #cpu {
-  color: #d97706;
+  color: @cpu_color;
 }
 
 #cpu.warning {
-  color: #ea580c;
+  color: @cpu_warning_color;
 }
 
 #cpu.critical {
-  color: #dc2626;
+  color: @cpu_critical_color;
 }
 
 /* Memory */
 #memory {
-  color: #0284c7;
+  color: @memory_color;
 }
 
 #memory.warning {
-  color: #ea580c;
+  color: @memory_warning_color;
 }
 
 #memory.critical {
-  color: #dc2626;
+  color: @memory_critical_color;
 }
 
 /* Temperature */
 #temperature {
-  color: #dc2626;
+  color: @temperature_color;
 }
 
 #temperature.critical {
-  color: #dc2626;
+  color: @temperature_critical_color;
   animation: blink 1s infinite;
 }
 
@@ -164,23 +181,23 @@ window#waybar.hidden {
 
 /* Audio */
 #pulseaudio {
-  color: #d97706;
+  color: @pulse_audio_color;
 }
 
 #pulseaudio.muted {
-  color: #aaaaaa;
+  color: @pulse_audiro_muted_color;
 }
 
 /* Clock */
 #clock,
 #custom-clock-fr {
-  color: #d97706;
+  color: @clock_color;
   padding: 0 15px;
 }
 
 /* Power button */
 #custom-power {
-  color: #dc2626;
+  color: @power_color;
   padding: 0 15px;
   border-right: none;
   font-size: 24px;
@@ -188,24 +205,19 @@ window#waybar.hidden {
 }
 
 #custom-power:hover {
-  background-color: #dc2626;
-  color: #ffffff;
+  background-color: @power_hover_background_color;
+  color: @power_hover_color;
 }
 
-/* Tooltip */
 tooltip {
-  background-color: #ffffff;
+  background-color: @tooltip_background_color;
   color: @text_color;
-  border: 1px solid @border_color;
+  border: 2px solid black;
   border-radius: 5px;
   padding: 5px 10px;
 }
 
 tooltip * {
-  color: @text_color;
   text-shadow: none;
-}
-
-tooltip label {
-  color: @text_color;
+  font-size: 18px;
 }

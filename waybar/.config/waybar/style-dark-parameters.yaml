@@ -1,0 +1,25 @@
+accent_color: "#ffcc99"
+text_color: "#ffffff"
+border_color: "#3a3a3a"
+hover_color: "#555555"
+background_color: "#1e1e1e"
+cpu_color: "#ffb366"
+cpu_warning_color: "#ff9500"
+cpu_critical_color: "#ff6b6b"
+memory_color: "#66b3ff"
+memory_warning_color: "#ff9500"
+memory_critical_color: "#ff6b6b"
+temperature_color: "#ff8c66"
+temperature_critical_color: "#ff6b6b"
+pulse_audio_color: "#ffcc99"
+pulse_audio_muted_color: "#555555"
+clock_color: "#ffcd99"
+power_color: "#ff6b6b"
+power_hover_background_color: "#ff6b6b"
+power_hover_color: "#1e1e1e"
+tooltip_background_color: "#2a2a2a"
+window_background: rgba(0, 0, 0, 0.7)
+
+input_file: style.jinja.css
+output_file: style-dark.css
+
