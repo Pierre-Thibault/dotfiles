@@ -99,3 +99,7 @@ f = ":pipe wrap for"
 t = ":pipe wrap try-catch"
 u = ":pipe unwrap"
 e = ":pipe extract"
+
+[keys.normal.space.A-a]  # space + Alt-a = AI menu
+e = ":pipe ai-groq-explain"
+

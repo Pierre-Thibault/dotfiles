@@ -1,4 +1,4 @@
-theme = "catppuccin_latte_transparent"
+theme = "{{ theme }}"
 
 [editor]
 # Highlight all lines with a cursor
