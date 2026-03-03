@@ -39,19 +39,19 @@ emit_theme_change() {
         "variant:uint32:$scheme" 2>/dev/null || true
 }
 
+# Restart waybar in a detached process (so it doesn't kill this script)
+restart_waybar() {
+    (sleep 0.1 && systemctl --user restart waybar) &
+    disown
+}
+
 # Apply light theme
 apply_light() {
-    # Increase brightness to 100%
-    brightnessctl set 100% 2>/dev/null || true
-
     # Switch waybar to light theme
     ln -sf "$WAYBAR_CONFIG_DIR/style-light.css" "$WAYBAR_CONFIG_DIR/style.css"
-    pkill waybar
-    sleep 0.2
-    waybar > /dev/null 2>&1 &
 
-    # Remove warm color filter
-    pkill wlsunset 2>/dev/null || true
+    # Save theme state BEFORE restarting waybar
+    set_theme "$LIGHT_THEME"
 
     # Update GNOME settings (color-scheme: 0 = prefer-light)
     gsettings set org.gnome.desktop.interface color-scheme prefer-light 2>/dev/null || true
@@ -66,23 +66,18 @@ apply_light() {
     emit_theme_change 0
 
     echo "☀️"
+
+    # Restart waybar last (detached)
+    restart_waybar
 }
 
 # Apply dark theme with warm colors and reduced brightness
 apply_dark() {
-    # Reduce brightness to 70% for reduced strain
-    brightnessctl set 70% 2>/dev/null || true
-
     # Switch waybar to dark theme
     ln -sf "$WAYBAR_CONFIG_DIR/style-dark.css" "$WAYBAR_CONFIG_DIR/style.css"
-    pkill waybar
-    sleep 0.2
-    waybar > /dev/null 2>&1 &
 
-    # Apply warm color filter for evening (reduce blue light)
-    pkill wlsunset 2>/dev/null || true
-    nohup wlsunset -l 45.9 -L -74.2 -t 3000 -T 6500 >/dev/null 2>&1 &
-    disown
+    # Save theme state BEFORE restarting waybar
+    set_theme "$DARK_THEME"
 
     # Update GNOME settings (color-scheme: 1 = prefer-dark)
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark 2>/dev/null || true
@@ -97,6 +92,9 @@ apply_dark() {
     emit_theme_change 1
 
     echo "🌙"
+
+    # Restart waybar last (detached)
+    restart_waybar
 }
 
 # Main logic
@@ -105,24 +103,20 @@ case "$1" in
         current=$(get_theme)
         if [ "$current" = "$LIGHT_THEME" ]; then
             apply_dark
-            set_theme "$DARK_THEME"
         else
             apply_light
-            set_theme "$LIGHT_THEME"
         fi
         ;;
     light)
         current=$(get_theme)
         if [ "$current" != "$LIGHT_THEME" ]; then
             apply_light
-            set_theme "$LIGHT_THEME"
         fi
         ;;
     dark)
         current=$(get_theme)
         if [ "$current" != "$DARK_THEME" ]; then
             apply_dark
-            set_theme "$DARK_THEME"
         fi
         ;;
     status)

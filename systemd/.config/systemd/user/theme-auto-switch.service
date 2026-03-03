@@ -1,0 +1,13 @@
+[Unit]
+Description=Auto-switch theme based on sunrise/sunset
+
+[Service]
+Type=oneshot
+ExecStart=/home/pierre/nixos-config/bin/theme-auto-switch.sh
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_CURRENT_DESKTOP=niri
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

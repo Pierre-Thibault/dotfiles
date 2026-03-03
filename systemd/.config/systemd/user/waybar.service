@@ -10,7 +10,7 @@ After=niri.service
 [Service]
 Type=simple
 ExecStart=/run/current-system/sw/bin/waybar
-Restart=on-failure
+Restart=always
 RestartSec=1
 # Kill only waybar process when stopping
 KillMode=mixed

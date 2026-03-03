@@ -25,8 +25,8 @@ dbus-update-activation-environment --systemd \
 
 # List of critical services to restart on reconnection
 # These services need to be restarted to ensure proper functionality
-# Note: waybar.service is not included as it's already managed by systemd and auto-restarts
 CRITICAL_SERVICES=(
+    "waybar.service"
     "swaync.service"
     "swayosd.service"
     "swaybg.service"
@@ -48,6 +48,11 @@ for service in "${CRITICAL_SERVICES[@]}"; do
     echo "Restarting $service..."
     systemctl --user restart "$service" 2>/dev/null || systemctl --user start "$service"
 done
+
+# Setting screen temperature
+pkill gammastep 2>/dev/null || true
+nohup gammastep -l 45.9:-74.2 -b 1:0.7 -t 6500:3000 >/dev/null 2>&1 &
+disown
 
 # Give services a moment to fully start
 sleep 0.5
