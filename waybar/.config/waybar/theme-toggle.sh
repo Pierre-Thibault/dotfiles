@@ -40,9 +40,12 @@ emit_theme_change() {
 }
 
 # Restart waybar in a detached process (so it doesn't kill this script)
+# Only restart if waybar is currently running (respect manual stops)
 restart_waybar() {
-    (sleep 0.1 && systemctl --user restart waybar) &
-    disown
+    if systemctl --user is-active --quiet waybar; then
+        (sleep 0.1 && systemctl --user restart waybar) &
+        disown
+    fi
 }
 
 # Apply light theme

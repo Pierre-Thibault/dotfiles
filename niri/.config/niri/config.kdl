@@ -191,7 +191,6 @@ spawn-at-startup "~/.config/niri/init-session.sh"
 // These are started automatically via graphical-session.target
 
 // Custom system scripts (not suited for systemd services)
-spawn-at-startup "~/nixos-config/bin/theme-auto-switch-daemon.sh"
 spawn-at-startup "~/nixos-config/bin/bluetooth-resume.sh"
 
 // Keybindings
@@ -218,6 +217,7 @@ binds {
     Alt+Mod+X hotkey-overlay-title="Afficher X" { spawn "~/nixos-config/bin/show_x_niri"; }
     Alt+Mod+D hotkey-overlay-title="Dictionnaire" { spawn "~/nixos-config/bin/show_dictionary_niri"; }
     Alt+Mod+G hotkey-overlay-title="Recherche Grok" { spawn "~/nixos-config/bin/show_grok_niri"; }
+    Alt+Mod+W hotkey-overlay-title="Afficher/Masquer Waybar" { spawn "sh" "-c" "systemctl --user is-active --quiet waybar && systemctl --user stop waybar || systemctl --user start waybar"; }
     Shift+Alt+Mod+P hotkey-overlay-title="Taper courriel personnel" { spawn "~/nixos-config/secrets/bin/type_personal_email"; }
     Shift+Alt+Mod+D hotkey-overlay-title="Taper courriel professionnel" { spawn "~/nixos-config/secrets/bin/type_professional_email"; }
     Shift+Alt+Mod+T hotkey-overlay-title="Taper numéro de téléphone" { spawn "~/nixos-config/secrets/bin/type_phone"; }
