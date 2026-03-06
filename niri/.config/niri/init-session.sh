@@ -32,8 +32,6 @@ CRITICAL_SERVICES=(
     "swaybg.service"
     "swayidle.service"
     "gammastep.service"
-    "nm-applet.service"
-    "blueman-applet.service"
     "copyq.service"
 )
 
