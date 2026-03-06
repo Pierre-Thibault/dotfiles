@@ -1,0 +1,14 @@
+[Unit]
+Description=Redland - Screen color temperature adjustment
+Documentation=https://github.com/ramojus/redland
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/run/current-system/sw/bin/redland --lat 45.9 --lon=-74.2 --low 2500
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
