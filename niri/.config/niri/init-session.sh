@@ -31,6 +31,7 @@ CRITICAL_SERVICES=(
     "swayosd.service"
     "swaybg.service"
     "swayidle.service"
+    "gammastep.service"
     "nm-applet.service"
     "blueman-applet.service"
     "copyq.service"
@@ -48,11 +49,6 @@ for service in "${CRITICAL_SERVICES[@]}"; do
     echo "Restarting $service..."
     systemctl --user restart "$service" 2>/dev/null || systemctl --user start "$service"
 done
-
-# Setting screen temperature (using DRM method since niri doesn't support wayland gamma)
-pkill gammastep 2>/dev/null || true
-nohup gammastep -m drm:card=1 -l "45.9:-74.2" -b "1:0.7" -t "6500:3000" >/dev/null 2>&1 &
-disown
 
 # Give services a moment to fully start
 sleep 0.5
