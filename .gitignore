@@ -11,6 +11,12 @@ config-light.kdl.old
 
 .nobackup
 
+# Systemd services managed by NixOS/home-manager (not dotfiles)
+systemd/.config/systemd/user/blueman-applet.service
+systemd/.config/systemd/user/tray.target
+systemd/.config/systemd/user/graphical-session.target.wants/blueman-applet.service
+systemd/.config/systemd/user/graphical-session.target.wants/gammastep.service
+
 # Ignore everything in .claude/
 /claude/.claude/*
 
