@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart redland to update sunrise/sunset times
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env systemctl --user restart redland.service
