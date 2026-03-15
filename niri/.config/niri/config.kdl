@@ -349,6 +349,7 @@ cursor {
 
 // Environment variables
 environment {
+    DISPLAY ":0"
     XCURSOR_THEME "Adwaita"
     XCURSOR_SIZE "32"
     QT_QPA_PLATFORMTHEME "gnome"

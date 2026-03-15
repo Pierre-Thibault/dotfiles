@@ -51,4 +51,6 @@ done
 # Give services a moment to fully start
 sleep 0.5
 
+xwayland-satellite &
+
 echo "Niri session initialized successfully"
