@@ -1,0 +1,16 @@
+[Unit]
+Description=Hypridle - Idle management daemon for Wayland
+Documentation=man:hypridle(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/run/current-system/sw/bin/hypridle
+Restart=always
+RestartSec=5
+KillMode=mixed
+TimeoutStopSec=10
+
+[Install]
+WantedBy=graphical-session.target

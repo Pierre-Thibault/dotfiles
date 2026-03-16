@@ -30,7 +30,7 @@ CRITICAL_SERVICES=(
     "swaync.service"
     "swayosd.service"
     "swaybg.service"
-    "swayidle.service"
+    "hypridle.service"
     "gammastep.service"
     "copyq.service"
 )

@@ -15,15 +15,15 @@ disable() {
         fi
         rm -f "$STATE_FILE"
 
-        # Restart swayidle via systemd
-        systemctl --user start swayidle.service
+        # Restart hypridle via systemd
+        systemctl --user start hypridle.service
     fi
 }
 
 enable() {
     if [ ! -f "$STATE_FILE" ]; then
-        # Stop swayidle via systemd
-        systemctl --user stop swayidle.service
+        # Stop hypridle via systemd
+        systemctl --user stop hypridle.service
 
         # Create systemd inhibition
         systemd-inhibit --what=idle:sleep --who="caffeine" --why="User manually disabled idle" sleep infinity &

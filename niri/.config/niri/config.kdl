@@ -187,7 +187,7 @@ animations {
 // Use a robust initialization script that works even when reconnecting to Niri
 spawn-at-startup "~/.config/niri/init-session.sh"
 
-// Background services now managed by systemd (swaybg, swayidle, nm-applet, blueman-applet, copyq)
+// Background services now managed by systemd (swaybg, hypridle, nm-applet, blueman-applet, copyq)
 // These are started automatically via graphical-session.target
 
 // Custom system scripts (not suited for systemd services)

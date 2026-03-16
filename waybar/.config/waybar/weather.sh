@@ -20,8 +20,8 @@ fi
 # Format: %c = weather condition, %t = temperature, %f = feels like, %w = wind
 WEATHER=$(curl -s "wttr.in/${CITY}?format=%c+%t+(ressenti+%f)+💨+%w" 2>/dev/null)
 
-# Check if curl was successful
-if [ $? -eq 0 ] && [ -n "$WEATHER" ]; then
+# Check if curl was successful and response is valid (not an error message)
+if [ $? -eq 0 ] && [ -n "$WEATHER" ] && [[ ! "$WEATHER" =~ "query" ]] && [[ ! "$WEATHER" =~ "error" ]]; then
     echo "$WEATHER" | tee "$CACHE_FILE"
 else
     # If fetch failed, try to use cached data or show error
