@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && swaylock -f",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && hyprlock",
     "text" : "🔒 Verrouiller",
     "keybind" : "l"
 }
@@ -12,7 +12,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && swaylock -f && systemctl suspend",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable; hyprlock & sleep 0.3 && systemctl suspend",
     "text" : "🌙 Suspendre",
     "keybind" : "u"
 }
