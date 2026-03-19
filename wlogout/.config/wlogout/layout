@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && gtklock",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && ~/.config/gtklock/lock.sh",
     "text" : "🔒 Verrouiller",
     "keybind" : "l"
 }
@@ -12,7 +12,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable; gtklock & sleep 0.3 && systemctl suspend",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable; ~/.config/gtklock/lock.sh & sleep 0.3 && systemctl suspend",
     "text" : "🌙 Suspendre",
     "keybind" : "u"
 }
