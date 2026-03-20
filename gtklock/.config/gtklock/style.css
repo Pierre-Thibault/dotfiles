@@ -1,0 +1,12 @@
+/* Text outline for better readability */
+label {
+    text-shadow:
+        -1px -1px 0 #fff,
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
+}
+
+button label {
+    text-shadow: none;
+}
