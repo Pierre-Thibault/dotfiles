@@ -137,6 +137,10 @@ export PATH=$PATH:~/nixos-config/bin
 
 alias aider="aider-auto-theme"
 
+kilo() {
+  nix shell nixpkgs#nodejs -c npx @kilocode/cli "$@"
+}
+
 prompt_context() {
   prompt_segment black default "%n@%m %# $(which python > /dev/null && echo -n "$(python --version)" || echo -n)"
 }
