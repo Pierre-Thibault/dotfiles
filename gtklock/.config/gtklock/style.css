@@ -1,12 +1,6 @@
-/* Text outline for better readability */
-label {
-    text-shadow:
-        -1px -1px 0 #fff,
-         1px -1px 0 #fff,
-        -1px  1px 0 #fff,
-         1px  1px 0 #fff;
-}
-
-button label {
-    text-shadow: none;
+/* Gray background for better readability */
+#window-box {
+    background-color: rgba(128, 128, 128, 0.7);
+    padding: 16px;
+    border-radius: 8px;
 }
