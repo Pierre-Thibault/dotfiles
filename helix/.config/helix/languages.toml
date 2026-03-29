@@ -116,11 +116,11 @@ auto-format = true
 command = "nixd"
 
 # Python
-[language-server.pyright]
-command = "pyright-langserver"
+[language-server.basedpyright]
+command = "basedpyright-langserver"
 args = ["--stdio"]
 
-[language-server.pyright.config.python]
+[language-server.basedpyright.config.basedpyright]
 analysis = { typeCheckingMode = "strict", autoImportCompletions = true, autoSearchPaths = true, useLibraryCodeForTypes = true }
 pythonPath = "python"
 
@@ -148,7 +148,7 @@ formatter = { command = "zsh", args = ["-c", """
   ruff check --select I --fix - | ruff format -
   """] }
 auto-format = true
-language-servers = ["pyright", "ruff", "pylsp", "typos", "scls", "hx-lsp"]
+language-servers = ["basedpyright", "ruff", "pylsp", "typos", "scls", "hx-lsp"]
 
 [language.debugger]
 name = "debugpy"
