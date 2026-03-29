@@ -12,7 +12,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && systemctl suspend",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && ~/.config/gtklock/lock.sh & sleep 0.5 && systemctl suspend",
     "text" : "🌙 Mise au repos",
     "keybind" : "u"
 }
