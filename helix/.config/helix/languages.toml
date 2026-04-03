@@ -34,7 +34,6 @@ scope = "source.go"
 injection-regex = "go"
 file-types = ["go"]
 roots = ["Gopkg.toml", "go.mod"]
-comment-token = "//"
 language-servers = [ "gopls", "typos", "scls", "hx-lsp" ]
 indent = { tab-width = 4, unit = "\t" }
 
@@ -43,7 +42,6 @@ name = "groovy"
 scope = "source.groovy"
 file-types = ["groovy", "gvy", "gy", "gsh", "gradle", "jenkinsfile"]
 roots = ["flake.nix", "build.gradle", "build.gradle.kts"]
-comment-token = "//"
 indent = { tab-width = 4, unit = "    " }
 auto-format = true
 language-servers = ["groovy-language-server", "hx-lsp"]
@@ -94,7 +92,6 @@ injection-regex = "kotlin"
 file-types = ["kt", "kts"]
 roots = ["settings.gradle", "settings.gradle.kts", "build.gradle.kts"]
 indent = { tab-width = 4, unit = "    " }
-comment-token = "//"
 language-servers = ["kotlin-language-server"]
 formatter = { command = "ktlint", args = ["--format", "--stdin"] }
 auto-format = true
@@ -150,19 +147,7 @@ formatter = { command = "zsh", args = ["-c", """
 auto-format = true
 language-servers = ["basedpyright", "ruff", "pylsp", "typos", "scls", "hx-lsp"]
 
-[language.debugger]
-name = "debugpy"
-command = "python"
-args = ["-m", "debugpy.adapter"]
-transport = "stdio"
-[[language.debugger.templates]]
-name = "source"
-request = "launch"
-completion = [ { name = "entrypoint", completion = "filename" } ]
-args = { mode = "debug", program = "{0}" }
-
 [language-server.pylsp.config.pylsp]
-plugins.ruff.enabled = true
 plugins.rope_autoimport.enabled = true
 
 [[language]]
@@ -177,26 +162,14 @@ name = "rust"
 auto-format = true
 formatter = { command = "rustfmt" }
 language-servers = [ "rust-analyzer", "typos", "scls", "hx-lsp" ]
-
-
-[auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-
-roots = [
-  "Cargo.toml",
-  "Cargo.lock"
-]
+roots = ["Cargo.toml", "Cargo.lock"]
 
 [language-server.rust-analyzer]
 command = "rust-analyzer"
-check.command = "clippy"
-check.extraArgs = ["--all-targets", "--", "-W", "clippy::pedantic"]
 
 [language-server.rust-analyzer.config]
+check.command = "clippy"
+check.extraArgs = ["--all-targets", "--", "-W", "clippy::pedantic"]
 inlayHints.bindingModeHints.enable = false
 inlayHints.closingBraceHints.minLines = 10
 inlayHints.closureReturnTypeHints.enable = "with_block"
