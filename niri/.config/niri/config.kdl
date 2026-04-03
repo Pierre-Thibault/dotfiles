@@ -68,16 +68,15 @@ layout {
     }
 
     struts {
-      left 20   // Leave some space for the tabs
-      right 20  // Negative strut to cancel gaps
-      top 0
-      bottom -10
+      left 10   // Leave some space to scroll with the mouse
+      right 10  
     }
 
     tab-indicator {
       width 20
       active-color "#ff9800"
       inactive-color "#CDD6F4"
+      place-within-column
     }
 }
 
@@ -310,13 +309,11 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
     Mod+V { set-window-height "100%"; }
 
-    // Screenshots (copy to clipboard)
-    Print hotkey-overlay-title="Capture de région" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | tee \"$HOME/Images/Captures d’écran/Capture d’écran du $(date '+%Y-%m-%d %H-%M-%S').png\" | wl-copy"; }
-    Shift+Print hotkey-overlay-title="Capture d’écran complète" { spawn "sh" "-c" "grim - | tee \"$HOME/Images/Captures d’écran/Capture d’écran du $(date '+%Y-%m-%d %H-%M-%S').png\" | wl-copy"; }
-
-    // Screenshot with editor (for annotation)
-    Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
-    Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "sh" "-c" "grim - | swappy -f -"; }
+    // Screenshots
+    Print hotkey-overlay-title="Capture de région" { spawn "~/nixos-config/bin/screenshot.sh" "--region"; }
+    Shift+Print hotkey-overlay-title="Capture d’écran complète" { spawn "~/nixos-config/bin/screenshot.sh" "--full"; }
+    Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "~/nixos-config/bin/screenshot.sh" "--region" "--edit"; }
+    Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "~/nixos-config/bin/screenshot.sh" "--full" "--edit"; }
 
     // Media keys
     XF86AudioMute hotkey-overlay-title="Son sourdine/normal" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
