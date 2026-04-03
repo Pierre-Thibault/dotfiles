@@ -2,8 +2,7 @@
 Description=Run theme auto-switch every 5 minutes
 
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=5min
+OnCalendar=*:0/5
 Persistent=true
 
 [Install]
