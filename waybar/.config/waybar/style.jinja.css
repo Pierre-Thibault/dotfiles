@@ -11,9 +11,7 @@
 @define-color memory_critical_color {{ memory_critical_color }};
 @define-color temperature_color {{ temperature_color }};
 @define-color temperature_critical_color {{ temperature_critical_color }};
-@define-color pulse_audio_color {{ pulse_audio_color }};
 @define-color pulse_audio_muted_color {{ pulse_audio_muted_color }};
-@define-color clock_color {{ clock_color }};
 @define-color power_color {{ power_color }};
 @define-color power_hover_background_color {{ power_hover_background_color }};
 @define-color power_hover_color {{ power_hover_color }};
@@ -38,6 +36,8 @@ window#waybar {
 window#waybar.hidden {
   opacity: 0.2;
 }
+
+/* Left modules */
 
 /* Workspace buttons */
 #workspaces {
@@ -73,7 +73,16 @@ window#waybar.hidden {
   padding: 0 15px;
 }
 
+/* Middle module */
+
+/* Clock */
+#clock,
+#custom-clock-fr {
+  padding: 0 15px;
+}
+
 /* Right modules */
+
 #tray,
 #cpu,
 #memory,
@@ -178,20 +187,8 @@ window#waybar.hidden {
   }
 }
 
-/* Audio */
-#pulseaudio {
-  color: @pulse_audio_color;
-}
-
 #pulseaudio.muted {
   color: @pulse_audiro_muted_color;
-}
-
-/* Clock */
-#clock,
-#custom-clock-fr {
-  color: @clock_color;
-  padding: 0 15px;
 }
 
 /* Power button */
