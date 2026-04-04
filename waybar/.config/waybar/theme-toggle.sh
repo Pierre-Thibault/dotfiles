@@ -3,27 +3,16 @@
 # Theme toggle script for Niri
 # Switches between light and dark modes with warm colors for dark mode
 
-CONFIG_FILE="$HOME/.config/waybar/theme-state"
 WAYBAR_CONFIG_DIR="$HOME/.config/waybar"
-LIGHT_THEME="light"
-DARK_THEME="dark"
-DEFAULT_THEME="light"
 
-# Create config directory if it doesn't exist
-mkdir -p "$(dirname "$CONFIG_FILE")"
-
-# Get current theme
+# Get current theme from gsettings
 get_theme() {
-    if [ -f "$CONFIG_FILE" ]; then
-        cat "$CONFIG_FILE"
+    scheme=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
+    if [ "$scheme" = "'prefer-dark'" ]; then
+        echo "dark"
     else
-        echo "$DEFAULT_THEME"
+        echo "light"
     fi
-}
-
-# Save theme
-set_theme() {
-    echo "$1" > "$CONFIG_FILE"
 }
 
 # Emit D-Bus signal for theme change (freedesktop portal mechanism)
@@ -53,9 +42,6 @@ apply_light() {
     # Switch waybar to light theme
     ln -sf "$WAYBAR_CONFIG_DIR/style-light.css" "$WAYBAR_CONFIG_DIR/style.css"
 
-    # Save theme state BEFORE restarting waybar
-    set_theme "$LIGHT_THEME"
-
     # Update GNOME settings (color-scheme: 0 = prefer-light)
     gsettings set org.gnome.desktop.interface color-scheme prefer-light 2>/dev/null || true
     gsettings set org.gnome.desktop.interface gtk-application-prefer-dark-mode false 2>/dev/null || true
@@ -79,9 +65,6 @@ apply_dark() {
     # Switch waybar to dark theme
     ln -sf "$WAYBAR_CONFIG_DIR/style-dark.css" "$WAYBAR_CONFIG_DIR/style.css"
 
-    # Save theme state BEFORE restarting waybar
-    set_theme "$DARK_THEME"
-
     # Update GNOME settings (color-scheme: 1 = prefer-dark)
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark 2>/dev/null || true
     gsettings set org.gnome.desktop.interface gtk-application-prefer-dark-mode true 2>/dev/null || true
@@ -104,7 +87,7 @@ apply_dark() {
 case "$1" in
     toggle)
         current=$(get_theme)
-        if [ "$current" = "$LIGHT_THEME" ]; then
+        if [ "$current" = "light" ]; then
             apply_dark
         else
             apply_light
@@ -112,19 +95,19 @@ case "$1" in
         ;;
     light)
         current=$(get_theme)
-        if [ "$current" != "$LIGHT_THEME" ]; then
+        if [ "$current" != "light" ]; then
             apply_light
         fi
         ;;
     dark)
         current=$(get_theme)
-        if [ "$current" != "$DARK_THEME" ]; then
+        if [ "$current" != "dark" ]; then
             apply_dark
         fi
         ;;
     status)
         current=$(get_theme)
-        if [ "$current" = "$LIGHT_THEME" ]; then
+        if [ "$current" = "light" ]; then
             echo "☀️"
         else
             echo "🌙"
