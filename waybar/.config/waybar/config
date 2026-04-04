@@ -22,6 +22,7 @@
     "custom/theme-toggle",
     "custom/caffeine",
     "pulseaudio",
+    "custom/mouse-handedness",
     "custom/keyboard-layout",
     "custom/power"
   ],
@@ -127,6 +128,14 @@
     "return-type": "json",
     "format": "{}",
     "on-click": "~/.config/waybar/caffeine-toggle.sh toggle"
+  },
+
+  "custom/mouse-handedness": {
+    "exec": "~/.config/waybar/mouse-handedness-toggle.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "~/.config/waybar/mouse-handedness-toggle.sh toggle"
   },
 
   "custom/power": {
