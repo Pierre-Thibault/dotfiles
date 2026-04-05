@@ -93,6 +93,7 @@ window#waybar.hidden {
 #network,
 #bluetooth,
 #pulseaudio,
+#custom-mouse-handedness,
 #custom-keyboard-layout,
 #clock {
   padding: 0 10px;
