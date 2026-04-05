@@ -24,6 +24,7 @@
     "pulseaudio",
     "custom/mouse-handedness",
     "custom/keyboard-layout",
+    "custom/notifications",
     "custom/power"
   ],
 
@@ -136,6 +137,25 @@
     "return-type": "json",
     "format": "{}",
     "on-click": "~/.config/waybar/mouse-handedness-toggle.sh toggle"
+  },
+
+  "custom/notifications": {
+    "exec": "swaync-client -swb",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "🔔",
+      "none": "🔕",
+      "dnd-notification": "🔕",
+      "dnd-none": "🔕",
+      "inhibited-notification": "🔕",
+      "inhibited-none": "🔕",
+      "dnd-inhibited-notification": "🔕",
+      "dnd-inhibited-none": "🔕"
+    },
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "tooltip": false
   },
 
   "custom/power": {

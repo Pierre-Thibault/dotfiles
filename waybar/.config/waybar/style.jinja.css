@@ -95,6 +95,7 @@ window#waybar.hidden {
 #pulseaudio,
 #custom-mouse-handedness,
 #custom-keyboard-layout,
+#custom-notifications,
 #clock {
   padding: 0 10px;
   background-color: transparent;
