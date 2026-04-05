@@ -142,10 +142,10 @@
   "custom/notifications": {
     "exec": "swaync-client -swb",
     "return-type": "json",
-    "format": "{icon}",
+    "format": "{icon} {text}",
     "format-icons": {
       "notification": "🔔",
-      "none": "🔕",
+      "none": "🔔",
       "dnd-notification": "🔕",
       "dnd-none": "🔕",
       "inhibited-notification": "🔕",
