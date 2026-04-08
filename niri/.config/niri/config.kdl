@@ -24,8 +24,8 @@ input {
     }
 
     mouse {
-        accel-speed 0.3
         left-handed
+        accel-speed 0.3
         middle-emulation
     }
 
@@ -194,14 +194,12 @@ spawn-at-startup "~/nixos-config/bin/bluetooth-resume.sh"
 
 // Keybindings
 binds {
-    // Modifier key
-    Mod+Shift+Slash { spawn "niri" "msg" "action" "show-hotkey-overlay"; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Application shortcuts (matching Gnome/Hyprland)
-    Mod+D hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
     Shift+Mod+D hotkey-overlay-title="Panneau d'applications (grille)" { spawn "~/nixos-config/bin/rofi-grid"; }
     Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
-    Mod+Space { spawn "niri" "msg" "action" "switch-layout" "next"; }
+    Mod+Space hotkey-overlay-title="Changer de disposition clavier" { spawn "niri" "msg" "action" "switch-layout" "next"; }
     Ctrl+Alt+Mod+V hotkey-overlay-title="Gestionnaire de presse-papier" { spawn "sh" "-c" "copyq --start-server show"; }
     Mod+E hotkey-overlay-title="Sélecteur d’émojis" { spawn "wofi-emoji"; }
     Mod+C hotkey-overlay-title="Pipette à couleurs" { spawn "hyprpicker" "-a"; }
@@ -246,6 +244,7 @@ binds {
     Mod+Z { maximize-column; }
     Mod+X { center-column; }
     Mod+Shift+V { toggle-window-floating; }
+    Mod+Shift+C { switch-focus-between-floating-and-tiling; }
 
     // Move focus with arrow keys
     Mod+Left { focus-column-left; }
