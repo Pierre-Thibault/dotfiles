@@ -150,6 +150,36 @@ window-rule {
     min-height 600
 }
 
+window-rule {
+    match app-id=r#"blueman-manager"#
+    open-floating true
+    default-floating-position x=350 y=50 relative-to="top-right"
+    min-width 800
+    max-width 800
+    min-height 600
+    max-height 600
+}
+
+window-rule {
+    match app-id="org.gnome.SystemMonitor"
+    open-floating true
+    default-floating-position x=350 y=50 relative-to="top-right"
+    min-width 1600
+    max-width 1600
+    min-height 1200
+    max-height 1200
+}
+
+window-rule {
+    match app-id="nm-connection-editor"
+    open-floating true
+    default-floating-position x=350 y=50 relative-to="top-right"
+    min-width 800
+    max-width 800
+    min-height 600
+    max-height 600
+}
+
 // Rounded corners for all windows
 window-rule {
     geometry-corner-radius 20
