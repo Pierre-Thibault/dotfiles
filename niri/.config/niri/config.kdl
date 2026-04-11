@@ -376,12 +376,13 @@ cursor {
 // Environment variables
 environment {
     DISPLAY ":0"
-    XCURSOR_THEME "Adwaita"
-    XCURSOR_SIZE "32"
+    GTK_IM_MODULE "simple"  // Fixing dead key issue?
+    QT_AUTO_SCREEN_SCALE_FACTOR "0"
+    QT_IM_MODULE ""  // Disable IBus for Qt applications
+    QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "gnome"
     QT_SCALE_FACTOR "1.25"
-    QT_AUTO_SCREEN_SCALE_FACTOR "0"
-    GTK_IM_MODULE "simple"  // Fixing dead key issue?
-    QT_IM_MODULE ""  // Disable IBus for Qt applications
+    XCURSOR_SIZE "32"
+    XCURSOR_THEME "Adwaita"
     XMODIFIERS ""  // Disable IBus system-wide
 }
