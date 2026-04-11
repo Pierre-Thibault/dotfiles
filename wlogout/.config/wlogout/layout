@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && loginctl lock-session",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && systemctl --user start hypridle.service && loginctl lock-session",
     "text" : "🔒 Verrouiller",
     "keybind" : "l"
 }
@@ -12,7 +12,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && ~/.config/gtklock/lock.sh & sleep 0.5 && systemctl suspend",
+    "action" : "~/.config/waybar/caffeine-toggle.sh disable && systemctl --user start hypridle.service && systemctl suspend",
     "text" : "🌙 Mise au repos",
     "keybind" : "u"
 }
