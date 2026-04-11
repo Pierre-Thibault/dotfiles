@@ -24,7 +24,7 @@ toggle() {
 
 status() {
     if is_left_handed; then
-        echo '{"text": "🖱️🫲", "tooltip": "Souris gaucher — Cliquez pour passer en droitier", "class": "left-handed"}'
+        echo '{"text": "🫲🖱️", "tooltip": "Souris gaucher — Cliquez pour passer en droitier", "class": "left-handed"}'
     else
         echo '{"text": "🖱️🫱", "tooltip": "Souris droitier — Cliquez pour passer en gaucher", "class": "right-handed"}'
     fi
