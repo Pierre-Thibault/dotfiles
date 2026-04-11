@@ -1,6 +1,6 @@
 @define-color accent_color #ffcc99;
 @define-color text_color #ffffff;
-@define-color border_color #3a3a3a;
+@define-color border_color #6F8396;
 @define-color hover_color #555555;
 @define-color background_color #1e1e1e;
 @define-color cpu_color #ffb366;
@@ -29,7 +29,8 @@ window#waybar {
   background: rgba(0, 0, 0, 0.7);
   /* value going to template */
   color: @text_color;
-  border-bottom: 1px solid @border_color;
+  border-top: 2px solid @border_color;
+  border-bottom: 2px solid @border_color;
   border-radius: 8px;
 }
 
@@ -76,7 +77,6 @@ window#waybar.hidden {
 /* Middle module */
 
 /* Clock */
-#clock,
 #custom-clock-fr {
   padding: 0 15px;
 }
@@ -95,8 +95,7 @@ window#waybar.hidden {
 #pulseaudio,
 #custom-mouse-handedness,
 #custom-keyboard-layout,
-#custom-notifications,
-#clock {
+#custom-notifications {
   padding: 0 10px;
   background-color: transparent;
   border-right: 1px solid @border_color;
@@ -107,10 +106,17 @@ window#waybar.hidden {
 #custom-weather:hover,
 #custom-theme-toggle:hover,
 #custom-caffeine:hover,
+#network:hover,
+#bluetooth:hover,
 #pulseaudio:hover,
+#custom-mouse-handedness:hover,
 #custom-keyboard-layout:hover,
+#custom-notifications:hover,
+#custom-clock-fr:hover,
 #workspaces button:hover {
   background-color: @hover_color;
+  border-top: 2px solid @border_color;
+  border-bottom: 2px solid @border_color;
 }
 
 #custom-keyboard-layout {
