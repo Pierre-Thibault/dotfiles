@@ -62,7 +62,7 @@ layout {
     // Border with gradient
     border {
         width 5
-        active-gradient from="#ff4444" to="#ff9800" angle=45
+        active-color "#6e808c"
         inactive-gradient from="#c0c4cc" to="#e8eaed" angle=45
         inactive-color "transparent"
     }
@@ -74,8 +74,10 @@ layout {
 
     tab-indicator {
       width 20
-      active-color "#ff9800"
+      active-color "#6e808c"
       inactive-color "#CDD6F4"
+      gaps-between-tabs 4
+      corner-radius 4
       place-within-column
     }
 }
