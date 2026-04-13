@@ -1,7 +1,7 @@
 /* Rofi configuration */
 
 configuration {
-    font: "JetBrainsMono Nerd Font 16";
+    font: "Adwaita Sans 14";
 
     /* Enable icons */
     show-icons: true;

@@ -24,7 +24,6 @@ input {
     }
 
     mouse {
-        left-handed
         accel-speed 0.3
         middle-emulation
     }
@@ -230,7 +229,7 @@ binds {
 
     // Application shortcuts (matching Gnome/Hyprland)
     Shift+Mod+D hotkey-overlay-title="Panneau d'applications (grille)" { spawn "~/nixos-config/bin/rofi-grid"; }
-    Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "fuzzel"; }
+    Ctrl+Space hotkey-overlay-title="Lanceur d'applications" { spawn "rofi" "-show" "drun"; }
     Mod+Space hotkey-overlay-title="Changer de disposition clavier" { spawn "niri" "msg" "action" "switch-layout" "next"; }
     Ctrl+Alt+Mod+V hotkey-overlay-title="Gestionnaire de presse-papier" { spawn "sh" "-c" "copyq --start-server show"; }
     Mod+E hotkey-overlay-title="Sélecteur d’émojis" { spawn "wofi-emoji"; }
