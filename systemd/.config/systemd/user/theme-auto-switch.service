@@ -6,6 +6,7 @@ Type=oneshot
 ExecStart=/home/pierre/nixos-config/bin/theme-auto-switch.sh
 Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_CURRENT_DESKTOP=niri
+Environment=PATH=/run/current-system/sw/bin:/usr/bin:/bin
 StandardOutput=journal
 StandardError=journal
 
