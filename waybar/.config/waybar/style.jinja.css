@@ -29,8 +29,7 @@ window#waybar {
   background: {{ window_background }};
   /* value going to template */
   color: @text_color;
-  border-top: 2px solid @border_color;
-  border-bottom: 2px solid @border_color;
+  border: 2px solid @border_color;
   border-radius: 8px;
 }
 
