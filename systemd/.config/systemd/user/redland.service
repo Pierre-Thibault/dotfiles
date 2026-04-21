@@ -6,10 +6,9 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/bin/sh -c '\
-  SUNRISE=$(sunwait list civil rise 45.9N 74.2W | cut -d" " -f1) && \
-  SUNSET=$(sunwait list civil set 45.9N 74.2W | cut -d" " -f1) && \
-  exec redland --sunrise "$SUNRISE" --sunset "$SUNSET" --low 2500'
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+ExecStart=/run/current-system/sw/bin/redland --lat=45.9 --lon=-74.2 --low=2250
 Restart=always
 RestartSec=5
 
