@@ -44,7 +44,9 @@ auto-signature-help = false
 display-messages = true
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control", "file-name"]
+left = ["mode", "spinner", "version-control", "file-name", "diagnostics", "workspace-diagnostics"]
+center = ["read-only-indicator", "file-modification-indicator", "file-type", "file-encoding"]
+right = ["primary-selection-length", "position", "total-line-numbers"]
 
 [keys.insert]
 C-p = "signature_help"  # Help on function signature
