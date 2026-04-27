@@ -8,6 +8,7 @@
 
   "modules-left": [
     "niri/workspaces",
+    "custom/close-window",
     "niri/window"
   ],
 
@@ -33,6 +34,12 @@
   "niri/workspaces": {
     "format": "{index}",
     "all-outputs": true
+  },
+
+  "custom/close-window": {
+    "format": "✕",
+    "on-click": "niri msg action close-window",
+    "tooltip": false
   },
 
   "niri/window": {

@@ -68,6 +68,19 @@ window#waybar.hidden {
   font-weight: bold;
 }
 
+/* Close window button */
+#custom-close-window {
+  padding: 0 10px;
+  border-right: 1px solid @border_color;
+}
+
+#custom-close-window:hover {
+  background-color: #cc241d;
+  color: #ffffff;
+  border-top: 2px solid @border_color;
+  border-bottom: 2px solid @border_color;
+}
+
 /* Window title */
 #window {
   padding: 0 15px;

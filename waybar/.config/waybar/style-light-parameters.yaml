@@ -16,7 +16,7 @@ temperature_color: "#dc2626"
 temperature_critical_color: "#dc2626"
 text_color: "#2e2e2e"
 tooltip_background_color: "#ffffff"
-window_background: rgba(255, 255, 255, 0.8)
+window_background: rgba(255, 255, 255, 0.9)
 
 input_file: style.jinja.css
 output_file: style-light.css
