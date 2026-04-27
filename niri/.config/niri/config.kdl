@@ -24,6 +24,7 @@ input {
     }
 
     mouse {
+        left-handed
         accel-speed 0.3
         middle-emulation
     }
@@ -180,6 +181,16 @@ window-rule {
     max-height 600
 }
 
+// ai-groq-ask dialogs
+window-rule {
+    match app-id="^yad$"
+    open-floating true
+    min-width 600
+    max-width 600
+    min-height 400
+    max-height 400
+}
+
 // Rounded corners for all windows
 window-rule {
     geometry-corner-radius 20
@@ -245,7 +256,7 @@ binds {
     Alt+Mod+X hotkey-overlay-title="Afficher X" { spawn "~/nixos-config/bin/show_x_niri"; }
     Alt+Mod+D hotkey-overlay-title="Dictionnaire" { spawn "~/nixos-config/bin/show_dictionary_niri"; }
     Alt+Mod+G hotkey-overlay-title="Recherche Grok" { spawn "~/nixos-config/bin/show_grok_niri"; }
-    Alt+Mod+W hotkey-overlay-title="Afficher/Masquer Waybar" { spawn "sh" "-c" "systemctl --user is-active --quiet waybar && systemctl --user stop waybar || systemctl --user start waybar"; }
+    Alt+Mod+W hotkey-overlay-title="Afficher/Masquer Waybar" { spawn "sh" "-c" "systemctl --user is-active --quiet waybar && pkill -SIGUSR1 waybar || systemctl --user start waybar"; }
     Shift+Alt+Mod+P hotkey-overlay-title="Taper courriel personnel" { spawn "~/nixos-config/secrets/bin/type_personal_email"; }
     Shift+Alt+Mod+D hotkey-overlay-title="Taper courriel professionnel" { spawn "~/nixos-config/secrets/bin/type_professional_email"; }
     Shift+Alt+Mod+T hotkey-overlay-title="Taper numéro de téléphone" { spawn "~/nixos-config/secrets/bin/type_phone"; }
@@ -260,10 +271,12 @@ binds {
 
     // Run or raise shortcuts
     Alt+Mod+F hotkey-overlay-title="Basculer vers Waterfox" { spawn "~/nixos-config/bin/run_or_raise_niri" "brave" "brave"; }
-    Alt+Mod+A hotkey-overlay-title="Basculer vers terminal" { spawn "~/nixos-config/bin/run_or_raise_niri" "ghostty" "ghostty"; }
+    Alt+Mod+T hotkey-overlay-title="Basculer vers terminal" { spawn "~/nixos-config/bin/run_or_raise_niri" "ghostty" "ghostty"; }
+    Alt+Mod+A hotkey-overlay-title="Sélecteur de workspace" { spawn "~/nixos-config/bin/niri-workspace-switch"; }
     Alt+Mod+O hotkey-overlay-title="Basculer vers Obsidian" { spawn "~/nixos-config/bin/run_or_raise_niri" "obsidian" "obsidian"; }
     Alt+Mod+V hotkey-overlay-title="Basculer vers VSCodium" { spawn "~/nixos-config/bin/run_or_raise_niri" "codium" "codium"; }
     Alt+Mod+Z hotkey-overlay-title="Basculer vers Nautilus" { spawn "~/nixos-config/bin/run_or_raise_niri" "nautilus" "nautilus"; }
+    Alt+Mod+Q hotkey-overlay-title="Envoyer la sélection à l'IA" { spawn "~/bin/ai-groq-ask"; }
 
     // System actions
     Mod+Escape hotkey-overlay-title="Menu de fermeture de session" { spawn "wlogout" "--buttons-per-row" "1"; }
