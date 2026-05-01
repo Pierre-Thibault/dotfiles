@@ -19,7 +19,7 @@
 
 
 * {
-  font-size: 20px;
+  font: 20px "Adwaita Sans";
   min-height: 0;
   color: @text_color;
 }
