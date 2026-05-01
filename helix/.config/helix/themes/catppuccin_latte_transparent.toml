@@ -1,7 +1,7 @@
 inherits = "catppuccin_latte"
 
 "ui.background" = {}
-"ui.cursorline.primary" = { bg = "#bbbbbb" }
+"ui.cursorline.primary" = { bg = "#dddddd" }
 
 # Primary selection (the main cursor's selection)
 "ui.selection" = { bg = "#f7b0bb" }
