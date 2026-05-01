@@ -145,10 +145,7 @@ formatter = { command = "zsh", args = ["-c", """
   ruff check --select I --fix - | ruff format -
   """] }
 auto-format = true
-language-servers = ["basedpyright", "ruff", "pylsp", "typos", "scls", "hx-lsp"]
-
-[language-server.pylsp.config.pylsp]
-plugins.rope_autoimport.enabled = true
+language-servers = ["basedpyright", "ruff", "typos", "scls", "hx-lsp"]
 
 [[language]]
 name = "racket"
@@ -183,7 +180,7 @@ inlayHints.typeHints.hideClosureInitialization = false
 command = "simple-completion-language-server"
 
 [language-server.scls.config]
-max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
+max_completion_items = 20            # set max completion results len for each group: words, snippets, unicode-input
 feature_words = true                 # enable completion by word
 feature_snippets = true              # enable snippets
 snippets_first = true                # completions will return before snippets by default
