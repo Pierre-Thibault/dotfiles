@@ -37,7 +37,7 @@
   },
 
   "custom/close-window": {
-    "format": "✕",
+    "format": "❌",
     "on-click": "niri msg action close-window",
     "tooltip": false
   },
