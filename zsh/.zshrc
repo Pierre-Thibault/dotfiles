@@ -165,9 +165,15 @@ yzx() {
 # YAZELIX END v4 - Yazelix managed configuration (do not modify this comment)
 
 
+# shellcheck source=/dev/null
+source ~/.fzf.zsh
+
+
 # Aider API keys
 TOGETHER_API_KEY="$(cat ~/secrets/together.ai)"
 export TOGETHER_API_KEY
+TOGETHERAI_API_KEY=$TOGETHER_API_KEY
+export TOGETHERAI_API_KEY
 GROQ_API_KEY="$(cat ~/secrets/groq)"
 export GROQ_API_KEY
 XAI_API_KEY="$(cat ~/secrets/grok)"
