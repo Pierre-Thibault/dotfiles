@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "~/.config/waybar/caffeine-toggle.sh disable && systemctl --user start hypridle.service && loginctl lock-session",
+    "action" : "~/.config/gtklock/lock.sh",
     "text" : "🔒 Verrouiller",
     "keybind" : "l"
 }
