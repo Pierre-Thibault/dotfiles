@@ -355,7 +355,7 @@ binds {
 
     // Screenshots
     Print hotkey-overlay-title="Capture de région" { spawn "~/nixos-config/bin/screenshot.sh" "--region"; }
-    Shift+Print hotkey-overlay-title="Capture d’écran complète" { spawn "~/nixos-config/bin/screenshot.sh" "--full"; }
+    Shift+Print hotkey-overlay-title="Capture d’écran complète" allow-when-locked=true { spawn "~/nixos-config/bin/screenshot.sh" "--full"; }
     Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "~/nixos-config/bin/screenshot.sh" "--region" "--edit"; }
     Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "~/nixos-config/bin/screenshot.sh" "--full" "--edit"; }
 

@@ -8,25 +8,19 @@ PID_FILE="$HOME/.cache/caffeine-pid"
 
 disable() {
     if [ -f "$STATE_FILE" ]; then
-        # Kill inhibitor
+        # Kill Wayland idle inhibitor
         if [ -f "$PID_FILE" ]; then
             kill "$(cat "$PID_FILE")" 2>/dev/null
             rm -f "$PID_FILE"
         fi
         rm -f "$STATE_FILE"
-
-        # Restart hypridle via systemd
-        systemctl --user start hypridle.service
     fi
 }
 
 enable() {
     if [ ! -f "$STATE_FILE" ]; then
-        # Stop hypridle via systemd
-        systemctl --user stop hypridle.service
-
-        # Create systemd inhibition
-        systemd-inhibit --what=idle:sleep --who="caffeine" --why="User manually disabled idle" sleep infinity &
+        # Hold Wayland idle inhibitor — hypridle stays running but its timeouts are blocked
+        wlinhibit &
         echo $! > "$PID_FILE"
         touch "$STATE_FILE"
     fi
