@@ -27,5 +27,37 @@
   "transition-time": 200,
   "hide-on-clear": false,
   "hide-on-action": true,
-  "script-fail-notify": true
+  "script-fail-notify": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "mpris",
+    "volume",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Centre de contrôle",
+      "clear-all-button": true,
+      "button-text": "Tout effacer"
+    },
+    "dnd": {
+      "text": "Ne pas déranger"
+    },
+    "mpris": {
+      "show-album-art": "when-available",
+      "autohide": true,
+      "loop-carousel": true
+    },
+    "volume": {
+      "label": "🔊",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true,
+      "expand-per-app": false
+    },
+    "notifications": {
+      "vexpand": true
+    }
+  }
 }
