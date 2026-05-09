@@ -7,6 +7,7 @@
   "margin-right": 20,
 
   "modules-left": [
+    "custom/nix-logo",
     "niri/workspaces",
     "custom/close-window",
     "niri/window"
@@ -30,6 +31,12 @@
     "custom/notifications",
     "custom/power"
   ],
+
+  "custom/nix-logo": {
+    "format": " 󱄅 ",
+    "on-click": "~/.config/waybar/neofetch-toggle.sh",
+    "tooltip": false
+  },
 
   "niri/workspaces": {
     "format": "{index}",

@@ -24,7 +24,6 @@ input {
     }
 
     mouse {
-        left-handed
         accel-speed 0.3
         middle-emulation
     }
@@ -191,6 +190,15 @@ window-rule {
     max-height 400
 }
 
+// Neofetch popup
+window-rule {
+    match title="neofetch"
+    open-floating true
+    default-floating-position x=20 y=50 relative-to="top-left"
+    min-width 800
+    min-height 600
+}
+
 // Rounded corners for all windows
 window-rule {
     geometry-corner-radius 20
@@ -355,7 +363,7 @@ binds {
 
     // Screenshots
     Print hotkey-overlay-title="Capture de région" { spawn "~/nixos-config/bin/screenshot.sh" "--region"; }
-    Shift+Print hotkey-overlay-title="Capture d’écran complète" allow-when-locked=true { spawn "~/nixos-config/bin/screenshot.sh" "--full"; }
+    Shift+Print hotkey-overlay-title="Capture d’écran complète" { spawn "~/nixos-config/bin/screenshot.sh" "--full"; }
     Ctrl+Print hotkey-overlay-title="Capture de région (éditeur)" { spawn "~/nixos-config/bin/screenshot.sh" "--region" "--edit"; }
     Ctrl+Shift+Print hotkey-overlay-title="Capture complète (éditeur)" { spawn "~/nixos-config/bin/screenshot.sh" "--full" "--edit"; }
 
