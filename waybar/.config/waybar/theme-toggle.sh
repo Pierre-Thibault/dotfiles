@@ -51,6 +51,9 @@ apply_light() {
         "$HOME/nixos-config/bin/set-light-theme" 2>/dev/null || true
     fi
 
+    # Disable gnome-pomodoro dark-theme plugin
+    dconf write /org/gnome/pomodoro/preferences/enabled-plugins "['sounds']" 2>/dev/null || true
+
     # Emit D-Bus signal for apps listening to theme changes
     emit_theme_change 0
 
@@ -73,6 +76,9 @@ apply_dark() {
     if [ -x "$HOME/nixos-config/bin/set-dark-theme" ]; then
         "$HOME/nixos-config/bin/set-dark-theme" 2>/dev/null || true
     fi
+
+    # Enable gnome-pomodoro dark-theme plugin
+    dconf write /org/gnome/pomodoro/preferences/enabled-plugins "['sounds', 'dark-theme']" 2>/dev/null || true
 
     # Emit D-Bus signal for apps listening to theme changes
     emit_theme_change 1
