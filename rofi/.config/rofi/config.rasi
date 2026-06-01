@@ -2,6 +2,7 @@
 
 configuration {
     font: "Adwaita Sans 14";
+    run-command: "bash -c '{cmd}'";
 
     /* Enable icons */
     show-icons: true;
