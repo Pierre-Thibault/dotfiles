@@ -8,7 +8,7 @@ get_prop() {
 STATE=$(get_prop State)
 
 if [ -z "$STATE" ] || [ "$STATE" = "null" ]; then
-    echo '{"text": " 🍅", "tooltip": "gnome-pomodoro inactif"}'
+    echo '{"text": "🍅", "tooltip": "gnome-pomodoro inactif"}'
     exit 0
 fi
 
@@ -29,4 +29,4 @@ esac
 
 [ "$PAUSED" = "true" ] && ICON="⏸ $ICON"
 
-printf '{"text": " %s %d:%s", "tooltip": "%s"}\n' "$ICON" "$M" "$S" "$STATE"
+printf '{"text": "%s %d:%s", "tooltip": "%s"}\n' "$ICON" "$M" "$S" "$STATE"
