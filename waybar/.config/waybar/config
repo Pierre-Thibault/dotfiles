@@ -25,6 +25,7 @@
     "custom/weather",
     "custom/theme-toggle",
     "custom/caffeine",
+    "custom/pomodoro",
     "pulseaudio",
     "custom/mouse-handedness",
     "custom/keyboard-layout",
@@ -137,6 +138,14 @@
     "format": " {}",
     "on-click": "gnome-calendar",
     "tooltip": false
+  },
+
+  "custom/pomodoro": {
+    "exec": "~/.config/waybar/pomodoro.sh",
+    "interval": 5,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "~/.config/waybar/pomodoro-toggle.sh"
   },
 
   "custom/caffeine": {
