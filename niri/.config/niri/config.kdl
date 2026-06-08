@@ -24,6 +24,7 @@ input {
     }
 
     mouse {
+        left-handed
         accel-speed 0.3
         middle-emulation
     }
@@ -183,6 +184,16 @@ window-rule {
 // ai-groq-ask dialogs
 window-rule {
     match app-id="^yad$"
+    open-floating true
+    min-width 600
+    max-width 600
+    min-height 400
+    max-height 400
+}
+
+// rofi-run-exec output window
+window-rule {
+    match app-id="^rofi-output$"
     open-floating true
     min-width 600
     max-width 600
