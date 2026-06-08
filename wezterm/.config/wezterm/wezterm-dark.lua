@@ -1,21 +1,18 @@
--- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Mocha'
 config.colors = {
-    cursor_bg = "#f38ba8", -- Matches Catppuccin mocha.red
-    cursor_fg = "#ffffff", -- White text for readability
-    cursor_border = "#f38ba8", -- Same as cursor_bg
+    cursor_bg = "#f38ba8",
+    cursor_fg = "#ffffff",
+    cursor_border = "#f38ba8",
+
     foreground = "#DDDDDD",
+
     background = "#1e1e2e",
-  }
-config.font_size = 10
+}
+config.font_size = 12
 
 config.enable_wayland = false
 config.front_end = "WebGpu"
@@ -26,10 +23,10 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_background_opacity = 0.9
 
 config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
+  left = 5,
+  right = 5,
+  top = 5,
+  bottom = 5,
 }
 
 wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
@@ -47,8 +44,6 @@ wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
 end)
 
 config.mouse_bindings = {
-    -- Change the default click behavior so that it populates
-    -- the Clipboard rather the PrimarySelection.
     {
       event = { Up = { streak = 1, button = 'Left' } },
       mods = 'NONE',
@@ -64,6 +59,4 @@ config.mouse_bindings = {
     },
 }
 
--- and finally, return the configuration to wezterm
 return config
-

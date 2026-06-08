@@ -2,13 +2,15 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.color_scheme = 'Catppuccin Latte'
+config.color_scheme = '{{ color_scheme }}'
 config.colors = {
-    cursor_bg = "#f38ba8",
-    cursor_fg = "#ffffff",
-    cursor_border = "#f38ba8",
-
-    background = "white",
+    cursor_bg = "{{ cursor_bg }}",
+    cursor_fg = "{{ cursor_fg }}",
+    cursor_border = "{{ cursor_border }}",
+{% if foreground %}
+    foreground = "{{ foreground }}",
+{% endif %}
+    background = "{{ background }}",
 }
 config.font_size = 12
 

@@ -1,0 +1,9 @@
+color_scheme: "Catppuccin Latte"
+cursor_bg: "#f38ba8"
+cursor_fg: "#ffffff"
+cursor_border: "#f38ba8"
+foreground: ""
+background: "white"
+
+input_file: wezterm.jinja.lua
+output_file: wezterm-light.lua

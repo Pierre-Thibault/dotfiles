@@ -1,0 +1,9 @@
+color_scheme: "Catppuccin Mocha"
+cursor_bg: "#f38ba8"
+cursor_fg: "#ffffff"
+cursor_border: "#f38ba8"
+foreground: "#DDDDDD"
+background: "#1e1e2e"
+
+input_file: wezterm.jinja.lua
+output_file: wezterm-dark.lua
