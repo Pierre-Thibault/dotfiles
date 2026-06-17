@@ -35,7 +35,7 @@
 
   "custom/nix-logo": {
     "format": " 󱄅 ",
-    "on-click": "~/.config/waybar/neofetch-toggle.sh",
+    "on-click": "~/.config/waybar/fastfetch-toggle.sh",
     "tooltip": false
   },
 

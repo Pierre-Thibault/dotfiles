@@ -201,9 +201,9 @@ window-rule {
     max-height 400
 }
 
-// Neofetch popup
+// fastfetch popup
 window-rule {
-    match title="neofetch"
+    match title="fastfetch"
     open-floating true
     default-floating-position x=20 y=50 relative-to="top-left"
     min-width 800
