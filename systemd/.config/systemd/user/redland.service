@@ -8,7 +8,7 @@ After=graphical-session.target
 Type=simple
 Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_RUNTIME_DIR=/run/user/1000
-ExecStart=/run/current-system/sw/bin/redland --lat=45.9 --lon=-74.2 --low=2250
+ExecStart=%h/.config/systemd/user/redland-wrapper.sh
 Restart=always
 RestartSec=5
 

@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-# Weather script for Waybar - St-Sauveur, Québec
+# Weather script for Waybar
 # Uses Open-Meteo API (free, no API key required)
 
-LAT="45.8943"
-LON="-74.1581"
+COORDS=$(get-location)
+LAT=$(echo "$COORDS" | cut -d' ' -f1)
+LON=$(echo "$COORDS" | cut -d' ' -f2)
 CACHE_FILE="/tmp/waybar_weather_cache"
 CACHE_DURATION=1800  # 30 minutes in seconds
 
