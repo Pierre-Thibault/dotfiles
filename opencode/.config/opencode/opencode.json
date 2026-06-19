@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "~/.config/opencode/AGENTS.md"
+  ],
+  "permission": {
+    "read": {
+      "~/secrets/**": "deny"
+    },
+    "edit": {
+      "~/secrets/**": "deny"
+    },
+    "list": {
+      "~/secrets/**": "deny"
+    }
+  },
+"mcp": {
+    "agenda": {
+      "type": "local",
+      "command": ["/home/pierre/bin/agenda-mcp"]
+    }
+  },
+  "agent": {
+    "quick-helper": {
+      "mode": "primary",
+      "model": "302ai/MiniMax-M2.7",
+      "description": "Handles syntax questions and simple code tasks",
+      "temperature": 0.1
+    },
+    "gpt-oss": {
+      "mode": "primary",
+      "model": "groq/openai/gpt-oss-120b",
+      "description": "GPT OSS 120B on Groq with medium reasoning effort"
+    }
+  },
+  "provider": {
+    "groq": {
+      "models": {
+        "openai/gpt-oss-120b": {
+          "options": {
+            "temperature": 1,
+            "max_completion_tokens": 8192,
+            "top_p": 1,
+            "stream": true,
+            "reasoning_effort": "medium",
+            "stop": null
+          }
+        }
+      }
+    }
+  }
+}
