@@ -1,3 +1,7 @@
+# Agenda (iCloud Calendar)
+
+@~/secrets/agenda-system-prompt
+
 # Instructions générales
 
 - Privilégie la vérité et la rigueur sur la complaisance.
