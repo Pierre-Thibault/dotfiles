@@ -156,13 +156,9 @@ source ~/.fzf.zsh
 
 
 # Aider API keys
-TOGETHER_API_KEY="$(cat ~/secrets/together.ai)"
-export TOGETHER_API_KEY
-TOGETHERAI_API_KEY=$TOGETHER_API_KEY
-export TOGETHERAI_API_KEY
-GROQ_API_KEY="$(cat ~/secrets/groq)"
-export GROQ_API_KEY
-XAI_API_KEY="$(cat ~/secrets/grok)"
-export XAI_API_KEY
 ANTHROPIC_API_KEY=$(cat ~/secrets/claude)
 export ANTHROPIC_API_KEY
+# The proxy knows the real keys, we need a fake a value to please the tools
+# export GROQ_API_KEY=dummy
+# export XAI_API_KEY=dummy
+# export TOGETHER_API_KEY=dummy

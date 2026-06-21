@@ -33,8 +33,14 @@
       "description": "GPT OSS 120B on Groq with medium reasoning effort"
     }
   },
-  "enabled_providers": ["groq", "togetherai", "xai"],
+  "enabled_providers": ["openai", "groq", "togetherai", "xai"],
   "provider": {
+    "openai": {
+      "options": {
+        "baseURL": "http://openai.proxy:4140/v1",
+        "apiKey": "proxy"
+      }
+    },
     "groq": {
       "options": {
         "baseURL": "http://groq.proxy:4140/openai/v1",

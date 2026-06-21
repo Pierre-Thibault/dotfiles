@@ -281,15 +281,13 @@ binds {
     Shift+Alt+Mod+T hotkey-overlay-title="Taper numéro de téléphone" { spawn "~/nixos-config/secrets/bin/type_phone"; }
     Shift+Alt+Mod+C hotkey-overlay-title="Taper code postal" { spawn "~/nixos-config/secrets/bin/type_postal_code"; }
     Shift+Alt+Mod+O hotkey-overlay-title="Taper les propriétés d'un to-do" { spawn "~/nixos-config/secrets/bin/type_todo_properties"; }
-    Shift+Alt+Mod+F hotkey-overlay-title="Brave profil par defaut" { spawn "brave" "--profile-directory=Profile 1" "--new-window"; }
-    Shift+Alt+Mod+G hotkey-overlay-title="Brave profil par defaut" { spawn "brave" "--profile-directory=Profile 2" "--new-window"; }
     Ctrl+Alt+Mod+D hotkey-overlay-title="Taper la date" { spawn "~/nixos-config/bin/type_date"; }
     Ctrl+Alt+Mod+T hotkey-overlay-title="Taper l'heure" { spawn "~/nixos-config/bin/type_time"; }
     Ctrl+Alt+Mod+X hotkey-overlay-title="Taper le contenu du presse-papiers" { spawn "~/nixos-config/bin/type_clipboard"; }
 
 
     // Run or raise shortcuts
-    Alt+Mod+F hotkey-overlay-title="Basculer vers Waterfox" { spawn "~/nixos-config/bin/run_or_raise_niri" "brave" "brave"; }
+    Alt+Mod+F hotkey-overlay-title="Basculer vers Vivaldi" { spawn "~/nixos-config/bin/run_or_raise_niri" "vivaldi" "vivaldi"; }
     Alt+Mod+T hotkey-overlay-title="Basculer vers terminal" { spawn "~/nixos-config/bin/run_or_raise_niri" "ghostty" "ghostty"; }
     Alt+Mod+A hotkey-overlay-title="Sélecteur de workspace" { spawn "~/nixos-config/bin/niri-workspace-switch"; }
     Alt+Mod+O hotkey-overlay-title="Basculer vers Obsidian" { spawn "~/nixos-config/bin/run_or_raise_niri" "obsidian" "obsidian"; }
