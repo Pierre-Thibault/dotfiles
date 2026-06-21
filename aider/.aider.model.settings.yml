@@ -1,0 +1,42 @@
+# Override max_tokens and route through local API proxy for all providers
+- name: together_ai/MiniMaxAI/MiniMax-M2.5
+  extra_params:
+    api_base: http://togetherai.proxy:4140
+    api_key: proxy
+    max_tokens: 16384
+
+- name: together_ai/deepseek-ai/DeepSeek-V3
+  extra_params:
+    api_base: http://togetherai.proxy:4140
+    api_key: proxy
+    max_tokens: 16384
+
+- name: together_ai/meta-llama/Llama-3.3-70B-Instruct-Turbo
+  extra_params:
+    api_base: http://togetherai.proxy:4140
+    api_key: proxy
+    max_tokens: 16384
+
+- name: groq/llama-3.3-70b-versatile
+  extra_params:
+    api_base: http://groq.proxy:4140/openai/v1
+    api_key: proxy
+    max_tokens: 8192
+
+- name: groq/meta-llama/llama-4-maverick-17b-128e-instruct
+  extra_params:
+    api_base: http://groq.proxy:4140/openai/v1
+    api_key: proxy
+    max_tokens: 16384
+
+- name: groq/qwen/qwen3-32b
+  extra_params:
+    api_base: http://groq.proxy:4140/openai/v1
+    api_key: proxy
+    max_tokens: 16384
+
+- name: groq/moonshotai/kimi-k2-instruct-0905
+  extra_params:
+    api_base: http://groq.proxy:4140/openai/v1
+    api_key: proxy
+    max_tokens: 16384

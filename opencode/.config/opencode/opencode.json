@@ -23,7 +23,7 @@
   "agent": {
     "quick-helper": {
       "mode": "primary",
-      "model": "302ai/MiniMax-M2.7",
+      "model": "groq/openai/gpt-oss-120b",
       "description": "Handles syntax questions and simple code tasks",
       "temperature": 0.1
     },
@@ -33,8 +33,13 @@
       "description": "GPT OSS 120B on Groq with medium reasoning effort"
     }
   },
+  "enabled_providers": ["groq", "togetherai", "xai"],
   "provider": {
     "groq": {
+      "options": {
+        "baseURL": "http://groq.proxy:4140/openai/v1",
+        "apiKey": "proxy"
+      },
       "models": {
         "openai/gpt-oss-120b": {
           "options": {
@@ -44,8 +49,21 @@
             "stream": true,
             "reasoning_effort": "medium",
             "stop": null
-          }
+          },
+          "variant": "default"
         }
+      }
+    },
+    "togetherai": {
+      "options": {
+        "baseURL": "http://togetherai.proxy:4140",
+        "apiKey": "proxy"
+      }
+    },
+    "xai": {
+      "options": {
+        "baseURL": "http://xai.proxy:4140/v1",
+        "apiKey": "proxy"
       }
     }
   }
