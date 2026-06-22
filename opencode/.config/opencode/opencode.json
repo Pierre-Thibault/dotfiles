@@ -12,7 +12,11 @@
     },
     "list": {
       "~/secrets/**": "deny"
-    }
+    },
+    "bash": {
+      "**": "ask"
+    },
+    "task": "ask"
   },
 "mcp": {
     "agenda": {
