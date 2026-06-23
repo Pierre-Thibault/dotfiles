@@ -1,7 +1,3 @@
-# Agenda (iCloud Calendar)
-
-@~/secrets/agenda-system-prompt
-
 # Configuration changes
 
 - ALWAYS ask for confirmation before making changes to config files.
