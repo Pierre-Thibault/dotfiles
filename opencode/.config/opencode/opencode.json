@@ -6,13 +6,16 @@
   ],
   "permission": {
     "read": {
-      "~/secrets/**": "deny"
+      "~/secrets/**": "deny",
+      "/run/secrets/**": "deny"
     },
     "edit": {
-      "~/secrets/**": "deny"
+      "~/secrets/**": "deny",
+      "/run/secrets/**": "deny"
     },
     "list": {
-      "~/secrets/**": "deny"
+      "~/secrets/**": "deny",
+      "/run/secrets/**": "deny"
     },
     "bash": {
       "**": "ask"

@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(/run/secrets/**)",
+      "Edit(/run/secrets/**)",
+      "Bash(git reset --hard*)",
+      "Bash(git checkout -- *)",
+      "Bash(git checkout .*)",
+      "Bash(git restore *)",
+      "Bash(git clean -f*)",
+      "Bash(git push --force*)",
+      "Bash(git push * --force*)"
+    ]
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "andrej-karpathy-skills@karpathy-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    }
+  },
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "theme": "auto",
+  "voiceEnabled": true
+}

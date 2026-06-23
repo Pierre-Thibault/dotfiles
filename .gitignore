@@ -20,8 +20,9 @@ systemd/.config/systemd/user/graphical-session.target.wants/gammastep.service
 # Ignore everything in .claude/
 /claude/.claude/*
 
-# But keep CLAUDE.md
+# But keep CLAUDE.md and settings
 !/claude/.claude/CLAUDE.md
+!/claude/.claude/settings.json
 
 # Ignore sensitive opencode files
 /opencode/.config/opencode/*
