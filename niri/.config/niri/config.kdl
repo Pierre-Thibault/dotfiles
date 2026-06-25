@@ -292,7 +292,7 @@ binds {
     Alt+Mod+A hotkey-overlay-title="Sélecteur de workspace" { spawn "~/nixos-config/bin/niri-workspace-switch"; }
     Alt+Mod+O hotkey-overlay-title="Basculer vers Obsidian" { spawn "~/nixos-config/bin/run_or_raise_niri" "obsidian" "obsidian"; }
     Alt+Mod+V hotkey-overlay-title="Basculer vers VSCodium" { spawn "~/nixos-config/bin/run_or_raise_niri" "codium" "codium"; }
-    Alt+Mod+Z hotkey-overlay-title="Basculer vers Nautilus" { spawn "~/nixos-config/bin/run_or_raise_niri" "nautilus" "nautilus"; }
+    Alt+Mod+Z hotkey-overlay-title="Basculer vers Nautilus" { spawn "~/nixos-config/bin/run_or_raise_niri" "org.gnome.Nautilus" "nautilus" "nautilus --new-window"; }
     Alt+Mod+Q hotkey-overlay-title="Envoyer la sélection à l'IA" { spawn "~/bin/ai-groq-ask"; }
 
     // System actions
