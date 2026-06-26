@@ -154,11 +154,4 @@ bindkey '^X' atuin-search  # Ctrl+X
 # shellcheck source=/dev/null
 source ~/.fzf.zsh
 
-
-# Aider API keys
-ANTHROPIC_API_KEY=$(cat ~/secrets/claude)
-export ANTHROPIC_API_KEY
-# The proxy knows the real keys, we need a fake a value to please the tools
-# export GROQ_API_KEY=dummy
-# export XAI_API_KEY=dummy
-# export TOGETHER_API_KEY=dummy
+alias gthumb="gthumb-launch"
