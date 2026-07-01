@@ -3,28 +3,28 @@ command = "typos-lsp"
 
 [[language]]
 name = "bash"
-language-servers = [ "bash-language-server", "typos", "scls", "hx-lsp" ]
+language-servers = [ "bash-language-server", {{ common_servers | map("tojson") | join(", ") }} ]
 shebangs = [ "bash" ]
 
 [[language]]
 name = "css"
-language-servers = [ "vscode-css-language-server", "typos", "scls", "hx-lsp" ]
+language-servers = [ "vscode-css-language-server", {{ common_servers | map("tojson") | join(", ") }} ]
 
 [[language]]
 name = "elixir"
-language-servers = ["nextls", "typos", "scls", "hx-lsp"]
+language-servers = ["nextls", {{ common_servers | map("tojson") | join(", ") }}]
 formatter = { command = "mix", args = ["format", "-"] }
 
 [[language]]
 name = "git-commit"
-language-servers = [ "typos", "scls", "hx-lsp" ]
+language-servers = [ {{ common_servers | map("tojson") | join(", ") }} ]
 
 [[language]]
 name = "gleam"
 formatter = { command = "gleam", args = ["format", "--stdin"] }
 scope = "source.gleam"
 file-types = ["gleam"]
-language-servers = ["gleam", "typos", "scls", "hx-lsp"]
+language-servers = ["gleam", {{ common_servers | map("tojson") | join(", ") }}]
 auto-format = true
 
 [[language]]
@@ -34,7 +34,7 @@ scope = "source.go"
 injection-regex = "go"
 file-types = ["go"]
 roots = ["Gopkg.toml", "go.mod"]
-language-servers = [ "gopls", "typos", "scls", "hx-lsp" ]
+language-servers = [ "gopls", {{ common_servers | map("tojson") | join(", ") }} ]
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
@@ -44,7 +44,7 @@ file-types = ["groovy", "gvy", "gy", "gsh", "gradle", "jenkinsfile"]
 roots = ["flake.nix", "build.gradle", "build.gradle.kts"]
 indent = { tab-width = 4, unit = "    " }
 auto-format = true
-language-servers = ["groovy-language-server", "typos", "scls", "hx-lsp"]
+language-servers = ["groovy-language-server", {{ common_servers | map("tojson") | join(", ") }}]
 
 [language-server.nextls]
 command = "nextls"
@@ -56,7 +56,7 @@ args = ["-jar", "~/lib/java/groovy-language-server-all.jar"]
 
 [[language]]
 name = "html"
-language-servers = [ "vscode-html-language-server", "typos", "scls", "hx-lsp" ]
+language-servers = [ "vscode-html-language-server", {{ common_servers | map("tojson") | join(", ") }} ]
 
 [[language]]
 name = "htmldjango"
@@ -66,7 +66,7 @@ file-types = [{ glob = "**/templates/*.html" }]
 roots = []
 auto-format = true
 formatter = { command = "djlint", args = ["-", "--reformat", "--quiet"] }
-language-servers = ["typos", "scls", "hx-lsp"]
+language-servers = [{{ common_servers | map("tojson") | join(", ") }}]
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
@@ -78,12 +78,12 @@ command = "hx-lsp"
 
 [[language]]
 name = "javascript"
-language-servers = [ "typescript-language-server", "typos", "scls", "hx-lsp" ]
+language-servers = [ "typescript-language-server", {{ common_servers | map("tojson") | join(", ") }} ]
 auto-format = true
 
 [[language]]
 name = "json"
-language-servers = [ "vscode-json-language-server", "typos", "scls", "hx-lsp" ]
+language-servers = [ "vscode-json-language-server", {{ common_servers | map("tojson") | join(", ") }} ]
 
 [[language]]
 name = "kotlin"
@@ -92,7 +92,7 @@ injection-regex = "kotlin"
 file-types = ["kt", "kts"]
 roots = ["settings.gradle", "settings.gradle.kts", "build.gradle.kts"]
 indent = { tab-width = 4, unit = "    " }
-language-servers = ["kotlin-language-server", "typos", "scls", "hx-lsp"]
+language-servers = ["kotlin-language-server", {{ common_servers | map("tojson") | join(", ") }}]
 formatter = { command = "ktlint", args = ["--format", "--stdin"] }
 auto-format = true
 
@@ -101,12 +101,12 @@ command = "kotlin-language-server"
 
 [[language]]
 name = "markdown"
-language-servers = [ "marksman", "typos", "scls", "hx-lsp" ]
+language-servers = [ "marksman", {{ common_servers | map("tojson") | join(", ") }} ]
 
 [[language]]
 name = "nix"
 formatter = { command = 'nixfmt' }
-language-servers = [ "nixd", "typos", "scls", "hx-lsp" ]
+language-servers = [ "nixd", {{ common_servers | map("tojson") | join(", ") }} ]
 auto-format = true
 
 [language-server.nixd]
@@ -145,13 +145,13 @@ formatter = { command = "zsh", args = ["-c", """
   ruff check --select I --fix - | ruff format -
   """] }
 auto-format = true
-language-servers = ["basedpyright", "ruff", "typos", "scls", "hx-lsp"]
+language-servers = ["basedpyright", "ruff", {{ common_servers | map("tojson") | join(", ") }}]
 
 [[language]]
 name = "racket"
 formatter = { command = "raco", args = ["fmt"] }
 auto-format = true
-language-servers = [ "typos", "scls", "hx-lsp" ]
+language-servers = [ {{ common_servers | map("tojson") | join(", ") }} ]
 
 # Rust
 
@@ -159,7 +159,7 @@ language-servers = [ "typos", "scls", "hx-lsp" ]
 name = "rust"
 auto-format = true
 formatter = { command = "rustfmt" }
-language-servers = [ "rust-analyzer", "typos", "scls", "hx-lsp" ]
+language-servers = [ "rust-analyzer", {{ common_servers | map("tojson") | join(", ") }} ]
 roots = ["Cargo.toml", "Cargo.lock"]
 
 [language-server.rust-analyzer]
@@ -197,14 +197,14 @@ LOG_FILE = "/tmp/completion.log"
 
 [[language]]
 name = "toml"
-language-servers = [ "taplo", "typos", "scls", "hx-lsp" ]
+language-servers = [ "taplo", {{ common_servers | map("tojson") | join(", ") }} ]
 
 [[language]]
 name = "typescript"
 shebangs = ["deno"]
 roots = ["deno.json", "deno.jsonc", "package.json"]
 auto-format = true
-language-servers = [ "vscode-eslint-language-server", "typos", "scls", "hx-lsp", "deno", "deno-lsp" ]
+language-servers = [ "vscode-eslint-language-server", {{ common_servers | map("tojson") | join(", ") }}, "deno", "deno-lsp" ]
 formatter = { command = "deno", args = ["fmt", "-"] }
 
 [language-server.deno-lsp]
@@ -226,7 +226,7 @@ inlayHints.enumMemberValues.enabled = true
 name = "text"
 scope = "text.plain"
 file-types = ["txt", "text"]
-language-servers = [ "typos", "scls", "hx-lsp" ]
+language-servers = [ {{ common_servers | map("tojson") | join(", ") }} ]
 
 # introduce a new language to enable completion on any doc by forcing set language with :set-language stub
 [[language]]
@@ -236,4 +236,4 @@ file-types = []
 shebangs = []
 roots = []
 auto-format = false
-language-servers = [ "typos", "scls", "hx-lsp" ]
+language-servers = [ {{ common_servers | map("tojson") | join(", ") }} ]

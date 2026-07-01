@@ -1,0 +1,7 @@
+common_servers:
+  - typos
+  - scls
+  - hx-lsp
+
+input_file: languages.jinja.toml
+output_file: languages.toml
