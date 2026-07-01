@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
+find_hwmon() {
+    for dir in /sys/class/hwmon/hwmon*/; do
+        [ "$(cat "${dir}name" 2>/dev/null)" = "$1" ] && echo "$dir" && return
+    done
+}
+
 read_temp() {
     local raw
-    raw=$(cat "$1" 2>/dev/null) || return
+    raw=$(cat "${1}temp1_input" 2>/dev/null) || return
     echo $(( raw / 1000 ))
 }
 
-cpu=$(read_temp /sys/class/hwmon/hwmon1/temp1_input)
-gpu=$(read_temp /sys/class/hwmon/hwmon3/temp1_input)
-nvme=$(read_temp /sys/class/hwmon/hwmon0/temp1_input)
-wifi=$(read_temp /sys/class/hwmon/hwmon2/temp1_input)
+cpu=$(read_temp "$(find_hwmon k10temp)")
+gpu=$(read_temp "$(find_hwmon amdgpu)")
+nvme=$(read_temp "$(find_hwmon nvme)")
+wifi=$(read_temp "$(find_hwmon iwlwifi_1)")
 
 text=" 󰍛 🌡️ ${cpu}°C"
 tooltip="CPU:  ${cpu}°C\nGPU:  ${gpu}°C\nNVMe: ${nvme}°C\nWiFi: ${wifi}°C"
