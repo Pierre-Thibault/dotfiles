@@ -9,3 +9,12 @@ inherits = "catppuccin_latte"
 # Secondary selections (when tu as plusi88rs curseurs)
 "ui.selection.primary" = { bg = "#f7b0bb" }
 
+rainbow = [
+  "#d20f39", # red
+  "#fe640b", # peach
+  "#df8e1d", # yellow
+  "#40a02b", # green
+  "#179299", # teal
+  "#1e66f5", # blue
+  "#8839ef", # mauve
+]

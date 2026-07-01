@@ -15,6 +15,7 @@ auto-completion = false
 popup-border = "all"
 # Minimum severity to show a diagnostic after the end of a line
 end-of-line-diagnostics = "hint"
+rainbow-brackets = true
 
 [editor.auto-pairs]
 '(' = ')'
@@ -78,7 +79,7 @@ c = "change_selection_noyank"
 Y = "yank_main_selection_to_clipboard"
 # Yazelix sidebar integration - reveal current file in Yazi sidebar
 A-y = ":sh nu ~/.config/yazelix/nushell/scripts/integrations/reveal_in_yazi.nu \"%{buffer_name}\""
-
+A-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 
 [keys.select]
 C-right = "move_next_word_start"
