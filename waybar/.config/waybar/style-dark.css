@@ -9,7 +9,9 @@
 @define-color memory_color #66b3ff;
 @define-color memory_warning_color #ff9500;
 @define-color memory_critical_color #ff6b6b;
-@define-color temperature_color #ff8c66;
+@define-color temperature_cool_color #4ade80;
+@define-color temperature_normal_color #fbbf24;
+@define-color temperature_warm_color #fb923c;
 @define-color temperature_critical_color #ff6b6b;
 @define-color pulse_audio_muted_color #555555;
 @define-color power_color #ff6b6b;
@@ -107,7 +109,7 @@ window#waybar.hidden {
 #tray,
 #cpu,
 #memory,
-#temperature,
+#custom-temperature,
 #custom-weather,
 #custom-theme-toggle,
 #custom-caffeine,
@@ -201,11 +203,19 @@ window#waybar.hidden {
 }
 
 /* Temperature */
-#temperature {
-  color: @temperature_color;
+#custom-temperature.cool {
+  color: @temperature_cool_color;
 }
 
-#temperature.critical {
+#custom-temperature.normal {
+  color: @temperature_normal_color;
+}
+
+#custom-temperature.warm {
+  color: @temperature_warm_color;
+}
+
+#custom-temperature.critical {
   color: @temperature_critical_color;
   animation: blink 1s infinite;
 }

@@ -9,7 +9,9 @@
 @define-color memory_color {{ memory_color }};
 @define-color memory_warning_color {{ memory_warning_color }};
 @define-color memory_critical_color {{ memory_critical_color }};
-@define-color temperature_color {{ temperature_color }};
+@define-color temperature_cool_color {{ temperature_cool_color }};
+@define-color temperature_normal_color {{ temperature_normal_color }};
+@define-color temperature_warm_color {{ temperature_warm_color }};
 @define-color temperature_critical_color {{ temperature_critical_color }};
 @define-color pulse_audio_muted_color {{ pulse_audio_muted_color }};
 @define-color power_color {{ power_color }};
@@ -107,7 +109,7 @@ window#waybar.hidden {
 #tray,
 #cpu,
 #memory,
-#temperature,
+#custom-temperature,
 #custom-weather,
 #custom-theme-toggle,
 #custom-caffeine,
@@ -201,11 +203,19 @@ window#waybar.hidden {
 }
 
 /* Temperature */
-#temperature {
-  color: @temperature_color;
+#custom-temperature.cool {
+  color: @temperature_cool_color;
 }
 
-#temperature.critical {
+#custom-temperature.normal {
+  color: @temperature_normal_color;
+}
+
+#custom-temperature.warm {
+  color: @temperature_warm_color;
+}
+
+#custom-temperature.critical {
   color: @temperature_critical_color;
   animation: blink 1s infinite;
 }

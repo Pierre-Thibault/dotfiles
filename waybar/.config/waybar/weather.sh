@@ -3,20 +3,9 @@
 # Weather script for Waybar
 # Uses Open-Meteo API (free, no API key required)
 
-COORDS=$(get-location)
+COORDS=$(/home/pierre/nixos-config/bin/get-location)
 LAT=$(echo "$COORDS" | cut -d' ' -f1)
 LON=$(echo "$COORDS" | cut -d' ' -f2)
-CACHE_FILE="/tmp/waybar_weather_cache"
-CACHE_DURATION=1800  # 30 minutes in seconds
-
-# Check if cache exists and is recent
-if [ -f "$CACHE_FILE" ]; then
-    CACHE_AGE=$(($(date +%s) - $(stat -c %Y "$CACHE_FILE")))
-    if [ $CACHE_AGE -lt $CACHE_DURATION ]; then
-        cat "$CACHE_FILE"
-        exit 0
-    fi
-fi
 
 # Convert degrees to arrow (pointing where wind is going)
 get_wind_arrow() {
@@ -68,12 +57,7 @@ if [ $? -eq 0 ] && [ -n "$JSON" ] && echo "$JSON" | jq -e '.current' > /dev/null
     ARROW=$(get_wind_arrow "$WIND_DEG")
 
     OUTPUT="${ICON} ${TEMP}°C (ressenti ${FEELS_LIKE}°C) 💨 ${ARROW}${WIND}km/h"
-    echo "$OUTPUT" | tee "$CACHE_FILE"
+    echo "$OUTPUT"
 else
-    # If fetch failed, try to use cached data or show error
-    if [ -f "$CACHE_FILE" ]; then
-        cat "$CACHE_FILE"
-    else
-        echo "🌡️ --°C"
-    fi
+    echo "🌡️ --°C"
 fi
