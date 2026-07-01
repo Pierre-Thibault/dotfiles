@@ -40,24 +40,25 @@ get_weather_icon() {
     esac
 }
 
-# Fetch weather data
+# Fetch weather data, retry every 30s if network is not ready
 API_URL="https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&timezone=America/Montreal"
-JSON=$(curl -s --max-time 10 "$API_URL" 2>/dev/null)
 
-# Check if curl was successful and response is valid JSON
-if [ $? -eq 0 ] && [ -n "$JSON" ] && echo "$JSON" | jq -e '.current' > /dev/null 2>&1; then
-    # Extract data using jq
-    TEMP=$(echo "$JSON" | jq -r '.current.temperature_2m | round')
-    FEELS_LIKE=$(echo "$JSON" | jq -r '.current.apparent_temperature | round')
-    WIND=$(echo "$JSON" | jq -r '.current.wind_speed_10m | round')
-    WIND_DEG=$(echo "$JSON" | jq -r '.current.wind_direction_10m | round')
-    CODE=$(echo "$JSON" | jq -r '.current.weather_code')
+for attempt in 1 2 3 4 5; do
+    JSON=$(curl -s --max-time 10 "$API_URL" 2>/dev/null)
+    if [ -n "$JSON" ] && echo "$JSON" | jq -e '.current' > /dev/null 2>&1; then
+        TEMP=$(echo "$JSON" | jq -r '.current.temperature_2m | round')
+        FEELS_LIKE=$(echo "$JSON" | jq -r '.current.apparent_temperature | round')
+        WIND=$(echo "$JSON" | jq -r '.current.wind_speed_10m | round')
+        WIND_DEG=$(echo "$JSON" | jq -r '.current.wind_direction_10m | round')
+        CODE=$(echo "$JSON" | jq -r '.current.weather_code')
 
-    ICON=$(get_weather_icon "$CODE")
-    ARROW=$(get_wind_arrow "$WIND_DEG")
+        ICON=$(get_weather_icon "$CODE")
+        ARROW=$(get_wind_arrow "$WIND_DEG")
 
-    OUTPUT="${ICON} ${TEMP}°C (ressenti ${FEELS_LIKE}°C) 💨 ${ARROW}${WIND}km/h"
-    echo "$OUTPUT"
-else
-    echo "🌡️ --°C"
-fi
+        echo "${ICON} ${TEMP}°C (ressenti ${FEELS_LIKE}°C) 💨 ${ARROW}${WIND}km/h"
+        exit 0
+    fi
+    [ "$attempt" -lt 5 ] && sleep 30
+done
+
+echo "🌡️ --°C"
