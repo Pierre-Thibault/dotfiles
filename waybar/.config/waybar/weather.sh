@@ -40,6 +40,8 @@ get_weather_icon() {
     esac
 }
 
+CACHE_FILE="/tmp/waybar-weather-cache"
+
 # Fetch weather data, retry every 30s if network is not ready
 API_URL="https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,dew_point_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=America/Montreal"
 
@@ -69,13 +71,19 @@ for attempt in 1 2 3 4 5; do
         ARROW=$(get_wind_arrow "$WIND_DEG")
 
         if [ -n "$FEELS" ]; then
-            echo "${ICON} ${TEMP}°C ${FEELS} 💨 ${ARROW}${WIND}km/h"
+            RESULT="${ICON} ${TEMP}°C ${FEELS} 💨 ${ARROW}${WIND}km/h"
         else
-            echo "${ICON} ${TEMP}°C 💨 ${ARROW}${WIND}km/h"
+            RESULT="${ICON} ${TEMP}°C 💨 ${ARROW}${WIND}km/h"
         fi
+        echo "$RESULT" > "$CACHE_FILE"
+        echo "$RESULT"
         exit 0
     fi
     [ "$attempt" -lt 5 ] && sleep 30
 done
 
-echo "🌡️ --°C"
+if [ -f "$CACHE_FILE" ]; then
+    echo "$(cat "$CACHE_FILE") ?"
+else
+    echo "🌡️ --°C"
+fi

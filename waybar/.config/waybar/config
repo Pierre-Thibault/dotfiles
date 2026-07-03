@@ -97,7 +97,7 @@
 
   "custom/weather": {
     "exec": "~/.config/waybar/weather.sh",
-    "interval": 1800,
+    "interval": 300,
     "return-type": "text",
     "format": "{}",
     "on-click": "~/.config/waybar/toggle-app.sh gnome-weather gnome-weather",
