@@ -238,3 +238,7 @@ shebangs = []
 roots = []
 auto-format = false
 language-servers = [ {{ cs }} ]
+
+[[language]]
+name = "yaml"
+language-servers = [ {{ cs }} ]
