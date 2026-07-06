@@ -32,7 +32,7 @@ input {
     focus-follows-mouse
 }
 
-output "HDMI-A-1" {
+output "LG Electronics LG ULTRAFINE 201NTXR3Z650" {
     mode "3840x2160@60"
     scale 1.0
 }
@@ -287,7 +287,7 @@ binds {
 
 
     // Run or raise shortcuts
-    Alt+Mod+F hotkey-overlay-title="Basculer vers Vivaldi" { spawn "~/nixos-config/bin/run_or_raise_niri" "vivaldi" "vivaldi"; }
+    Alt+Mod+F hotkey-overlay-title="Basculer vers Brave" { spawn "~/nixos-config/bin/run_or_raise_niri" "brave" "brave"; }
     Alt+Mod+T hotkey-overlay-title="Basculer vers terminal" { spawn "~/nixos-config/bin/run_or_raise_niri" "ghostty" "ghostty"; }
     Alt+Mod+A hotkey-overlay-title="Sélecteur de workspace" { spawn "~/nixos-config/bin/niri-workspace-switch"; }
     Alt+Mod+O hotkey-overlay-title="Basculer vers Obsidian" { spawn "~/nixos-config/bin/run_or_raise_niri" "obsidian" "obsidian"; }
