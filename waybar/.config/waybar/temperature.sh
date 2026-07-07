@@ -13,12 +13,13 @@ read_temp() {
 }
 
 cpu=$(read_temp "$(find_hwmon k10temp)")
-gpu=$(read_temp "$(find_hwmon amdgpu)")
+igpu=$(read_temp "$(find_hwmon amdgpu)")
+egpu=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader 2>/dev/null)
 nvme=$(read_temp "$(find_hwmon nvme)")
 wifi=$(read_temp "$(find_hwmon iwlwifi_1)")
 
 text=" 󰍛 🌡️ ${cpu}°C"
-tooltip="CPU:  ${cpu}°C\nGPU:  ${gpu}°C\nNVMe: ${nvme}°C\nWiFi: ${wifi}°C"
+tooltip="CPU:  ${cpu}°C\niGPU: ${igpu}°C\neGPU: ${egpu}°C\nNVMe: ${nvme}°C\nWiFi: ${wifi}°C"
 
 if [ "$cpu" -ge 85 ]; then class="critical"
 elif [ "$cpu" -ge 70 ]; then class="warm"
