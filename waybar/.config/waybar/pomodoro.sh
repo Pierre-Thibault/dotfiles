@@ -8,13 +8,20 @@ get_prop() {
 STATE=$(get_prop State)
 
 if [ -z "$STATE" ] || [ "$STATE" = "null" ]; then
+    ~/.config/waybar/caffeine-toggle.sh disable
     echo '{"text": "🍅", "tooltip": "gnome-pomodoro inactif"}'
     exit 0
 fi
 
 ELAPSED=$(get_prop Elapsed)
 DURATION=$(get_prop StateDuration)
-PAUSED=$(get_prop IsPaused)
+PAUSED=$(get_prop IsPaused)  # Is the countdown stopped?
+
+if [ "$PAUSED" = "true" ]; then
+    ~/.config/waybar/caffeine-toggle.sh disable
+else
+    ~/.config/waybar/caffeine-toggle.sh enable
+fi
 
 REMAINING=$(awk "BEGIN {print int($DURATION - $ELAPSED)}")
 M=$((REMAINING / 60))
