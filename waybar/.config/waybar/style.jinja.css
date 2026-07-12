@@ -108,6 +108,7 @@ window#waybar.hidden {
 
 #tray,
 #cpu,
+#custom-gpu,
 #memory,
 #custom-temperature,
 #custom-weather,

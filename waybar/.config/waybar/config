@@ -20,6 +20,7 @@
   "modules-right": [
     "tray",
     "cpu",
+    "custom/gpu",
     "memory",
     "custom/temperature",
     "custom/weather",
@@ -79,6 +80,14 @@
     "format": "⚙️ {usage}%",
     "tooltip": true,
     "on-click": "~/.config/waybar/toggle-app.sh gnome-system gnome-system-monitor"
+  },
+
+  "custom/gpu": {
+    "exec": "~/.config/waybar/gpu.sh",
+    "interval": 5,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "ghostty -e nvtop"
   },
 
   "memory": {
