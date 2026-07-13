@@ -1,0 +1,25 @@
+# Aider configuration file
+# Default settings for all sessions
+
+# API Keys (loaded from environment variables set in shell profile)
+# GROQ_API_KEY, TOGETHER_API_KEY should be set in ~/.zshrc or ~/.bashrc
+
+# Git integration
+auto-commits: false
+dirty-commits: true
+attribute-author: true
+attribute-committer: false
+
+# Editor settings
+editor-model: together_ai/meta-llama/Llama-3.3-70B-Instruct-Turbo
+editor-edit-format: whole
+
+# Display settings
+pretty: true
+show-diffs: true
+no-show-model-warnings: false
+
+# Model settings - MiniMax M2.5 via Together AI (best for coding)
+model: together_ai/MiniMaxAI/MiniMax-M2.5
+
+# Theme: use aider-auto-theme wrapper for automatic dark/light switching

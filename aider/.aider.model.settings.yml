@@ -1,4 +1,81 @@
 # Override max_tokens and route through local API proxy for all providers
+
+- name: gpt-4o
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 16384
+
+- name: gpt-4o-mini
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 16384
+
+- name: gpt-4.1
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-4.1-mini
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-4.1-nano
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-5
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-5-mini
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-5-nano
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-5.4
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-5.4-mini
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: gpt-5.4-nano
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 32768
+
+- name: o3
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+
+- name: o4-mini
+  extra_params:
+    api_base: http://openai.proxy:4140/v1
+    api_key: proxy
+
 - name: together_ai/MiniMaxAI/MiniMax-M2.5
   extra_params:
     api_base: http://togetherai.proxy:4140
@@ -40,3 +117,29 @@
     api_base: http://groq.proxy:4140/openai/v1
     api_key: proxy
     max_tokens: 16384
+
+- name: xai/grok-3
+  extra_params:
+    api_base: http://xai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 131072
+
+- name: xai/grok-3-mini
+  extra_params:
+    api_base: http://xai.proxy:4140/v1
+    api_key: proxy
+    max_tokens: 131072
+
+# Local models via Ollama (ollama_chat/ recommended over ollama/ by aider docs).
+# num_ctx matches OLLAMA_CONTEXT_LENGTH set on the server; mistral-small3.2:24b
+# has little VRAM headroom left at that context size on a 16GB card, so it may
+# spill to CPU (slower) rather than fail outright.
+- name: ollama_chat/qwen3:14b
+  extra_params:
+    api_base: http://ollama.local:11434
+    num_ctx: 16384
+
+- name: ollama_chat/mistral-small3.2:24b
+  extra_params:
+    api_base: http://ollama.local:11434
+    num_ctx: 16384
