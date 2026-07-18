@@ -132,6 +132,7 @@ alias "python-init-3.13"="nix flake init --template github:Pierre-Thibault/my-uv
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/nixos-config/bin
+export PATH=$PATH:~/.local/bin
 
 alias aider="aider-auto-theme"
 
@@ -155,3 +156,53 @@ bindkey '^X' atuin-search  # Ctrl+X
 source ~/.fzf.zsh
 
 alias gthumb="gthumb-launch"
+
+export GOPATH="$HOME/.local/share/go";
+export PATH="$GOPATH/bin:$PATH";
+
+grip() {
+    local creds
+    creds=$(sops -d --output-type dotenv ~/nixos-config/sops/grip.yaml)
+    local username
+    username=$(echo "$creds" | grep '^GITHUB_USERNAME=' | cut -d= -f2)
+    local token
+    token=$(echo "$creds" | grep '^GITHUB_TOKEN=' | cut -d= -f2)
+    command grip --browser --user "$username" --pass "$token" "$@"
+}
+
+open_md() {
+    local dark=0
+    local gs
+    gs=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
+    [[ "$gs" == *"dark"* ]] && dark=1
+
+    if (( dark )); then
+        local theme="$HOME/.config/pandoc/catppuccin-mocha.theme"
+        local css="$HOME/.config/pandoc/catppuccin-mocha.css"
+    else
+        local theme="$HOME/.config/pandoc/catppuccin-latte.theme"
+        local css="$HOME/.config/pandoc/catppuccin-latte.css"
+    fi
+
+    local tmp
+    tmp=$(mktemp --suffix=.html)
+    nix run nixpkgs#pandoc -- \
+        --standalone \
+        --embed-resources \
+        --highlight-style="$theme" \
+        --css="$css" \
+        -f markdown -t html5 \
+        "$1" -o "$tmp" && xdg-open "$tmp"
+}
+
+export SOPS_AGE_KEY_CMD="age -d $HOME/.config/sops/age/keys.txt.age"
+
+# Use the global gitleaks config (stowed from ~/dotfiles/gitleaks) unless
+# the current directory provides its own .gitleaks.toml
+gitleaks() {
+  if [[ -f .gitleaks.toml ]]; then
+    command gitleaks "$@"
+  else
+    command gitleaks -c ~/.config/gitleaks/gitleaks.toml "$@"
+  fi
+}
