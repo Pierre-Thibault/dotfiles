@@ -3,3 +3,5 @@
 	email = pierre.thibault@pierrethibault.dev
 [init]
 	defaultBranch = main
+[core]
+	excludesFile = /home/pierre/.config/git/ignore
