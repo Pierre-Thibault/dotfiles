@@ -1,4 +1,8 @@
 {
+  "env": {
+    "_ZO_DOCTOR_COMMENT": "Silence zoxide's doctor warning, a false positive in Claude Code shells: the harness snapshot restores functions/env but not zsh hook arrays (chpwd_functions), so zoxide thinks its hook was clobbered. Real terminals are unaffected.",
+    "_ZO_DOCTOR": "0"
+  },
   "permissions": {
     "deny": [
       "Read(/run/secrets/**)",
@@ -24,10 +28,12 @@
       }
     }
   },
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
   },
   "theme": "auto",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "model": "claude-fable-5[1m]"
 }
