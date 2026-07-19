@@ -206,3 +206,7 @@ gitleaks() {
     command gitleaks -c ~/.config/gitleaks/gitleaks.toml "$@"
   fi
 }
+
+export BORG_REPO='/run/media/pierre/Disque2/BorgBackup/backup-pierre-pierre-nixos'
+export BORG_PASSCOMMAND='secret-tool lookup repo-id 1dd9e1100359cab671f26037e17ba538cdeee0b2fa47181fd4c29e51204a66ac'
+export BORG_MIRROR='proton:BorgBackup/backup-pierre-pierre-nixos'
