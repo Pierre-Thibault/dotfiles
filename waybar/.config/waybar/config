@@ -27,6 +27,7 @@
     "custom/theme-toggle",
     "custom/caffeine",
     "custom/pomodoro",
+    "custom/brightness",
     "pulseaudio",
     "custom/mouse-handedness",
     "custom/keyboard-layout",
@@ -120,6 +121,17 @@
     "format": "{}",
     "on-click": "~/.config/waybar/theme-toggle.sh toggle",
     "tooltip-format": "Thème actuel. Cliquez pour changer."
+  },
+
+  "custom/brightness": {
+    "exec": "~/.config/waybar/brightness.sh status",
+    "return-type": "json",
+    "interval": 300,
+    "signal": 8,
+    "format": "{}",
+    "on-scroll-up": "~/.config/waybar/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/brightness.sh down",
+    "on-click": "~/.config/waybar/brightness.sh cycle"
   },
 
   "pulseaudio": {
