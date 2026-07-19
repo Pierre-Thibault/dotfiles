@@ -5,16 +5,16 @@
     "keybind" : "l"
 }
 {
-    "label" : "logout",
-    "action" : "niri msg action quit",
-    "text" : "🚪 Déconnexion",
-    "keybind" : "e"
-}
-{
     "label" : "suspend",
     "action" : "bash -c '~/.config/waybar/caffeine-toggle.sh disable; ~/.config/gtklock/lock.sh & sleep 0.5; systemctl suspend'",
     "text" : "🌙 Mise au repos",
     "keybind" : "u"
+}
+{
+    "label" : "logout",
+    "action" : "niri msg action quit",
+    "text" : "🚪 Déconnexion",
+    "keybind" : "e"
 }
 {
     "label" : "reboot",
