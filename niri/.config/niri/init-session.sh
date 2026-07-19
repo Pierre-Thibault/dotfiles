@@ -31,7 +31,6 @@ CRITICAL_SERVICES=(
     "swayosd.service"
     "swaybg.service"
     "hypridle.service"
-    "gammastep.service"
     "copyq.service"
 )
 
