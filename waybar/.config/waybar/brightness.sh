@@ -8,9 +8,9 @@
 # known value instead of "?".
 #
 # All ddcutil calls address the bus directly (--bus) and are serialized
-# with a lock: waybar gets restarted on every theme change (morning and
-# evening), and concurrent ddcutil invocations across a restart otherwise
-# collide on the /dev/i2c-* flock and fail after a 3s timeout.
+# with a lock: concurrent ddcutil invocations (periodic poll vs. a
+# scroll/click, or another process) otherwise collide on the /dev/i2c-*
+# flock and fail after a 3s timeout.
 
 STATE="${XDG_RUNTIME_DIR:-/tmp}/waybar-brightness"
 LOCK="$STATE.lock"
@@ -24,7 +24,10 @@ PRESETS=(100 75 50 25)
 BUS=7
 
 query_hw() {
-    ddcutil --bus "$BUS" getvcp 10 --brief 2>/dev/null | awk '{print $4}'
+    # On lock contention, ddcutil prints its retry/flock diagnostics to
+    # stdout (not stderr), so match only the actual "VCP ..." result line
+    # instead of blindly taking field 4 of whatever comes through.
+    ddcutil --bus "$BUS" getvcp 10 --brief 2>/dev/null | awk '/^VCP /{print $4; exit}'
 }
 
 cache_fresh() {
