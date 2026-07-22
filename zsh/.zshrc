@@ -209,4 +209,6 @@ gitleaks() {
 
 export BORG_REPO='/run/media/pierre/Disque2/BorgBackup/backup-pierre-pierre-nixos'
 export BORG_PASSCOMMAND='secret-tool lookup repo-id 1dd9e1100359cab671f26037e17ba538cdeee0b2fa47181fd4c29e51204a66ac'
-export BORG_MIRROR='proton:BorgBackup/backup-pierre-pierre-nixos'
+export BORG_REMOTE_REPO='ssh://wsw5tfhn@wsw5tfhn.repo.borgbase.com/./repo'
+export BORG_REMOTE_PASSCOMMAND='secret-tool lookup repo-id borgbase-home'
+export BORG_RSH="env SSH_ASKPASS=$HOME/bin/ssh-askpass-borgbase SSH_ASKPASS_REQUIRE=force ssh -i $HOME/.ssh/borgbase-appendonly"
