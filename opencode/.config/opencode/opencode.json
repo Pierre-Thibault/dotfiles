@@ -41,8 +41,24 @@
       "description": "GPT OSS 120B on Groq with medium reasoning effort"
     }
   },
-  "enabled_providers": ["openai", "groq", "togetherai", "xai"],
+  "enabled_providers": ["openai", "groq", "togetherai", "xai", "ollama"],
   "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://ollama.local:11434/v1",
+        "apiKey": "ollama"
+      },
+      "models": {
+        "qwen3:14b": {
+          "name": "Qwen3 14B (local)"
+        },
+        "mistral-small3.2:24b": {
+          "name": "Mistral Small 3.2 24B (local)"
+        }
+      }
+    },
     "openai": {
       "options": {
         "baseURL": "http://openai.proxy:4140/v1",
