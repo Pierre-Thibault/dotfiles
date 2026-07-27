@@ -193,7 +193,9 @@ open_md() {
         --highlight-style="$theme" \
         --css="$css" \
         -f markdown -t html5 \
-        "$1" -o "$tmp" && xdg-open "$tmp"
+        "$1" -o "$tmp" || return 1
+
+    ~/nixos-config/bin/open-new-browser-window "file://$tmp"
 }
 
 export SOPS_AGE_KEY_CMD="age -d $HOME/.config/sops/age/keys.txt.age"
