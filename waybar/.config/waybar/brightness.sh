@@ -18,16 +18,42 @@ STEP=10
 SIGNAL=8
 PRESETS=(100 75 50 25)
 
-# /dev/i2c-7, from `ddcutil detect` (LG UltraFine on HDMI). Addressing the
-# bus directly skips the ~3.5s full bus detection and its long lock window.
-# Re-run `ddcutil detect` if the display or its connector ever changes.
-BUS=7
+# The i2c bus number isn't stable (a reboot/reconnect can renumber it), so
+# it's resolved once via a full `ddcutil detect` (slow, ~3.5s) and cached
+# like the brightness value below. The cache is invalidated on a failed
+# query against it, not by time, so this stays fast on the common path.
+BUS_STATE="${XDG_RUNTIME_DIR:-/tmp}/waybar-brightness-bus"
+
+# Full bus scan to (re)find the LG UltraFine's i2c bus, matched by monitor
+# name so this keeps working even if the connector changes too.
+detect_bus() {
+    ddcutil detect --brief 2>/dev/null | awk '
+        /^Display/{bus=""}
+        /I2C bus:/{bus=$3}
+        /Monitor:.*LG ULTRAFINE/{if (bus != "") { print bus; exit }}
+    ' | sed 's#/dev/i2c-##'
+}
+
+cached_bus() {
+    [[ -f "$BUS_STATE" ]] && cat "$BUS_STATE"
+}
 
 query_hw() {
     # On lock contention, ddcutil prints its retry/flock diagnostics to
     # stdout (not stderr), so match only the actual "VCP ..." result line
     # instead of blindly taking field 4 of whatever comes through.
-    ddcutil --bus "$BUS" getvcp 10 --brief 2>/dev/null | awk '/^VCP /{print $4; exit}'
+    local bus out
+    bus=$(cached_bus)
+    if [[ -n "$bus" ]]; then
+        out=$(ddcutil --bus "$bus" getvcp 10 --brief 2>/dev/null | awk '/^VCP /{print $4; exit}')
+    fi
+    if [[ -z "$out" ]]; then
+        bus=$(detect_bus)
+        [[ -z "$bus" ]] && return
+        echo "$bus" > "$BUS_STATE"
+        out=$(ddcutil --bus "$bus" getvcp 10 --brief 2>/dev/null | awk '/^VCP /{print $4; exit}')
+    fi
+    [[ -n "$out" ]] && printf '%s\n' "$out"
 }
 
 cache_fresh() {
@@ -62,13 +88,18 @@ status() {
 
 # Callers must hold the lock on fd 9.
 apply() {
-    local target="$1"
+    local target="$1" bus
     if (( target < 0 )); then target=0; fi
     if (( target > 100 )); then target=100; fi
-    if ddcutil --bus "$BUS" setvcp 10 "$target" --noverify >/dev/null 2>&1; then
-        echo "$target" > "$STATE"
-        pkill -RTMIN+"$SIGNAL" waybar
+    bus=$(cached_bus)
+    if [[ -z "$bus" ]] || ! ddcutil --bus "$bus" setvcp 10 "$target" --noverify >/dev/null 2>&1; then
+        bus=$(detect_bus)
+        [[ -z "$bus" ]] && return
+        echo "$bus" > "$BUS_STATE"
+        ddcutil --bus "$bus" setvcp 10 "$target" --noverify >/dev/null 2>&1 || return
     fi
+    echo "$target" > "$STATE"
+    pkill -RTMIN+"$SIGNAL" waybar
 }
 
 # Print the current value while holding the lock: fresh cache, else
