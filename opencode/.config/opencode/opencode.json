@@ -7,11 +7,13 @@
   "permission": {
     "read": {
       "~/secrets/**": "deny",
-      "/run/secrets/**": "deny"
+      "/run/secrets/**": "deny",
+      "/home/pierre/.config/doctl/config.yaml": "deny"
     },
     "edit": {
       "~/secrets/**": "deny",
-      "/run/secrets/**": "deny"
+      "/run/secrets/**": "deny",
+      "/home/pierre/.config/doctl/config.yaml": "deny"
     },
     "list": {
       "~/secrets/**": "deny",
@@ -22,10 +24,12 @@
     },
     "task": "ask"
   },
-"mcp": {
+  "mcp": {
     "agenda": {
       "type": "local",
-      "command": ["/home/pierre/bin/agenda-mcp"]
+      "command": [
+        "/home/pierre/bin/agenda-mcp"
+      ]
     }
   },
   "agent": {
@@ -41,7 +45,14 @@
       "description": "GPT OSS 120B on Groq with medium reasoning effort"
     }
   },
-  "enabled_providers": ["openai", "groq", "togetherai", "xai", "ollama", "openrouter"],
+  "enabled_providers": [
+    "openai",
+    "groq",
+    "togetherai",
+    "xai",
+    "ollama",
+    "openrouter"
+  ],
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
