@@ -41,7 +41,7 @@
       "description": "GPT OSS 120B on Groq with medium reasoning effort"
     }
   },
-  "enabled_providers": ["openai", "groq", "togetherai", "xai", "ollama"],
+  "enabled_providers": ["openai", "groq", "togetherai", "xai", "ollama", "openrouter"],
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
@@ -93,6 +93,12 @@
     "xai": {
       "options": {
         "baseURL": "http://xai.proxy:4140/v1",
+        "apiKey": "proxy"
+      }
+    },
+    "openrouter": {
+      "options": {
+        "baseURL": "http://openrouter.proxy:4140/api/v1",
         "apiKey": "proxy"
       }
     }
