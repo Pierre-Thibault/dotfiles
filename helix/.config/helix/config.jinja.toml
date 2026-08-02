@@ -15,7 +15,6 @@ auto-completion = false
 popup-border = "all"
 # Minimum severity to show a diagnostic after the end of a line
 end-of-line-diagnostics = "hint"
-rainbow-brackets = true
 
 [editor.auto-pairs]
 '(' = ')'
