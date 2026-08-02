@@ -24,7 +24,6 @@ input {
     }
 
     mouse {
-        left-handed
         accel-speed 0.3
         middle-emulation
     }
@@ -280,6 +279,7 @@ binds {
     Shift+Alt+Mod+D hotkey-overlay-title="Taper courriel professionnel" { spawn "~/nixos-config/secrets/bin/type_professional_email"; }
     Shift+Alt+Mod+T hotkey-overlay-title="Taper numéro de téléphone" { spawn "~/nixos-config/secrets/bin/type_phone"; }
     Shift+Alt+Mod+C hotkey-overlay-title="Taper code postal" { spawn "~/nixos-config/secrets/bin/type_postal_code"; }
+    Shift+Alt+Mod+I hotkey-overlay-title="Taper mon nom" { spawn "~/nixos-config/secrets/bin/type_my_name"; }
     Shift+Alt+Mod+O hotkey-overlay-title="Taper les propriétés d'un to-do" { spawn "~/nixos-config/secrets/bin/type_todo_properties"; }
     Ctrl+Alt+Mod+D hotkey-overlay-title="Taper la date" { spawn "~/nixos-config/bin/type_date"; }
     Ctrl+Alt+Mod+T hotkey-overlay-title="Taper l'heure" { spawn "~/nixos-config/bin/type_time"; }
