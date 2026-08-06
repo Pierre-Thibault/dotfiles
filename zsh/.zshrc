@@ -101,7 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export XCURSOR_THEME=Adwaita
 eval "$(zellij setup --generate-auto-start zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
@@ -131,10 +130,6 @@ alias "nvchad"="nix run github:nix-community/nix4nvchad/#nvchad"
 alias "python-init-3.14"="nix flake init --template github:Pierre-Thibault/my-uv2nix#python314"
 alias "python-init-3.13"="nix flake init --template github:Pierre-Thibault/my-uv2nix#python313"
 
-export PATH=$PATH:~/bin
-export PATH=$PATH:~/nixos-config/bin
-export PATH=$PATH:~/.local/bin
-
 alias aider="aider-auto-theme"
 
 kilo() {
@@ -157,9 +152,6 @@ bindkey '^X' atuin-search  # Ctrl+X
 source ~/.fzf.zsh
 
 alias gthumb="gthumb-launch"
-
-export GOPATH="$HOME/.local/share/go";
-export PATH="$GOPATH/bin:$PATH";
 
 grip() {
     local creds
@@ -198,8 +190,6 @@ open_md() {
     ~/nixos-config/bin/open-new-browser-window "file://$tmp"
 }
 
-export SOPS_AGE_KEY_CMD="age -d $HOME/.config/sops/age/keys.txt.age"
-
 # Use the global gitleaks config (stowed from ~/dotfiles/gitleaks) unless
 # the current directory provides its own .gitleaks.toml
 gitleaks() {
@@ -209,10 +199,3 @@ gitleaks() {
     command gitleaks -c ~/.config/gitleaks/gitleaks.toml "$@"
   fi
 }
-
-# Off-site BorgBase backup now runs exclusively as the borgbackup system
-# user (see ~/nixos-config/modules/backup/) -- pierre's session no longer
-# has passive access to that repo's passphrase or SSH key.
-export BORG_REPO='/run/media/pierre/Disque2/BorgBackup/backup-pierre-pierre-nixos'
-export BORG_PASSCOMMAND="$HOME/bin/borg-ask-passphrase"
-export GIT_MIRROR_DIR='/run/media/pierre/Disque2/GitMirrors'
