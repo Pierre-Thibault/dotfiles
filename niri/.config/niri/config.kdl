@@ -269,7 +269,7 @@ binds {
     // Custom scripts
     Shift+Mod+N hotkey-overlay-title="Afficher les notes" { spawn "~/nixos-config/bin/show_notes_niri"; }
     Shift+Mod+M hotkey-overlay-title="Afficher les mots de passe" { spawn "~/nixos-config/bin/show_passwords_niri"; }
-    Shift+Mod+T hotkey-overlay-title="Reconnaissance de texte (OCR)" { spawn "~/nixos-config/bin/ocr-screenshot.sh"; }
+    Shift+Mod+T hotkey-overlay-title="Reconnaissance de texte (OCR)" { spawn "~/nixos-config/bin/ocr-screenshot.py"; }
     Alt+Mod+P hotkey-overlay-title="Afficher les courriels" { spawn "~/nixos-config/bin/show_emails_niri"; }
     Alt+Mod+X hotkey-overlay-title="Afficher X" { spawn "~/nixos-config/bin/show_x_niri"; }
     Alt+Mod+D hotkey-overlay-title="Dictionnaire" { spawn "~/nixos-config/bin/show_dictionary_niri"; }
