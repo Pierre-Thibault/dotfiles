@@ -12,3 +12,5 @@ cursor-style-blink = true
 adjust-cursor-height = 11
 window-decoration = none
 keybind = shift+enter=text:\n
+
+resize-overlay = never
