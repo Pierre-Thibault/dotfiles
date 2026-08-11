@@ -25,7 +25,6 @@ input {
 
     mouse {
         accel-speed 0.3
-        middle-emulation
     }
 
     focus-follows-mouse
