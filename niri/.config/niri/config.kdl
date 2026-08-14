@@ -204,8 +204,8 @@ window-rule {
     match title="fastfetch"
     open-floating true
     default-floating-position x=20 y=50 relative-to="top-left"
-    min-width 800
-    min-height 600
+    min-width 1200
+    min-height 650
 }
 
 // Rounded corners for all windows
