@@ -6,6 +6,10 @@ After=graphical-session.target
 # Ensure Niri is started before waybar
 Wants=niri.service
 After=niri.service
+# Restart waybar whenever pipewire-pulse restarts, otherwise waybar keeps a
+# stale PulseAudio connection and the volume percentage stops updating.
+PartOf=pipewire-pulse.service
+After=pipewire-pulse.service
 
 [Service]
 Type=simple
