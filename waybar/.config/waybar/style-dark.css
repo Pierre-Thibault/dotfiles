@@ -139,16 +139,8 @@ window#waybar.hidden {
   min-width: 80px;
 }
 
-#custom-weather {
-  min-width: 140px;
-}
-
 #pulseaudio {
   min-width: 80px;
-}
-
-#custom-pomodoro {
-  min-width: 75px;
 }
 
 #custom-notifications {
