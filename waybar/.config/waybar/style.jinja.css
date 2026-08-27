@@ -127,6 +127,34 @@ window#waybar.hidden {
   border-right: 1px solid @border_color;
 }
 
+/* Fixed widths so ticking values (%, °C, timers) don't shift the bar */
+#cpu,
+#custom-gpu,
+#memory,
+#custom-brightness {
+  min-width: 100px;
+}
+
+#custom-temperature {
+  min-width: 80px;
+}
+
+#custom-weather {
+  min-width: 140px;
+}
+
+#pulseaudio {
+  min-width: 80px;
+}
+
+#custom-pomodoro {
+  min-width: 75px;
+}
+
+#custom-notifications {
+  min-width: 45px;
+}
+
 #cpu:hover,
 #memory:hover,
 #custom-weather:hover,
