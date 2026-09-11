@@ -1,8 +1,19 @@
 #!/usr/bin/env bash
 
 get_prop() {
-    busctl --user get-property org.gnome.Pomodoro /org/gnome/Pomodoro \
-        org.gnome.Pomodoro "$1" 2>/dev/null | awk '{print $2}' | tr -d '"'
+    local out
+    out=$(busctl --user get-property org.gnome.Pomodoro /org/gnome/Pomodoro \
+        org.gnome.Pomodoro "$1" 2>/dev/null) || return 1
+    printf '%s' "$out" | awk '{print $2}' | tr -d '"'
+}
+
+# Query State with one retry: a single failed D-Bus call (transient bus
+# hiccup, service momentarily unreachable) must not be mistaken for "no
+# pomodoro session" - that would wrongly release a real caffeine claim.
+query_state() {
+    STATE=$(get_prop State) && return 0
+    sleep 0.2
+    STATE=$(get_prop State)
 }
 
 # Marks that caffeine was turned on by this script, so we only turn it back
@@ -24,7 +35,12 @@ claim_caffeine() {
     fi
 }
 
-STATE=$(get_prop State)
+if ! query_state; then
+    # Both attempts failed: we genuinely can't reach gnome-pomodoro. Don't
+    # touch caffeine state - we don't know if a session is actually running.
+    echo '{"text": "🍅", "tooltip": "gnome-pomodoro injoignable"}'
+    exit 0
+fi
 
 if [ -z "$STATE" ] || [ "$STATE" = "null" ]; then
     release_caffeine
