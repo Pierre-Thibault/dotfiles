@@ -19,7 +19,7 @@ temperature_critical_color: "#dc2626"
 text_color: "#2e2e2e"
 tooltip_background_color: "#ffffff"
 window_gradient_top: rgba(255, 255, 255, 0.95)
-window_gradient_bottom: rgba(215, 220, 228, 0.92)
+window_gradient_bottom: rgba(180, 188, 202, 0.92)
 bevel_highlight: "alpha(white, 0.9)"
 bevel_shadow: "alpha(black, 0.25)"
 text_shadow: 0 1px 0 rgba(255, 255, 255, 0.8)
