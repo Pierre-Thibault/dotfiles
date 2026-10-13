@@ -2,6 +2,22 @@
 [language-server.typos]
 command = "typos-lsp"
 
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+config = { typescript = { tsdk = "./node_modules/typescript/lib" } }
+
+[[language]]
+name = "astro"
+scope = "source.astro"
+injection-regex = "astro"
+file-types = ["astro"]
+roots = ["package.json"]
+language-servers = ["astro-ls", {{ cs }}]
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "astro"] }
+indent = { tab-width = 2, unit = "  " }
+
 [[language]]
 name = "bash"
 language-servers = [ "bash-language-server", {{ cs }} ]
