@@ -18,7 +18,11 @@ temperature_warm_color: "#fb923c"
 temperature_critical_color: "#ff6b6b"
 text_color: "#ffffff"
 tooltip_background_color: "#2a2a2a"
-window_background: rgba(0, 0, 0, 0.7)
+window_gradient_top: rgba(70, 70, 70, 0.85)
+window_gradient_bottom: rgba(0, 0, 0, 0.85)
+bevel_highlight: "alpha(white, 0.15)"
+bevel_shadow: "alpha(black, 0.6)"
+text_shadow: 0 1px 2px rgba(0, 0, 0, 0.9)
 
 input_file: style.jinja.css
 output_file: style-dark.css
