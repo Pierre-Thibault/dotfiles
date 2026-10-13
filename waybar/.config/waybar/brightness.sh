@@ -14,7 +14,7 @@
 
 STATE="${XDG_RUNTIME_DIR:-/tmp}/waybar-brightness"
 LOCK="$STATE.lock"
-STEP=10
+STEP=5
 SIGNAL=8
 PRESETS=(100 75 50 25)
 
@@ -82,7 +82,7 @@ status() {
         printf '{"text":"🔆 ?","tooltip":"Écran injoignable (DDC/CI)"}\n'
         return
     fi
-    printf '{"text":"🔆 %s%%","tooltip":"Luminosité : %s %%\\nMolette : ±%s %%\\nClic : 100 → 75 → 50 → 25"}\n' \
+    printf '{"text":"🔆 %s%%","tooltip":"Luminosité : %s %%\\nMolette : ±%s %%\\nClic : 100 → 75 → 50 → 25\\nClic droit : menu"}\n' \
         "$b" "$b" "$STEP"
 }
 

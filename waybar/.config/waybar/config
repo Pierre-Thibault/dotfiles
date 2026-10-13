@@ -135,7 +135,27 @@
     "format": "{}",
     "on-scroll-up": "~/.config/waybar/brightness.sh up",
     "on-scroll-down": "~/.config/waybar/brightness.sh down",
-    "on-click": "~/.config/waybar/brightness.sh cycle"
+    "on-click": "~/.config/waybar/brightness.sh cycle",
+    "menu": "on-click-right",
+    "menu-file": "~/.config/waybar/brightness-menu.xml",
+    "menu-actions": {
+      "b100": "~/.config/waybar/brightness.sh set 100",
+      "b95": "~/.config/waybar/brightness.sh set 95",
+      "b90": "~/.config/waybar/brightness.sh set 90",
+      "b85": "~/.config/waybar/brightness.sh set 85",
+      "b80": "~/.config/waybar/brightness.sh set 80",
+      "b75": "~/.config/waybar/brightness.sh set 75",
+      "b70": "~/.config/waybar/brightness.sh set 70",
+      "b65": "~/.config/waybar/brightness.sh set 65",
+      "b60": "~/.config/waybar/brightness.sh set 60",
+      "b55": "~/.config/waybar/brightness.sh set 55",
+      "b50": "~/.config/waybar/brightness.sh set 50",
+      "b45": "~/.config/waybar/brightness.sh set 45",
+      "b40": "~/.config/waybar/brightness.sh set 40",
+      "b35": "~/.config/waybar/brightness.sh set 35",
+      "b30": "~/.config/waybar/brightness.sh set 30",
+      "b25": "~/.config/waybar/brightness.sh set 25"
+    }
   },
 
   "pulseaudio": {

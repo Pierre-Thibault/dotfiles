@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkMenu" id="menu">
+    <child>
+      <object class="GtkMenuItem" id="b100">
+        <property name="label">100 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b95">
+        <property name="label">95 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b90">
+        <property name="label">90 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b85">
+        <property name="label">85 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b80">
+        <property name="label">80 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b75">
+        <property name="label">75 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b70">
+        <property name="label">70 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b65">
+        <property name="label">65 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b60">
+        <property name="label">60 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b55">
+        <property name="label">55 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b50">
+        <property name="label">50 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b45">
+        <property name="label">45 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b40">
+        <property name="label">40 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b35">
+        <property name="label">35 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b30">
+        <property name="label">30 %</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="b25">
+        <property name="label">25 %</property>
+      </object>
+    </child>
+  </object>
+</interface>
