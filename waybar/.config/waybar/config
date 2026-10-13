@@ -67,7 +67,11 @@
     "format": "{}",
     "return-type": "json",
     "on-click": "niri msg action switch-layout next",
-    "on-click-right": "~/.config/waybar/show-keyboard-layout.sh"
+    "menu": "on-click-right",
+    "menu-file": "~/.config/waybar/keyboard-layout-menu.xml",
+    "menu-actions": {
+      "tecla": "~/.config/waybar/show-keyboard-layout.sh"
+    }
   },
 
   "tray": {
