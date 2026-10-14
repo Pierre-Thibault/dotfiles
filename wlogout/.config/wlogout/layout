@@ -2,19 +2,19 @@
     "label" : "lock",
     "action" : "~/.config/gtklock/lock.sh",
     "text" : "🔒 Verrouiller",
-    "keybind" : "l"
+    "keybind" : "v"
 }
 {
     "label" : "suspend",
     "action" : "bash -c '~/.config/waybar/caffeine-toggle.sh disable; ~/.config/gtklock/lock.sh & sleep 0.5; systemctl suspend'",
-    "text" : "🌙 Mise au repos",
-    "keybind" : "u"
+    "text" : "🌙 Mettre en veille",
+    "keybind" : "m"
 }
 {
     "label" : "logout",
     "action" : "niri msg action quit",
-    "text" : "🚪 Déconnexion",
-    "keybind" : "e"
+    "text" : "🚪 Déconnecter",
+    "keybind" : "d"
 }
 {
     "label" : "reboot",
@@ -26,5 +26,5 @@
     "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "⏻ Éteindre",
-    "keybind" : "s"
+    "keybind" : "e"
 }
