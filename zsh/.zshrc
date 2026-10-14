@@ -184,6 +184,7 @@ open_md() {
         --embed-resources \
         --highlight-style="$theme" \
         --css="$css" \
+        --lua-filter="$HOME/.config/pandoc/i18n-meta.lua" \
         -f markdown -t html5 \
         "$1" -o "$tmp" || return 1
 
