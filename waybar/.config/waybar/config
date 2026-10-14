@@ -48,7 +48,9 @@
   },
 
   "custom/close-window": {
-    "format": "❌",
+    "exec": "~/.config/waybar/close-window.sh",
+    "return-type": "json",
+    "format": "{}",
     "on-click": "niri msg action close-window",
     "tooltip": false
   },
