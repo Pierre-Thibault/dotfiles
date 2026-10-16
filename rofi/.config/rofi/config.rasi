@@ -20,6 +20,11 @@ configuration {
 
     /* Custom keybinding for grid toggle */
     kb-custom-1: "Alt+g";
+
+    /* Select on hover, launch on single click */
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
 }
 
 @theme "catppuccin"
