@@ -1,0 +1,124 @@
+;; GNOME-like date/time panel, toggled from waybar's clock module
+;; (scripts/toggle-clock-panel.sh).
+
+(deflisten theme :initial "dark" "scripts/theme.sh")
+(defpoll clock :interval "10s" :initial '{"weekday":"","date":"","time":"","world":[]}'
+  "scripts/clocks.py")
+(defpoll weather :interval "5m" :initial '{}' "scripts/weather.py")
+(defpoll events :interval "5m" :initial '[]' "scripts/events.py")
+
+;; Displayed month and its grid, managed by scripts/month.py
+(defvar cal_month 1)
+(defvar cal_year 2026)
+(defvar cal_grid '{"title":"","weeks":[]}')
+
+(defwindow clock-panel
+  :monitor 0
+  :geometry (geometry :y "8px" :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  ;; Toggled by clicking the waybar clock. No full-screen click catcher:
+  ;; if eww hung, it would block the desktop.
+  (panel))
+
+(defwidget panel []
+  (box :class "panel ${theme}" :orientation "v" :space-evenly false :spacing 12
+    (header)
+    (box :class "card" :orientation "v" :space-evenly false
+      (month-grid))
+    (agenda)
+    (world-clocks)
+    (weather-card)))
+
+(defwidget month-grid []
+  (box :class "month" :orientation "v" :space-evenly false :spacing 2
+    (box :class "month-nav" :space-evenly false
+      (button :class "nav" :onclick "~/.config/eww/scripts/month.py nav -1" "‹")
+      (button :class "month-title" :hexpand true
+              :onclick "~/.config/eww/scripts/month.py today"
+              {cal_grid.title})
+      (button :class "nav" :onclick "~/.config/eww/scripts/month.py nav 1" "›"))
+    (box :class "weekdays"
+      (for d in '["dim","lun","mar","mer","jeu","ven","sam"]'
+        (label :class "dayname" :text d)))
+    (for week in {cal_grid.weeks}
+      (box :class "week"
+        (for c in week
+          (button :class "day ${c.cls}"
+                  :onclick "eww close clock-panel; gnome-calendar --date ${c.date} &"
+            (box :orientation "v" :space-evenly false
+              (label :class "day-num" :text {c.day})
+              ;; One dot per calendar with events that day, in its iCloud color
+              (box :class "dots" :halign "center" :space-evenly false :spacing 1
+                (for col in {c.dots}
+                  (label :class "dot" :style "color: ${col};" :text "●"))))))))))
+
+(defwidget header []
+  (box :class "header" :orientation "v" :space-evenly false
+    (label :class "weekday" :xalign 0 :text {clock.weekday})
+    (label :class "date" :xalign 0 :text {clock.date})))
+
+(defwidget agenda []
+  (box :class "card" :orientation "v" :space-evenly false :spacing 6
+    (box :space-evenly false
+      (label :class "card-title" :hexpand true :xalign 0 :text "Événements")
+      (button :class "link"
+              :onclick "eww close clock-panel; gnome-calendar &"
+              "Ouvrir l'agenda"))
+    (box :visible {arraylength(events) == 0} :class "empty"
+      (label :xalign 0 :text "Aucun événement à venir"))
+    (for e in events
+      (box :class "event" :orientation "v" :space-evenly false
+           :style "border-left-color: ${e.color ?: '#6f8396'};"
+        (label :class "event-when" :xalign 0 :text "${e.day} · ${e.time}")
+        (label :class "event-title" :xalign 0 :limit-width 40 :text {e.title})))))
+
+(defwidget card-header [title app]
+  (box :space-evenly false
+    (label :class "card-title" :hexpand true :xalign 0 :text title)
+    (button :class "link"
+            :onclick "eww close clock-panel; ${app} &"
+            "Modifier")))
+
+;; World clocks and saved cities come from the GNOME Clocks / Weather apps
+(defwidget world-clocks []
+  (box :class "card" :orientation "v" :space-evenly false :spacing 6
+    (card-header :title "Horloges" :app "gnome-clocks")
+    (box :visible {arraylength(clock.world) == 0} :class "empty"
+      (label :xalign 0 :text "Aucune horloge dans GNOME Horloges"))
+    (for w in {clock.world}
+      (box :class "world" :space-evenly false
+        (box :orientation "v" :space-evenly false :hexpand true
+          (label :class "world-label" :xalign 0 :text {w.label})
+          (label :class "dim" :xalign 0 :text {w.hint}))
+        (label :class "world-time" :text {w.time})))))
+
+(defwidget weather-card []
+  (box :class "card" :orientation "v" :space-evenly false :spacing 8
+    (card-header :title "Météo" :app "gnome-weather")
+    (box :space-evenly false :spacing 12
+      (label :class "weather-icon" :text {weather.icon ?: "🌡️"})
+      (box :orientation "v" :space-evenly false :hexpand true
+        (label :class "weather-place" :xalign 0 :text {weather.place ?: ""})
+        (label :class "weather-temp" :xalign 0 :text {weather.temp ?: "--"})
+        (label :class "dim" :xalign 0 :text {weather.desc ?: ""}))
+      (box :orientation "v" :space-evenly false :valign "end"
+        (label :class "dim" :xalign 1 :text {weather.feels ?: ""})
+        (label :class "dim" :xalign 1 :text {weather.range ?: ""})))
+    (box :class "forecast" :spacing 4
+      (for f in {weather.forecast ?: []}
+        (box :orientation "v" :space-evenly false
+          (label :class "dim" :text {f.hour})
+          (label :class "forecast-icon" :text {f.icon})
+          (label :text {f.temp}))))
+    ;; Not :visible: children created while hidden would stay hidden
+    (box :class "cities ${arraylength(weather.cities ?: []) > 0 ? 'filled' : ''}"
+         :orientation "v" :space-evenly false :spacing 4
+      (for c in {weather.cities ?: []}
+        (box :class "city" :space-evenly false :spacing 8
+          (label :class "world-label" :hexpand true :xalign 0
+                 :limit-width 24 :text {c.name})
+          (label :class "dim" :text {c.range})
+          (label :class "city-icon" :text {c.icon})
+          (label :class "city-temp" :xalign 1 :text {c.temp}))))))

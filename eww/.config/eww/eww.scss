@@ -1,0 +1,95 @@
+// Colors follow waybar's style-{dark,light}-parameters.yaml.
+// The root box gets a .dark or .light class from scripts/theme.sh.
+
+* {
+  all: unset;
+  font-family: "Adwaita Sans";
+  font-size: 15px;
+}
+
+@mixin palette($bg-top, $bg-bottom, $card, $text, $dim, $accent, $border, $hover) {
+  background-image: linear-gradient(to bottom, $bg-top, $bg-bottom);
+  border: 2px solid $border;
+  color: $text;
+
+  label { color: $text; }
+  .dim, .event-when, .world-label { color: $dim; }
+  .card { background-color: $card; }
+  .card-title, .weekday { color: $accent; }
+  .link { color: $accent; }
+  .link:hover { background-color: $hover; }
+  .event { border-left: 3px solid $accent; }  // color overridden per calendar
+  .cities.filled { border-top: 1px solid $hover; padding-top: 8px; }
+
+  .month-title label, .nav label, .dayname { color: $text; font-weight: bold; }
+  .nav, .month-title, .day { border-radius: 8px; }
+  .nav:hover, .month-title:hover, .day:hover { background-color: $hover; }
+  .day.other .day-num { color: rgba($text, 0.4); }
+  // Standard GTK selection colors (set in ~/.config/gtk-3.0/gtk.css)
+  .day.today { background-color: unquote("@theme_selected_bg_color"); }
+  .day.today .day-num { color: unquote("@theme_selected_fg_color"); font-weight: bold; }
+}
+
+.panel {
+  min-width: 460px;
+  padding: 16px;
+  border-radius: 14px;
+
+  &.dark {
+    @include palette(#3a3a3a, #161616,
+                     rgba(255, 255, 255, 0.06), #ffffff, #ffffff,
+                     #ffcc99, #6F8396, #555555);
+  }
+  &.light {
+    @include palette(#ffffff, #dcdcdc,
+                     rgba(0, 0, 0, 0.05), #2e2e2e, #2e2e2e,
+                     #d97706, #6F8396, #cccccc);
+  }
+}
+
+.header { padding: 0 4px; }
+.weekday { font-size: 15px; font-weight: bold; }
+.date { font-size: 24px; font-weight: bold; }
+
+.card {
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.card-title { font-weight: bold; font-size: 20px; }  // same as .month-title
+
+.link {
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.month { padding: 2px; }
+.month-nav { margin-bottom: 4px; }
+.nav { padding: 2px 12px; }
+.nav label { font-size: 22px; }
+.month-title { padding: 2px 8px; }
+.month-title label { font-size: 20px; }
+.weekdays label { font-size: 14px; }
+.day { padding: 6px 0 4px 0; min-width: 58px; }
+.day-num { font-size: 17px; }
+.dots { min-height: 11px; margin-top: 2px; }
+.dot { font-size: 8px; }
+
+.event { padding: 2px 0 2px 8px; }
+.event-when { font-size: 13px; }
+.event-title { font-weight: 500; }
+.empty label { font-style: italic; }
+
+.world-time { font-size: 20px; font-weight: bold; }
+.dim { font-size: 13px; }
+
+.weather-icon { font-size: 34px; }
+.weather-temp { font-size: 22px; font-weight: bold; }
+.forecast { margin-top: 4px; }
+.forecast-icon { font-size: 20px; }
+.weather-place { font-weight: bold; }
+.cities.filled { margin-top: 6px; }
+.city-icon { font-size: 18px; }
+.city-temp { font-weight: bold; min-width: 36px; }
+
