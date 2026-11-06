@@ -43,7 +43,7 @@
   },
 
   "niri/workspaces": {
-    "format": "{index}",
+    "format": "{value}",
     "all-outputs": true
   },
 
