@@ -44,7 +44,8 @@
 
   "niri/workspaces": {
     "format": "{value}",
-    "all-outputs": true
+    "all-outputs": true,
+    "on-click-right": "~/nixos-config/bin/niri-rename-workspace"
   },
 
   "custom/close-window": {
