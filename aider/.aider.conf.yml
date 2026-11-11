@@ -19,7 +19,7 @@ pretty: true
 show-diffs: true
 no-show-model-warnings: false
 
-# Model settings - MiniMax M2.5 via Together AI (best for coding)
-model: together_ai/MiniMaxAI/MiniMax-M2.5
+# Model settings - Gemini 3.5 Flash via the local Gemini proxy
+model: gemini/gemini-3.5-flash
 
 # Theme: use aider-auto-theme wrapper for automatic dark/light switching
