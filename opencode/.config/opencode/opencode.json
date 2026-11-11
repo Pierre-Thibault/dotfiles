@@ -51,7 +51,8 @@
     "togetherai",
     "xai",
     "ollama",
-    "openrouter"
+    "openrouter",
+    "google"
   ],
   "provider": {
     "ollama": {
@@ -110,6 +111,12 @@
     "openrouter": {
       "options": {
         "baseURL": "http://openrouter.proxy:4140/api/v1",
+        "apiKey": "proxy"
+      }
+    },
+    "google": {
+      "options": {
+        "baseURL": "http://gemini.proxy:4140/v1beta",
         "apiKey": "proxy"
       }
     }
