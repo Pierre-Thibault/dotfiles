@@ -257,4 +257,7 @@ language-servers = [ {{ cs }} ]
 
 [[language]]
 name = "yaml"
-language-servers = [ {{ cs }} ]
+language-servers = [ "yaml-language-server", {{ cs }} ]
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"{{ hx_home}}/onyva.schema.json" = "*.todo.yaml"

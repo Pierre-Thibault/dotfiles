@@ -257,4 +257,7 @@ language-servers = [ "hx-lsp", "scls", "typos" ]
 
 [[language]]
 name = "yaml"
-language-servers = [ "hx-lsp", "scls", "typos" ]
+language-servers = [ "yaml-language-server", "hx-lsp", "scls", "typos" ]
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"/home/pierre/.config/helix/onyva.schema.json" = "*.todo.yaml"

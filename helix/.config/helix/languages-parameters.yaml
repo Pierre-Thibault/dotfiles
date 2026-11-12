@@ -2,6 +2,7 @@ common_servers:
   - hx-lsp
   - scls
   - typos
+hx_home: /home/pierre/.config/helix
 
 input_file: languages.jinja.toml
 output_file: languages.toml

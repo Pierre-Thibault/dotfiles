@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Onyva to-do file",
+  "description": "A list of to-dos.",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/ToDo"
+  },
+  "$defs": {
+    "ActivityEntry": {
+      "description": "An activity entry in the activity journal of a to-do.",
+      "properties": {
+        "date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "format": "date-time",
+              "type": "string"
+            }
+          ],
+          "title": "Date"
+        },
+        "value": {
+          "minimum": 0,
+          "title": "Value",
+          "type": "number"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "date",
+        "value"
+      ],
+      "title": "ActivityEntry",
+      "type": "object"
+    },
+    "Priority": {
+      "description": "To-do priorities.",
+      "enum": [
+        "optional",
+        "low",
+        "medium",
+        "high",
+        "capital"
+      ],
+      "title": "Priority",
+      "type": "string"
+    },
+    "ProgressUnit": {
+      "pattern": "^\\D",
+      "type": "string"
+    },
+    "ProgressValue": {
+      "description": "A progression value to the goal. For example: 12km, 20%, 30 pages. Should use the same unit as the parent.",
+      "properties": {
+        "unit": {
+          "$ref": "#/$defs/ProgressUnit"
+        },
+        "value": {
+          "minimum": 0,
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "unit",
+        "value"
+      ],
+      "title": "ProgressValue",
+      "type": "object"
+    },
+    "SmartDescription": {
+      "description": "The smart description of a to-do.",
+      "properties": {
+        "specific": {
+          "title": "Specific",
+          "type": "string"
+        },
+        "measurable": {
+          "title": "Measurable",
+          "type": "string"
+        },
+        "actionable": {
+          "title": "Actionable",
+          "type": "string"
+        },
+        "relevant": {
+          "title": "Relevant",
+          "type": "string"
+        },
+        "time_bound": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "format": "date-time",
+              "type": "string"
+            }
+          ],
+          "title": "Time Bound"
+        }
+      },
+      "required": [
+        "specific",
+        "measurable",
+        "actionable",
+        "relevant",
+        "time_bound"
+      ],
+      "title": "SmartDescription",
+      "type": "object"
+    },
+    "Status": {
+      "description": "Current status of the to-do.",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "done",
+        "paused",
+        "cancelled"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "Tag": {
+      "type": "string"
+    },
+    "ToDo": {
+      "title": "To-do",
+      "description": "A to-do item with optional hierarchy, tracking, and metadata.",
+      "type": "object",
+      "properties": {
+        "activities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ActivityEntry"
+          }
+        },
+        "before": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ToDoId"
+          },
+          "title": "Before",
+          "type": "array"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ToDo"
+          }
+        },
+        "created": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Created"
+        },
+        "depends_on": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ToDoId"
+          },
+          "title": "Depends On",
+          "type": "array"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "priority": {
+          "$ref": "#/$defs/Priority"
+        },
+        "progress": {
+          "default": 0.0,
+          "title": "Progress",
+          "type": "number"
+        },
+        "smart": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SmartDescription"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        },
+        "status": {
+          "$ref": "#/$defs/Status"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Tag"
+          },
+          "title": "Tags",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "todo_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ToDoId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "todo_type": {
+          "$ref": "#/$defs/ToDoType",
+          "default": "open"
+        },
+        "tracking": {
+          "$ref": "#/$defs/Tracking",
+          "default": {
+            "mode": "cumulative",
+            "target": {
+              "unit": "%",
+              "value": 100.0
+            }
+          }
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "ToDoId": {
+      "type": "string"
+    },
+    "ToDoType": {
+      "description": "To-do type.",
+      "enum": [
+        "bounded",
+        "open"
+      ],
+      "title": "ToDoType",
+      "type": "string"
+    },
+    "Tracking": {
+      "description": "How to track the progress of the to-do.",
+      "properties": {
+        "mode": {
+          "$ref": "#/$defs/TrackingMode"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProgressValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "target"
+      ],
+      "title": "Tracking",
+      "type": "object"
+    },
+    "TrackingMode": {
+      "description": "Tracking type for to-dos.",
+      "enum": [
+        "cumulative",
+        "performance",
+        "fixed"
+      ],
+      "title": "TrackingMode",
+      "type": "string"
+    }
+  }
+}
