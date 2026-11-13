@@ -282,6 +282,7 @@ binds {
     Shift+Mod+M hotkey-overlay-title="Afficher les mots de passe" { spawn "~/nixos-config/bin/show_passwords_niri"; }
     Shift+Mod+T hotkey-overlay-title="Reconnaissance de texte (OCR)" { spawn "~/nixos-config/bin/ocr-screenshot.py"; }
     Alt+Mod+P hotkey-overlay-title="Afficher les courriels" { spawn "~/nixos-config/bin/show_emails_niri"; }
+    Alt+Mod+C hotkey-overlay-title="Afficher l'agenda" { spawn "~/nixos-config/bin/show_calendar_niri"; }
     Alt+Mod+X hotkey-overlay-title="Afficher X" { spawn "~/nixos-config/bin/show_x_niri"; }
     Alt+Mod+D hotkey-overlay-title="Dictionnaire" { spawn "~/nixos-config/bin/show_dictionary_niri"; }
     Alt+Mod+G hotkey-overlay-title="Recherche Grok" { spawn "~/nixos-config/bin/show_grok_niri"; }
