@@ -109,6 +109,11 @@ window#waybar.hidden {
   padding: 0 15px;
 }
 
+/* With "icon": true, #window is a box; the `*` font rule hits the inner label directly */
+#window label {
+  font-weight: 300;  /* Light */
+}
+
 /* Middle module */
 
 /* Clock */
