@@ -63,10 +63,16 @@ layout {
     // Default column width
     default-column-width { proportion 0.5; }
 
-    // Focus ring disabled
     focus-ring {
-        width 7
+        width 6
         active-color "#6e808c"
+    }
+
+    border {
+        width 2
+        inactive-color "#6e808c"
+        active-color "#6e808c"
+        urgent-color "#fab387"
     }
 
     struts {
@@ -96,9 +102,6 @@ window-rule {
         offset x=5 y=5
         softness 30
         spread 10
-    }
-    border {
-        inactive-gradient from="#c0c4cc" to="#e8eaed" angle=45
     }
 }
 
@@ -219,6 +222,12 @@ window-rule {
     geometry-corner-radius 20
     clip-to-geometry true
     draw-border-with-background false  // Don't draw the gredient in the window
+}
+
+// Make inactive windows slightly transparent
+window-rule {
+    match is-active=false
+    opacity 0.85
 }
 
 window-rule {
