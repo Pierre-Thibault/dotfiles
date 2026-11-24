@@ -20,6 +20,7 @@
 @define-color tooltip_background_color #2a2a2a;
 @define-color bevel_highlight alpha(white, 0.15);
 @define-color bevel_shadow alpha(black, 0.6);
+@define-color label_color fuchsia;
 
 
 * {
@@ -112,6 +113,8 @@ window#waybar.hidden {
 /* With "icon": true, #window is a box; the `*` font rule hits the inner label directly */
 #window label {
   font-weight: 300;  /* Light */
+  font-size: 18px;
+  color: @label_color;
 }
 
 /* Middle module */
