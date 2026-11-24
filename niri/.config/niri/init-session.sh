@@ -50,6 +50,7 @@ done
 # Give services a moment to fully start
 sleep 0.5
 
-xwayland-satellite &
+# xwayland-satellite is spawned on demand by niri itself (>= 25.08);
+# launching it here started a redundant second instance on :1.
 
 echo "Niri session initialized successfully"
