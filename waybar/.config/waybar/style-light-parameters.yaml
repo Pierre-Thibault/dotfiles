@@ -1,29 +1,33 @@
-accent_color: "#d97706"
-background_color: "#f5f5f5"
-border_color: "#6F8396"
-cpu_color: "#d97706"
-cpu_critical_color: "#dc2626"
-cpu_warning_color: "#ea580c"
-hover_color: "#cccccc"
-memory_color: "#0284c7"
-memory_critical_color: "#dc2626"
-memory_warning_color: "#ea580c"
-power_color: "#dc2626"
-power_hover_background_color: "#dc2626"
-power_hover_color: "#ffffff"
-pulse_audio_muted_color: "#aaaaaa"
-temperature_cool_color: "#16a34a"
-temperature_normal_color: "#d97706"
-temperature_warm_color: "#ea580c"
-temperature_critical_color: "#dc2626"
-text_color: "#2e2e2e"
-tooltip_background_color: "#ffffff"
+# Exported as @define-color <name> <value>;
+colors:
+  accent_color: "#d97706"
+  background_color: "#f5f5f5"
+  border_color: "#6F8396"
+  cpu_color: "#d97706"
+  cpu_critical_color: "#dc2626"
+  cpu_warning_color: "#ea580c"
+  hover_color: "#cccccc"
+  memory_color: "#0284c7"
+  memory_critical_color: "#dc2626"
+  memory_warning_color: "#ea580c"
+  power_color: "#dc2626"
+  power_hover_background_color: "#dc2626"
+  power_hover_color: "#ffffff"
+  pulse_audio_muted_color: "#aaaaaa"
+  temperature_cool_color: "#16a34a"
+  temperature_normal_color: "#d97706"
+  temperature_warm_color: "#ea580c"
+  temperature_critical_color: "#dc2626"
+  text_color: "#2e2e2e"
+  tooltip_background_color: "#ffffff"
+  bevel_highlight: "alpha(white, 0.9)"
+  bevel_shadow: "alpha(black, 0.25)"
+  label_color: "blue"
+
+# Injected verbatim into the CSS
 window_gradient_top: rgba(255, 255, 255, 0.95)
 window_gradient_bottom: rgba(200, 200, 200, 0.92)
-bevel_highlight: "alpha(white, 0.9)"
-bevel_shadow: "alpha(black, 0.25)"
 text_shadow: 0 1px 0 rgba(255, 255, 255, 0.8)
-label_color: "blue"
 
 input_file: style.jinja.css
 output_file: style-light.css

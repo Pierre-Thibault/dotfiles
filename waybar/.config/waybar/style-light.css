@@ -1,22 +1,22 @@
 @define-color accent_color #d97706;
-@define-color text_color #2e2e2e;
-@define-color border_color #6F8396;
-@define-color hover_color #cccccc;
 @define-color background_color #f5f5f5;
+@define-color border_color #6F8396;
 @define-color cpu_color #d97706;
-@define-color cpu_warning_color #ea580c;
 @define-color cpu_critical_color #dc2626;
+@define-color cpu_warning_color #ea580c;
+@define-color hover_color #cccccc;
 @define-color memory_color #0284c7;
-@define-color memory_warning_color #ea580c;
 @define-color memory_critical_color #dc2626;
+@define-color memory_warning_color #ea580c;
+@define-color power_color #dc2626;
+@define-color power_hover_background_color #dc2626;
+@define-color power_hover_color #ffffff;
+@define-color pulse_audio_muted_color #aaaaaa;
 @define-color temperature_cool_color #16a34a;
 @define-color temperature_normal_color #d97706;
 @define-color temperature_warm_color #ea580c;
 @define-color temperature_critical_color #dc2626;
-@define-color pulse_audio_muted_color #aaaaaa;
-@define-color power_color #dc2626;
-@define-color power_hover_background_color #dc2626;
-@define-color power_hover_color #ffffff;
+@define-color text_color #2e2e2e;
 @define-color tooltip_background_color #ffffff;
 @define-color bevel_highlight alpha(white, 0.9);
 @define-color bevel_shadow alpha(black, 0.25);
@@ -281,7 +281,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.muted {
-  color: @pulse_audiro_muted_color;
+  color: @pulse_audio_muted_color;
 }
 
 /* Power button */

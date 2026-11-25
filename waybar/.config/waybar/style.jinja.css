@@ -1,27 +1,6 @@
-@define-color accent_color {{ accent_color }};
-@define-color text_color {{ text_color }};
-@define-color border_color {{ border_color }};
-@define-color hover_color {{ hover_color }};
-@define-color background_color {{ background_color }};
-@define-color cpu_color {{ cpu_color }};
-@define-color cpu_warning_color {{ cpu_warning_color }};
-@define-color cpu_critical_color {{ cpu_critical_color }};
-@define-color memory_color {{ memory_color }};
-@define-color memory_warning_color {{ memory_warning_color }};
-@define-color memory_critical_color {{ memory_critical_color }};
-@define-color temperature_cool_color {{ temperature_cool_color }};
-@define-color temperature_normal_color {{ temperature_normal_color }};
-@define-color temperature_warm_color {{ temperature_warm_color }};
-@define-color temperature_critical_color {{ temperature_critical_color }};
-@define-color pulse_audio_muted_color {{ pulse_audio_muted_color }};
-@define-color power_color {{ power_color }};
-@define-color power_hover_background_color {{ power_hover_background_color }};
-@define-color power_hover_color {{ power_hover_color }};
-@define-color tooltip_background_color {{ tooltip_background_color }};
-@define-color bevel_highlight {{ bevel_highlight }};
-@define-color bevel_shadow {{ bevel_shadow }};
-@define-color label_color {{ label_color }};
-
+{% for name, value in colors|items -%}
+@define-color {{ name }} {{ value }};
+{% endfor %}
 
 * {
   font: 20px "Adwaita Sans";
@@ -281,7 +260,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.muted {
-  color: @pulse_audiro_muted_color;
+  color: @pulse_audio_muted_color;
 }
 
 /* Power button */
