@@ -42,6 +42,7 @@ hotkey-overlay {
 
 overview {
     backdrop-color "#6f8396"
+    zoom 0.60
 }
 
 // Layout configuration
@@ -408,10 +409,16 @@ binds {
 
 recent-windows {
     binds {
+        Alt+Mod+Tab         { next-window scope="all"; }
+        Alt+Mod+Shift+Tab   { previous-window scope="all"; }
         Alt+Tab         { next-window scope="workspace"; }
         Alt+Shift+Tab   { previous-window scope="workspace"; }
         Mod+Tab         { next-window scope="workspace" filter="app-id"; }
         Mod+Shift+Tab   { previous-window scope="workspace" filter="app-id"; }
+    }
+    previews {
+        max-height 1080
+        max-scale 0.75
     }
 }
 
